@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Helper\HelperMethods.h" />
+    <ClInclude Include="..\Helper\OpenCLUtilityFunctions.h" />
+    <ClInclude Include="..\Helper\TimeFunctions.h" />
+    <ClInclude Include="include\OpenMPD_Prerequisites.h" />
+    <ClInclude Include="include\OpenMPD.h" />
+    <ClInclude Include="include\OpenMPD_CWrapper.h" />
+    <ClInclude Include="src\Buffer.h" />
+    <ClInclude Include="src\BufferManager.h" />
+    <ClInclude Include="src\BufferUpdatesListener.h" />
+    <ClInclude Include="src\EngineThreads.h" />
+    <ClInclude Include="src\OpenMPD_Debug.h" />
+    <ClInclude Include="src\PrimitiveDescriptors.h" />
+    <ClInclude Include="src\OpenMPD_Context.h" />
+    <ClInclude Include="src\PrimitiveUpdatesListener.h" />
+    <ClInclude Include="src\Synchronize\ForceUPS_Sync.h" />
+    <ClInclude Include="src\ThreadEngine_SyncData.h" />
+    <ClInclude Include="src\VisualRender\RenderResources.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Helper\OpenCLUtilityFunctions.cpp" />
+    <ClCompile Include="..\Helper\TimeFunctions.cpp" />
+    <ClCompile Include="src\Buffer.cpp" />
+    <ClCompile Include="src\BufferManager.cpp" />
+    <ClCompile Include="src\EngineReaderThread.cpp" />
+    <ClCompile Include="src\EngineWriterThread.cpp" />
+    <ClCompile Include="src\OpenMPD.cpp" />
+    <ClCompile Include="src\OpenMPD_CWrapper.cpp" />
+    <ClCompile Include="src\OpenMPD_Debug.cpp" />
+    <ClCompile Include="src\PrimitiveDescriptors.cpp" />
+    <ClCompile Include="src\Synchronize\ForceUPS_Sync.cpp" />
+    <ClCompile Include="src\Unity\RenderingPlugin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\VisualRender\RenderResources.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenMPD.cl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1929EA4B-8984-4D1F-92B3-876191651F05}</ProjectGuid>
+    <RootNamespace>OpenGLFrameworkWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>OpenMPD</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)</OutDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\OpenMPD_Engine;$(SolutionDir)\OpenMPD_Engine\include;$(SolutionDir)\OpenMPD_Engine\src;$(LIBS_HOME)\include\AsierInho_V2;$(LIBS_HOME)\include\GS_PAT;$(LIBS_HOME)\include\GSPAT_SolverNaive;$(LIBS_HOME)\include\GSPAT_SolverIBP;$(LIBS_HOME)\include\GSPAT_SolverV2;$(LIBS_HOME)\include\;$(CUDA_PATH)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PBD_ENGINE_NONCLIENT_BUILD;HAVE_STRUCT_TIMESPEC;WIN32;_WINDOWS;_PLAY_WITH_OPENCV;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ProgramDataBaseFileName>$(ProjectDir)$(ProjectName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(LIBS_HOME)\lib;$(CUDA_PATH)\lib\x64;$(LIBS_HOME)\lib\AsierInho_V2;$(LIBS_HOME)\lib\GSPAT_SolverNaive;$(LIBS_HOME)\lib\GSPAT_SolverIBP;$(LIBS_HOME)\lib\GSPAT_SolverV2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AsierInho_V2.lib;GSPAT_SolverNaive.lib;GSPAT_SolverIBP.lib;GSPAT_SolverV2.lib;OpenCL.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>  XCOPY /F /Y  $(ProjectDir)PBDEngine.cl  $(LIBS_HOME)\bin\$(Platform)\
+  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).dll  $(LIBS_HOME)\bin\$(Platform)\
+  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).lib  $(LIBS_HOME)\lib\$(ProjectName)\
+  XCOPY /F /Y  $(ProjectDir)include\OpenMPD.h  $(LIBS_HOME)\include\$(ProjectName)\
+ XCOPY /F /Y  $(ProjectDir)include\OpenMPD_CWrapper.h  $(LIBS_HOME)\include\$(ProjectName)\
+  XCOPY /F /Y  $(ProjectDir)include\OpenMPD_Prerequisites.h  $(LIBS_HOME)\include\$(ProjectName)\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

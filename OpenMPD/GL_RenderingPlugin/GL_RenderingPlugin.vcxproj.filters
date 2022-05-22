@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="source\GL_Renderer\GL_Renderer.h">
+      <Filter>GL_Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RenderAPI\PlatformBase.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RenderAPI\RenderAPI.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gl3w\gl3w.h">
+      <Filter>gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gl3w\glcorearb.h">
+      <Filter>gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Unity\IUnityGraphics.h">
+      <Filter>Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Unity\IUnityInterface.h">
+      <Filter>Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GL_VisualRenderer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\GL_Renderer\GL_Renderer.cpp">
+      <Filter>GL_Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderAPI\RenderAPI.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderAPI\RenderAPI_OpenGLCoreES.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gl3w\gl3w.c">
+      <Filter>gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GL_VisualRenderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Unity">
+      <UniqueIdentifier>{c01468d4-90d4-4d19-9a9b-ee2f1b5e9083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gl3w">
+      <UniqueIdentifier>{f00ad923-e825-43a2-b22c-b3380a3a8813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI">
+      <UniqueIdentifier>{0b7eb704-4f7c-4101-a6db-da8aca8e4206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL_Renderer">
+      <UniqueIdentifier>{7032a373-75a5-4114-86b3-9995dcaa00cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

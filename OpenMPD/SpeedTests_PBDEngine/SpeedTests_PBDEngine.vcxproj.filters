@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="horizontal_SingleParticle.cpp">
+      <Filter>singleParticleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="horizontalCircle_SingleParticle.cpp">
+      <Filter>singleParticleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="vertical_SingleParticle.cpp">
+      <Filter>singleParticleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="horizontal_2Particles.cpp">
+      <Filter>2particleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="testEngineCSV.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="testEngineCSV_Accelerate_Repeat.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="vertical_2Particles.cpp">
+      <Filter>2particleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="horizontalCircle_2Particles.cpp">
+      <Filter>2particleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="generateVerticalSpeedTestFiles.cpp">
+      <Filter>singleParticleTests</Filter>
+    </ClCompile>
+    <ClCompile Include="AmplitudeModulationMain.cpp" />
+    <ClCompile Include="Audio\AmplitudeModulation.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\AudioFile.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GenerateTestPaths.h" />
+    <ClInclude Include="Audio\AmplitudeModulation.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\AudioFile.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="singleParticleTests">
+      <UniqueIdentifier>{069567b1-6718-43b7-a98c-0ef3da53648d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2particleTests">
+      <UniqueIdentifier>{36c9b6fe-93e2-47ae-8442-f0711351e137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{93b8a7ad-96df-43a6-8022-62059bc2d10a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{c4c964c8-b7cb-4d92-8f07-67a61aa485de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\gl3w\gl3w.h" />
+    <ClInclude Include="source\gl3w\glcorearb.h" />
+    <ClInclude Include="source\GL_Renderer\GL_Renderer.h" />
+    <ClInclude Include="source\RenderAPI\PlatformBase.h" />
+    <ClInclude Include="source\RenderAPI\RenderAPI.h" />
+    <ClInclude Include="source\GL_VisualRenderer.h" />
+    <ClInclude Include="source\Unity\IUnityGraphics.h" />
+    <ClInclude Include="source\Unity\IUnityInterface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\gl3w\gl3w.c" />
+    <ClCompile Include="source\GL_Renderer\GL_Renderer.cpp" />
+    <ClCompile Include="source\RenderAPI\RenderAPI.cpp" />
+    <ClCompile Include="source\RenderAPI\RenderAPI_OpenGLCoreES.cpp" />
+    <ClCompile Include="source\GL_VisualRenderer.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F7CFEF5A-54BD-42E8-A59E-54ABAEB4EA9C}</ProjectGuid>
+    <RootNamespace>RenderingPlugin</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\build\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_WINDOWS;_USRDLL;RENDERING_PLUGIN_NON_CLIENT_BUILD;PBD_ENGINE_NONCLIENT_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)/source/;$(CUDA_PATH)\include;$(SolutionDir)OpenMPD_Engine\include;$(SolutionDir);$(LIBS_HOME)\include</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;pthreadVC2.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(CUDA_PATH)\lib\x64;$(LIBS_HOME)\lib</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).dll  $(LIBS_HOME)\bin\$(Platform)\
+  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).lib  $(LIBS_HOME)\lib\$(ProjectName)\
+  XCOPY /F /Y $(ProjectDir)source\GL_VisualRenderer.h  $(LIBS_HOME)\include\$(ProjectName)\
+ XCOPY /F /Y  $(ProjectDir)source\RenderAPI\PlatformBase.h  $(LIBS_HOME)\include\$(ProjectName)\RenderAPI\
+ XCOPY /F /Y  $(ProjectDir)source\RenderAPI\RenderAPI.h  $(LIBS_HOME)\include\$(ProjectName)\RenderAPI\
+ XCOPY /F /Y  $(ProjectDir)source\Unity\IUnityGraphics.h  $(LIBS_HOME)\include\$(ProjectName)\Unity\
+ XCOPY /F /Y  $(ProjectDir)source\Unity\IUnityInterface.h  $(LIBS_HOME)\include\$(ProjectName)\Unity\
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_WINDOWS;_USRDLL;RENDERINGPLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>../../</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ModuleDefinitionFile>../../source/RenderingPlugin.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>SETLOCAL
+
+if "$(PlatformShortName)" == "x86" (
+  set TARGET_PLUGIN_PATH=$(SolutionDir)..\..\..\UnityProject\Assets\Plugins\x86
+) else (
+  set TARGET_PLUGIN_PATH=$(SolutionDir)..\..\..\UnityProject\Assets\Plugins\x86_64
+)
+echo Target Plugin Path is %TARGET_PLUGIN_PATH%
+copy /Y "$(TargetPath)" "%TARGET_PLUGIN_PATH%\$(TargetFileName)"
+
+ENDLOCAL
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

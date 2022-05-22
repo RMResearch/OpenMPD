@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{c604934d-5046-4723-a6ca-802d45573c3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d9ec35d7-38fb-4f3a-acd3-62b0770e3b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Buffers">
+      <UniqueIdentifier>{27491588-8f4c-4403-aa77-e8ba128886ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Primitives">
+      <UniqueIdentifier>{58ea89a6-6daa-4583-98ba-344c8de042db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\OpenCL_Consistency">
+      <UniqueIdentifier>{8eb9831f-49fd-4249-af8d-04969f8ee522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EngineThreads">
+      <UniqueIdentifier>{8983f2f5-4cea-4686-a7fc-effe2312f98a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Synchronize">
+      <UniqueIdentifier>{694cdf60-276b-4ab8-b241-5fa9847907c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EngineThreads\VisualRender">
+      <UniqueIdentifier>{36844142-fff3-4d91-b371-5c66277950c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Unity">
+      <UniqueIdentifier>{425b372b-d518-4b6d-8323-9a8ab90a1a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Unity\Helper">
+      <UniqueIdentifier>{ae01e0cc-5747-4e8a-8b8a-501e2183a6d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Helper\TimeFunctions.cpp">
+      <Filter>src\Unity\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Buffer.cpp">
+      <Filter>src\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BufferManager.cpp">
+      <Filter>src\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineReaderThread.cpp">
+      <Filter>src\EngineThreads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineWriterThread.cpp">
+      <Filter>src\EngineThreads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PrimitiveDescriptors.cpp">
+      <Filter>src\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenMPD.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenMPD_CWrapper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenMPD_Debug.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Synchronize\ForceUPS_Sync.cpp">
+      <Filter>src\Synchronize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Helper\OpenCLUtilityFunctions.cpp">
+      <Filter>src\Unity\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VisualRender\RenderResources.cpp">
+      <Filter>src\EngineThreads\VisualRender</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unity\RenderAPI.cpp">
+      <Filter>src\Unity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unity\RenderingPlugin.cpp">
+      <Filter>src\Unity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unity\RenderAPI_D3D11.cpp">
+      <Filter>src\Unity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unity\RenderAPI_D3D12.cpp">
+      <Filter>src\Unity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unity\RenderAPI_OpenGLCoreES.cpp">
+      <Filter>src\Unity</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\OpenMPD.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OpenMPD_CWrapper.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Helper\HelperMethods.h">
+      <Filter>src\Unity\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Helper\TimeFunctions.h">
+      <Filter>src\Unity\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Buffer.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BufferManager.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BufferUpdatesListener.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EngineThreads.h">
+      <Filter>src\EngineThreads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ThreadEngine_SyncData.h">
+      <Filter>src\EngineThreads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PrimitiveDescriptors.h">
+      <Filter>src\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OpenMPD_Prerequisites.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenMPD_Debug.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Synchronize\ForceUPS_Sync.h">
+      <Filter>src\Synchronize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Helper\OpenCLUtilityFunctions.h">
+      <Filter>src\Unity\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VisualRender\RenderResources.h">
+      <Filter>src\EngineThreads\VisualRender</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\PlatformBase.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\RenderAPI.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphics.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphicsD3D9.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphicsD3D11.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphicsD3D12.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphicsMetal.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityGraphicsVulkan.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unity\IUnityInterface.h">
+      <Filter>src\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenMPD_Context.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PrimitiveUpdatesListener.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenMPD.cl" />
+  </ItemGroup>
+</Project>
