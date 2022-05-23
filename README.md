@@ -1,4 +1,4 @@
-![Logo](https://github.com/RobertoMontano/OpenMPD/blob/main/OpenMPD_Logo.png)
+![Logo](https://github.com/RobertoMontano/OpenMPD/blob/main/Docs/OpenMPD_Logo.png)
 # OpenMPD Framework
 
 OpenMPD is a low-level presentation engine allowing structured exploitation of any combination of MPD content (i.e., visual, tactile, audio) while dealing with the challenges specific to MPD content presentation.
