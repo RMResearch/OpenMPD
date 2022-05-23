@@ -15,3 +15,6 @@ We first describe the abstractions allowing definition of multimodal content for
 
 ## OpenMPD Examples Guide
 [Examples](https://github.com/RobertoMontano/OpenMPD/blob/main/Docs/OpenMPD%20Tutorials_Examples.pdf)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
