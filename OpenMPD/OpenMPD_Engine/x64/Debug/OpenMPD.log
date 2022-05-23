@@ -6,30 +6,30 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\
   BufferManager.cpp
   EngineReaderThread.cpp
   EngineWriterThread.cpp
-C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\src\EngineWriterThread.cpp(99,23): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\src\EngineWriterThread.cpp(99,23): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   OpenMPD.cpp
-C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(86,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(91,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(97,111): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(86,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(91,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(97,111): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   OpenMPD_CWrapper.cpp
   OpenMPD_Debug.cpp
   PrimitiveDescriptors.cpp
   ForceUPS_Sync.cpp
   RenderResources.cpp
   OpenCLUtilityFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-     Creating library C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\x64\OpenMPD.lib and object C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\x64\OpenMPD.exp
+     Creating library C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\x64\OpenMPD.lib and object C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\x64\OpenMPD.exp
   Generating code
   Finished generating code
-  OpenMPD.vcxproj -> C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\x64\OpenMPD.dll
-  0 File(s) copied
+  OpenMPD.vcxproj -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\x64\OpenMPD.dll
   File not found - PBDEngine.cl
-  C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\x64\OpenMPD.dll -> C:\Roberto\GitRepos\0.libraries\bin\x64\OpenMPD.dll
+  0 File(s) copied
+  C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\x64\OpenMPD.dll -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPD_Libs_testing\libraries\bin\x64\OpenMPD.dll
   1 File(s) copied
-  C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\x64\OpenMPD.lib -> C:\Roberto\GitRepos\0.libraries\lib\OpenMPD\OpenMPD.lib
+  C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\x64\OpenMPD.lib -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPD_Libs_testing\libraries\lib\OpenMPD\OpenMPD.lib
   1 File(s) copied
-  C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> C:\Roberto\GitRepos\0.libraries\include\OpenMPD\OpenMPD.h
+  C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPD_Libs_testing\libraries\include\OpenMPD\OpenMPD.h
   1 File(s) copied
-  C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> C:\Roberto\GitRepos\0.libraries\include\OpenMPD\OpenMPD_CWrapper.h
+  C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPD_Libs_testing\libraries\include\OpenMPD\OpenMPD_CWrapper.h
   1 File(s) copied
-  C:\Roberto\GitRepos\OpenMPD\OpenMPD_framework\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> C:\Roberto\GitRepos\0.libraries\include\OpenMPD\OpenMPD_Prerequisites.h
+  C:\Roberto\GitRepos\0.ActiveRepos\OpenMPDTesting\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> C:\Roberto\GitRepos\0.ActiveRepos\OpenMPD_Libs_testing\libraries\include\OpenMPD\OpenMPD_Prerequisites.h
   1 File(s) copied

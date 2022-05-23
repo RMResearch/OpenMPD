@@ -16,8 +16,8 @@ float* createSampledArc(float origin[3], float p0[3], float angleInRads, cl_uint
 
 unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
-cl_uint topBoard = 41;
-cl_uint bottomBoard = 40;
+cl_uint topBoard = 40;
+cl_uint bottomBoard = 41;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
