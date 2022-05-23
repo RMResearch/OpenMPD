@@ -7,7 +7,7 @@ For instance, our multi-rate runtime cycle allows us to combine very high comput
 
 We first describe the abstractions allowing definition of multimodal content for OpenMPD, and then proceed to describe the stages within the OpenMPD presentation engine, characterizing their performance and detailing key algorithms for data marshalling, acoustic and visual rendering, and synchronization. Then, we illustrate how OpenMPD can be integrated into higher-level tools (i.e., Unity game engine), as a way to facilitate content creation and stimulate MPD adoption. Finally, we use this platform to showcase the presentation capabilities of OpenMPD, such as in allowing combinations of multiple MPD primitives, dexterous manipulation of PoV paths (e.g., high speed particles morphing into different shapes or merging with other particles, to create PoV contents jointly), as well as novel swept-volume MPD content.  
 
-** It is important to notice that we are using MyBox in our examples, so please install via UPM**
+**It is important to notice that we are using MyBox in our examples, so please install via UPM as an additional requirement**
 
 [MyBox](https://github.com/Deadcows/MyBox)
 
