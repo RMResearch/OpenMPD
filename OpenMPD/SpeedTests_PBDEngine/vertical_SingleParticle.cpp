@@ -12,7 +12,7 @@ unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
 cl_uint topBoard = 40;
 cl_uint bottomBoard = 41;
-bool foceSync = true;
+bool forceSync = false;
 bool HW_Sync = true;
 bool PhaseOnly = true;
 
@@ -23,7 +23,7 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, topBoard, bottomBoard, foceSync);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, topBoard, bottomBoard, forceSync);
 			OpenMPD_CWrapper_SetupPhaseOnly(PhaseOnly);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
  			client((void*)pm);

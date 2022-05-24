@@ -193,6 +193,8 @@
 	}
 
 	void endWriterThread() {
+		if (syncData->running)
+			syncData->running = false;
 		//Finishe this thread
 		pthread_mutex_lock(&(syncData->mutex_solution_queue));
 		syncData->runningThreads--;
