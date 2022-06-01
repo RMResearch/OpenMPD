@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 3588525878893989913, guid: 88520f320ca1143469308e1cc46fa6d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3588525878893989913, guid: 88520f320ca1143469308e1cc46fa6d5,
         type: 3}
@@ -350,7 +350,7 @@ MonoBehaviour:
   objA: {fileID: 1904318995}
   objB: {fileID: 126701198}
   objC: {fileID: 1429044675}
-  startSec: 0
+  startSequence: 0
   animationState: 0
   iterA: 0
   iterB: 0
@@ -377,9 +377,9 @@ MonoBehaviour:
   iniPos1: {fileID: 27459275}
   iniPos2: {fileID: 203024814}
   iniPos3: {fileID: 1238168200}
-  circle1: {fileID: 0}
-  circle2: {fileID: 0}
-  circle3: {fileID: 0}
+  circle1: {fileID: 1445883022}
+  circle2: {fileID: 1259274857}
+  circle3: {fileID: 1002470320}
 --- !u!1 &203024812
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 3588525878893989913, guid: 88520f320ca1143469308e1cc46fa6d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3588525878893989913, guid: 88520f320ca1143469308e1cc46fa6d5,
         type: 3}
@@ -613,9 +613,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 68418174}
-  - {fileID: 487200375}
   - {fileID: 325938715}
+  - {fileID: 487200375}
+  - {fileID: 68418174}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1067,14 +1067,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002470318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a673f83d746c8c045b669939e1dfd711, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb56db5115ddbe45bf3a958e9d96ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.01
-  numSamples: 2300
+  radius_m: 0.01
+  numSamples: 1500
+  renderingPlane: 1
+  center_m: {x: 0, y: 0, z: 0}
+  nornalRot: 0
+  invertDir: 1
   updateDescriptor: 0
   descriptorID: 0
   initialPos: {x: 0, y: 0, z: 0}
+  index: 0
+  posFromIndex: {x: 0, y: 0, z: 0}
   positions: []
 --- !u!1 &1056490557
 GameObject:
@@ -1194,14 +1200,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259274855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a673f83d746c8c045b669939e1dfd711, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb56db5115ddbe45bf3a958e9d96ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.01
-  numSamples: 2300
+  radius_m: 0.01
+  numSamples: 1500
+  renderingPlane: 1
+  center_m: {x: 0, y: 0, z: 0}
+  nornalRot: 0
+  invertDir: 1
   updateDescriptor: 0
   descriptorID: 0
   initialPos: {x: 0, y: 0, z: 0}
+  index: 0
+  posFromIndex: {x: 0, y: 0, z: 0}
   positions: []
 --- !u!1 &1394435134
 GameObject:
@@ -1288,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primitive: {fileID: 325938714}
-  positionDescriptor: {fileID: 1445883023}
+  positionDescriptor: {fileID: 1445883022}
   startingPositionSample: 0
   amplitudeDescriptor: {fileID: 0}
   startingAmplitudeSample: 0
@@ -1424,7 +1436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445883021}
-  - component: {fileID: 1445883023}
+  - component: {fileID: 1445883022}
   m_Layer: 0
   m_Name: SubCircle1
   m_TagString: Untagged
@@ -1446,7 +1458,7 @@ Transform:
   m_Father: {fileID: 471787894}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1445883023
+--- !u!114 &1445883022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1455,14 +1467,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445883020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a673f83d746c8c045b669939e1dfd711, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb56db5115ddbe45bf3a958e9d96ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.01
-  numSamples: 2300
+  radius_m: 0.01
+  numSamples: 1500
+  renderingPlane: 1
+  center_m: {x: 0, y: 0, z: 0}
+  nornalRot: 0
+  invertDir: 1
   updateDescriptor: 0
   descriptorID: 0
   initialPos: {x: 0, y: 0, z: 0}
+  index: 0
+  posFromIndex: {x: 0, y: 0, z: 0}
   positions: []
 --- !u!1 &1468648133
 GameObject:
@@ -1583,12 +1601,12 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
