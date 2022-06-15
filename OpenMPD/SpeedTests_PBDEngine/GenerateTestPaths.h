@@ -26,9 +26,9 @@ size_t createLinearTest(float start[4], float end[4], float v0, float a0, float 
 	}
 	//3. Decelerate part (until we reach B).
 	while (glm::dot(direction,(B - p_t)) > 0) {
-		positions.push_back(p_t);
+		positions.push_back(p_t); 
 		v_t -= a0*dt;
-		if (v_t < 0.1f)v_t = 0.1f;//minimum speed 0.1m/s (otherwise, v could become zero, and this loop would never end... this only affects last steps in the test (low speeds)
+		if (v_t < 0.02f)v_t = 0.02f;//minimum speed 0.1m/s (otherwise, v could become zero, and this loop would never end... this only affects last steps in the test (low speeds)
 		p_t += v_t*direction*dt;			
 	}
 	positions.push_back(B); 

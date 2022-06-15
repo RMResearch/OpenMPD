@@ -51,9 +51,11 @@ void destroyContent(OpenMPD_Context_Handler pm);
 void* client(void* arg) {
 	OpenMPD_Context_Handler pm = (OpenMPD_Context_Handler)arg;
 	declareContent(pm);
+
 	printf("Contents created. Press a key to finish.\n");
 	bool running = true;
 	static const size_t X_index = 3, Y_index = 7, Z_index = 11;
+
 	float* prevMat = new float[MAX_PRIMITIVES * 16];
 	float* curMat = new float[MAX_PRIMITIVES * 16];
 	//Each primitive's matrix is rotated around Z axis 

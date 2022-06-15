@@ -257,12 +257,12 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 40
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 41
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -761,8 +761,8 @@ Transform:
   m_LocalPosition: {x: 0.008502759, y: 0.10713754, z: -0.0070865154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 803663179}
   - {fileID: 1332314231}
+  - {fileID: 803663179}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -795,7 +795,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1306042670}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1332314233
 MonoBehaviour:
@@ -811,9 +811,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numSamples: 0
   descriptorID: 0
-  FileName: Chirp100_5000
-  isSizeLimitOn: 1
-  sizeLimit: 8000
+  FileName: Chirp100_10000
+  isSizeLimitOn: 0
+  sizeLimit: 100000
 --- !u!1001 &1519182992
 PrefabInstance:
   m_ObjectHideFlags: 0

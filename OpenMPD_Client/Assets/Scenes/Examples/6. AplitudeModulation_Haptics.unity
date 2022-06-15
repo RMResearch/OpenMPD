@@ -194,12 +194,12 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 40
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 41
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -718,7 +718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b6db66e109812499ff551e49a5aed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 200
+  modulationFreq: 200
+  amp: 5000
+  offsetAmp: 10000
   descriptorID: 0
   numSamples: 0
   amplitudes: []

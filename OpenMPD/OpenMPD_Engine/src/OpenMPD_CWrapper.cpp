@@ -1,6 +1,7 @@
 #include <OpenMPD_CWrapper.h>
 #include <OpenMPD.h>
 #include <src/OpenMPD_Context.h>
+#include <OpenMPD_Context.h>
 
 //General methods for DLL wrapper:
  bool OpenMPD_CWrapper_Initialize() {
@@ -17,6 +18,11 @@ void OpenMPD_CWrapper_SetupEngine(size_t memorySizeInBytes, int gspat_version, O
 
 OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
 	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, topBoardID, bottomBoardID, forceSync);
+	return (OpenMPD_Context_Handler)result;
+};
+
+OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngineMultiSetup(cl_uchar FPS_Divider, cl_uint numParallelGeometries, int numBoards, int* boardIDs, float* matBoardToWorld4x4, bool forceSync) {
+	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngineMultiSetup(FPS_Divider, numParallelGeometries, numBoards, boardIDs, matBoardToWorld4x4, forceSync);
 	return (OpenMPD_Context_Handler)result;
 };
 

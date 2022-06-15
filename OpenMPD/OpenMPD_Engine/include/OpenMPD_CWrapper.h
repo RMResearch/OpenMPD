@@ -15,6 +15,7 @@ extern "C" {
 	_OPEN_MPD_ENGINE_Export void OpenMPD_CWrapper_RegisterPrintFuncs(void(*p_Message)(const char*), void(*p_Warning)(const char*), void(*p_Error)(const char*));
 	_OPEN_MPD_ENGINE_Export void OpenMPD_CWrapper_SetupEngine( size_t memorySizeInBytes, int gspat_version, OpenMPD_Pointer_Handler visualRenderer=0);
 	_OPEN_MPD_ENGINE_Export OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync=true);
+	_OPEN_MPD_ENGINE_Export OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngineMultiSetup(cl_uchar FPS_Divider, cl_uint numParallelGeometries, int numBoards, int* boardIDs, float* matBoardToWorld4x4, bool forceSync = true);
 	_OPEN_MPD_ENGINE_Export void OpenMPD_CWrapper_SetupFPS_Divider(unsigned char FPSDivider);
 	_OPEN_MPD_ENGINE_Export void OpenMPD_CWrapper_SetupPhaseOnly(bool phaseOnly);
 	_OPEN_MPD_ENGINE_Export void OpenMPD_CWrapper_SetupHardwareSync(bool useHardwareSync);

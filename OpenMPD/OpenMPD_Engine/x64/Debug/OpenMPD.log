@@ -1,1 +1,38 @@
-﻿
+﻿E:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+E:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GSPAT_RenderingEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  OpenCLUtilityFunctions.cpp
+  TimeFunctions.cpp
+  Buffer.cpp
+  BufferManager.cpp
+  EngineReaderThread.cpp
+  EngineWriterThread.cpp
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\enginewriterthread.cpp(99): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  OpenMPD.cpp
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(99): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(105): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(183): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(188): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\openmpd_engine\src\openmpd.cpp(194): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  OpenMPD_CWrapper.cpp
+  OpenMPD_Debug.cpp
+  PrimitiveDescriptors.cpp
+  ForceUPS_Sync.cpp
+  RenderResources.cpp
+  OpenCLUtilityFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+     Creating library D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\OpenMPD.lib and object D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\OpenMPD.exp
+  Generating code
+  Finished generating code
+  OpenMPD.vcxproj -> D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\OpenMPD.dll
+  File not found - PBDEngine.cl
+  0 File(s) copied
+  D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\OpenMPD.dll -> D:\Roberto\github\OpenMPD_Libs\libraries\bin\x64\OpenMPD.dll
+  1 File(s) copied
+  D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\OpenMPD.lib -> D:\Roberto\github\OpenMPD_Libs\libraries\lib\OpenMPD\OpenMPD.lib
+  1 File(s) copied
+  D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> D:\Roberto\github\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD.h
+  1 File(s) copied
+  D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> D:\Roberto\github\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD_CWrapper.h
+  1 File(s) copied
+  D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> D:\Roberto\github\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD_Prerequisites.h
+  1 File(s) copied

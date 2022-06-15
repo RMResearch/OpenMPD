@@ -1,1 +1,11 @@
-﻿
+﻿E:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  TimeFunctions.cpp
+  testEngineInterface.cpp
+d:\roberto\github\0.laptop\openmpd\openmpd\6.simplepbdengine\testengineinterface.cpp(115): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
+d:\roberto\github\0.laptop\openmpd\openmpd\6.simplepbdengine\testengineinterface.cpp(115): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
+d:\roberto\github\0.laptop\openmpd\openmpd\6.simplepbdengine\testengineinterface.cpp(270): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\roberto\github\0.laptop\openmpd\openmpd\6.simplepbdengine\testengineinterface.cpp(308): warning C4018: '<': signed/unsigned mismatch
+  TimeFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+  Generating code
+  Finished generating code
+  6.simplePBDEngine.vcxproj -> D:\Roberto\github\0.Laptop\OpenMPD\OpenMPD\x64\SimpleOpenMPD2.exe

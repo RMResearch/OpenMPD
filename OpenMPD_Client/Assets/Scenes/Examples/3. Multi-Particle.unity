@@ -594,12 +594,12 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 40
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 41
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primitive: {fileID: 405410632}
   positionDescriptor: {fileID: 548444499}
-  startingPositionSample: 1000
+  startingPositionSample: 2000
   amplitudeDescriptor: {fileID: 0}
   startingAmplitudeSample: 0
   colourDescriptor: {fileID: 0}

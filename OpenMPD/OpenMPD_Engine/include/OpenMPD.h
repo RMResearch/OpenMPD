@@ -67,6 +67,8 @@ namespace OpenMPD {
 	*/
 	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync = true);
 
+	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngineMultiSetup(cl_uchar FPSDivider, cl_uint numParallelGeometries, int numBoards, int* boardIDs, float* matBoardToWorld4x4, bool forceSync = true);
+
 	_OPEN_MPD_ENGINE_Export void updateBoardSeparation(float distance);
 
 	/**	setupFPS_Divider: Adjusts the global rendering speed of the engine, by setting a "divider".

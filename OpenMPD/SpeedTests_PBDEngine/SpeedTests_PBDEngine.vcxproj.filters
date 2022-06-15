@@ -35,6 +35,9 @@
     <ClCompile Include="Audio\AudioFile.cpp">
       <Filter>Audio</Filter>
     </ClCompile>
+    <ClCompile Include="horizontal_SingleParticleMultiBoard.cpp">
+      <Filter>singleParticleTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GenerateTestPaths.h" />
