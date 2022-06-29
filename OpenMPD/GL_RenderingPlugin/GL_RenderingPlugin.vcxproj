@@ -95,13 +95,13 @@
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).dll  $(LIBS_HOME)\bin\$(Platform)\
-  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).lib  $(LIBS_HOME)\lib\$(ProjectName)\
-  XCOPY /F /Y $(ProjectDir)source\GL_VisualRenderer.h  $(LIBS_HOME)\include\$(ProjectName)\
- XCOPY /F /Y  $(ProjectDir)source\RenderAPI\PlatformBase.h  $(LIBS_HOME)\include\$(ProjectName)\RenderAPI\
- XCOPY /F /Y  $(ProjectDir)source\RenderAPI\RenderAPI.h  $(LIBS_HOME)\include\$(ProjectName)\RenderAPI\
- XCOPY /F /Y  $(ProjectDir)source\Unity\IUnityGraphics.h  $(LIBS_HOME)\include\$(ProjectName)\Unity\
- XCOPY /F /Y  $(ProjectDir)source\Unity\IUnityInterface.h  $(LIBS_HOME)\include\$(ProjectName)\Unity\
+      <Command>XCOPY /F /Y "$(SolutionDir)$(Platform)\$(ProjectName).dll" "$(LIBS_HOME)\bin\$(Platform)\"
+XCOPY /F /Y "$(SolutionDir)$(Platform)\$(ProjectName).lib" "$(LIBS_HOME)\lib\$(ProjectName)\"
+XCOPY /F /Y "$(ProjectDir)source\GL_VisualRenderer.h" "$(LIBS_HOME)\include\$(ProjectName)\"
+XCOPY /F /Y "$(ProjectDir)source\RenderAPI\PlatformBase.h" "$(LIBS_HOME)\include\$(ProjectName)\RenderAPI\"
+XCOPY /F /Y "$(ProjectDir)source\RenderAPI\RenderAPI.h" "$(LIBS_HOME)\include\$(ProjectName)\RenderAPI\"
+XCOPY /F /Y "$(ProjectDir)source\Unity\IUnityGraphics.h" "$(LIBS_HOME)\include\$(ProjectName)\Unity\"
+XCOPY /F /Y "$(ProjectDir)source\Unity\IUnityInterface.h" "$(LIBS_HOME)\include\$(ProjectName)\Unity\"
 
 </Command>
     </PostBuildEvent>
