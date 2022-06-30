@@ -4,5 +4,6 @@
     <ClCompile Include="testEngineInterface.cpp" />
     <ClCompile Include="..\Helper\TimeFunctions.cpp" />
     <ClCompile Include="exampleFixedAmplitudes.cpp" />
+    <ClCompile Include="testEnginePerformance.cpp" />
   </ItemGroup>
 </Project>

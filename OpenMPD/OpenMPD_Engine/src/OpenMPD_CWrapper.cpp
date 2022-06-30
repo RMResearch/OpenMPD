@@ -15,8 +15,13 @@ void OpenMPD_CWrapper_SetupEngine(size_t memorySizeInBytes, int gspat_version, O
 	OpenMPD::SetupEngine(memorySizeInBytes, (OpenMPD::GSPAT_SOLVER)gspat_version, (OpenMPD::IVisualRenderer*)visualRenderer);
 }
 
-OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
-	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, topBoardID, bottomBoardID, forceSync);
+OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine_TopBottom(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
+	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngine_TopBottom(FPS_Divider, numParallelGeometries, topBoardID, bottomBoardID, forceSync);
+	return (OpenMPD_Context_Handler)result;
+};
+
+OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint numBoards, cl_uint* boardIDs, float* boardLocations4x4, bool forceSync) {
+	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, numBoards, boardIDs, boardLocations4x4, forceSync);
 	return (OpenMPD_Context_Handler)result;
 };
 

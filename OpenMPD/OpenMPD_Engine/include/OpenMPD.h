@@ -65,7 +65,8 @@ namespace OpenMPD {
 	If the system is already setup and running, it still returns the current active Primitive Manager.
 	If initialization fails, the method will return NULL.
 	*/
-	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync = true);
+	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine_TopBottom(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync = true);
+	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint numBoards, cl_uint* boardIDs, float* boardLocationsM4x4, bool forceSync = true);
 
 	_OPEN_MPD_ENGINE_Export void updateBoardSeparation(float distance);
 

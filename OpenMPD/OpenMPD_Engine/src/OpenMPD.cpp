@@ -61,9 +61,27 @@ void OpenMPD::SetupEngine(size_t memorySizeInBytes, OpenMPD::GSPAT_SOLVER v, Ope
 	}	
 }
 
-OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
+OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine_TopBottom( cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
+	cl_uint boardIDs[] = { bottomBoardID, topBoardID };
+	float matrices[] = {/*bottom*/
+						1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1,	
+						/*top*/
+						-1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0,-1, 0.24f,
+						0, 0, 0, 1,	
+	};
+	return OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, 2, boardIDs, matrices, forceSync);
+}
+
+
+
+_OPEN_MPD_ENGINE_Export OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint numBoards, cl_uint* boardIDs, float* boardLocationsM4x4, bool forceSync ) {
 	if (threadEngine_SyncData == NULL) {
-		printError_OpenMPD("OpenMPD is being started without being initialized.\nPlease, call OpenMPD::SetupEngine(<Memory_Size>) before running the engine.");
+		printError_OpenMPD("OpenMPD::StartEngine:: OpenMPD is being started without being initialized.\nPlease, call OpenMPD::SetupEngine(<Memory_Size>) before running the engine.");
 		return NULL;
 	}
 
@@ -73,10 +91,8 @@ OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uchar FPS_Divider, cl_uint 
 		threadEngine_SyncData->newDivider = FPS_Divider;
 		threadEngine_SyncData->targetUPS = 40000.0f / FPS_Divider;
 		//Connect to boards and configure solver:
-		if (bottomBoardID != 0 || topBoardID != 0)
-			threadEngine_SyncData->driver->connect(bottomBoardID, topBoardID);
-		else
-			OpenMPD::printMessage_OpenMPD("Simulator Mode -> no Device attached!!!");
+		if (threadEngine_SyncData->driver->connect(numBoards, (int*)boardIDs, boardLocationsM4x4))
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Connection to device failed.\n\tSimulator Mode used-> no Device attached!!!");
 	}
 	//2. Create and setup solver:
 	{		
@@ -84,43 +100,40 @@ OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uchar FPS_Divider, cl_uint 
 		case GSPAT_SOLVER::V2:
 			GSPAT_V2::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);
 			threadEngine_SyncData->solver = GSPAT_V2::createSolver(threadEngine_SyncData->driver->totalTransducers());
-			OpenMPD::printMessage_OpenMPD("Engine setup with GSPAT Version 2 (GSPAT_SolverV2.dll)");
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 2 (GSPAT_SolverV2.dll)");
 			break;
 		case GSPAT_SOLVER::IBP:
 			GSPAT_IBP::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);
 			threadEngine_SyncData->solver = GSPAT_IBP::createSolver(threadEngine_SyncData->driver->totalTransducers());
-			OpenMPD::printMessage_OpenMPD("Engine setup with GSPAT Version 1 (IBP - GSPAT_SolverIBP.dll)");
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 1 (IBP - GSPAT_SolverIBP.dll)");
 			break;
 		case GSPAT_SOLVER::NAIVE:
 		default:
 			GSPAT_Naive::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);
 			threadEngine_SyncData->solver = GSPAT_Naive::createSolver(threadEngine_SyncData->driver->totalTransducers());
-			OpenMPD::printMessage_OpenMPD("Engine setup with GSPAT Version 0 (Naive - GSPAT_SolverNaive.dll)");
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 0 (Naive - GSPAT_SolverNaive.dll)");
 			break;
 		}
 		//Create joint data structures for direct communication Engine-Solver (Primitives and Buffer Managers)
 		struct OpenCL_ExecutionContext * executionContext = (struct OpenCL_ExecutionContext *)threadEngine_SyncData->solver->getSolverContext();
 		OpenMPD::OpenMPD_Context::instance().initialize(_memorySizeInBytes / sizeof(float), executionContext, threadEngine_SyncData->renderer);//2Mfloats (64MB?)
-		printMessage_OpenMPD("OpenMPD setup successfully.");
+		printMessage_OpenMPD("OpenMPD::StartEngine:: OpenMPD started successfully.");
 		//Configure solver with callibration data
-		float transducerPositions[512 * 3], amplitudeAdjust[512];
-		int mappings[512], phaseDelays[512], numDiscreteLevels;
-
-		if (bottomBoardID != 0 || topBoardID != 0)
-			threadEngine_SyncData->driver->readParameters(transducerPositions, mappings, phaseDelays, amplitudeAdjust, &numDiscreteLevels);
-
+		float* transducerPositions = new float[threadEngine_SyncData->driver->totalTransducers()* 3], *amplitudeAdjust=new float[threadEngine_SyncData->driver->totalTransducers()];
+		int* mappings= new int[threadEngine_SyncData->driver->totalTransducers()], *phaseDelays=new int[threadEngine_SyncData->driver->totalTransducers()], numDiscreteLevels;
+		threadEngine_SyncData->driver->readParameters(transducerPositions, mappings, phaseDelays, amplitudeAdjust, &numDiscreteLevels);
 		threadEngine_SyncData->solver->setBoardConfig(transducerPositions, mappings, phaseDelays, amplitudeAdjust, numDiscreteLevels);
 	}
 	//2. Setup and run working threads: 
 	{
-		printMessage_OpenMPD("OpenMPD setting up threads.");
+		printMessage_OpenMPD("OpenMPD::StartEngine:: OpenMPD setting up threads.");
 		pthread_t engineWritterThread, engineReaderThread;
 		//Initialize sync data:
 		pthread_mutex_init(&(threadEngine_SyncData->solution_available), NULL);
 		pthread_mutex_lock(&(threadEngine_SyncData->solution_available));
 		pthread_mutex_init(&(threadEngine_SyncData->mutex_solution_queue), NULL);
 		threadEngine_SyncData->running = true;
-		printMessage_OpenMPD("OpenMPD synchronization resources setup.");
+		printMessage_OpenMPD("OpenMPD::StartEngine:: OpenMPD synchronization resources setup.");
 		//Create threads:
 		{
 			int rc;
@@ -135,23 +148,19 @@ OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uchar FPS_Divider, cl_uint 
 		threadEngine_SyncData->runningThreads = 2;
 		pthread_create(&engineWritterThread, NULL, engineWritter, threadEngine_SyncData);
 		pthread_create(&engineReaderThread, NULL, engineReader, threadEngine_SyncData);
-		printMessage_OpenMPD("OpenMPD threads launched.");
+		printMessage_OpenMPD("OpenMPD::StartEngine:: OpenMPD threads launched.");
 	}
-	if (bottomBoardID != 0 || topBoardID != 0) {
-		threadEngine_SyncData->driver->turnTransducersOn();
-		printMessage_OpenMPD("OpenMPD started successfully.");
-
-		if (forceSync) {
-			syncWithExternalThread = new ForceUPS_Sync();
-			OpenMPD::OpenMPD_Context::instance().addListener(syncWithExternalThread);
-			addEngineWriterListener(syncWithExternalThread);
-		}
-	}
-	else
-		printMessage_OpenMPD("OpenMPD started successfully. -> Simulation Mode");
+	threadEngine_SyncData->driver->turnTransducersOn();
+	printMessage_OpenMPD("OpenMPD::StartEngine:: OpenMPD started successfully.");
+	if (forceSync) {
+		syncWithExternalThread = new ForceUPS_Sync();
+		OpenMPD::OpenMPD_Context::instance().addListener(syncWithExternalThread);
+		addEngineWriterListener(syncWithExternalThread);
+	}		
 
 	return &(OpenMPD::OpenMPD_Context::primitiveUpdaterInstance());
 }
+
 
 _OPEN_MPD_ENGINE_Export void OpenMPD::updateBoardSeparation(float distance)
 {

@@ -10,9 +10,9 @@ void* client(void* arg);
 
 unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
-cl_uint topBoard = 40;
-cl_uint bottomBoard = 41;
-bool forceSync = false;
+cl_uint topBoard = 7;
+cl_uint bottomBoard = 18;
+bool forceSync = true;
 bool HW_Sync = true;
 bool PhaseOnly = true;
 
@@ -23,7 +23,7 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, topBoard, bottomBoard, forceSync);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , geometries, topBoard, bottomBoard, forceSync);
 			OpenMPD_CWrapper_SetupPhaseOnly(PhaseOnly);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
  			client((void*)pm);
@@ -52,6 +52,8 @@ void* client(void* arg) {
 	printf("Contents created. Press a key to finish.\n");
 	bool running = true;
 	bool returning=false;
+	bool accelerationChanged = false;
+	cl_uint lastPosDescriptor = 0; // Last pos descriptor used, which we need to delete. 
 	cl_uint primitives[] = { primitive1 };//Declared as global shared variables
 	static const size_t X_index = 3, Y_index = 7, Z_index = 11;
 	float matrices[]={1,0,0,0,
@@ -141,6 +143,20 @@ void* client(void* arg) {
 					if (!returning) {
 						printf("Run test!\n");
 						OpenMPD_CWrapper_RegisterPrintFuncs(NULL, NULL, NULL);
+						//Update descriptors if needed:
+						if (accelerationChanged) {
+							Sleep(10);
+							//a) Delete the out-dated pos descriptor, and set the new one.
+							OpenMPD_CWrapper_releasePositionsDescriptor(pm, lastPosDescriptor);
+							lastPosDescriptor = pathTest;//We do not release this one yet, as it might still be in use.
+							//b) Create the current posDescriptor. 
+							float* testPath_data;
+							size_t sizeTestPath = createLinearTest(A, B, 0, a0, (1.0f*curFPS_Divider) / 40000, &testPath_data);
+							printf("Samples size: %d\n", (int)sizeTestPath);
+							pathTest =	OpenMPD_CWrapper_createPositionsDescriptor(pm,testPath_data, sizeTestPath);
+							delete testPath_data;							
+							accelerationChanged = false;
+						}
 						OpenMPD_CWrapper_updatePrimitive_Positions(pm, primitive1, pathTest, 0);
 						OpenMPD_CWrapper_updatePrimitive_Positions(pm, primitive1, posEnd, 0);
 						OpenMPD_CWrapper_commitUpdates(pm);
@@ -160,45 +176,17 @@ void* client(void* arg) {
 				case '3':
 					printf("Acceleration increased from %f to %f\n", a0, a0 + 10);
 					{
-						OpenMPD_CWrapper_RegisterPrintFuncs(NULL, NULL, NULL);
 						a0 += 10;
-						float* testPath_data;
-						size_t sizeTestPath = createLinearTest(A, B, 0, a0, (1.0f*curFPS_Divider) / 40000, &testPath_data);
-						printf("Samples size: %d\n", (int)sizeTestPath);
-						OpenMPD_CWrapper_releasePositionsDescriptor(pm, pathTest);
-						pathTest =	OpenMPD_CWrapper_createPositionsDescriptor(pm,testPath_data, sizeTestPath);
-						delete testPath_data;
-						OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
+						accelerationChanged = true;
 					}								
 					break;
 				case '4':
 					printf("Acceleration dereased from %f to %f\n", a0, a0 - 10);
 					{
-						OpenMPD_CWrapper_RegisterPrintFuncs(NULL, NULL, NULL);
 						a0 =(a0-10>0? a0-10:10);
-						float* testPath_data;
-						size_t sizeTestPath = createLinearTest(A, B, 0, a0, (1.0f*curFPS_Divider) / 40000, &testPath_data);
-						printf("Samples size: %d\n", (int)sizeTestPath);
-						OpenMPD_CWrapper_releasePositionsDescriptor(pm, pathTest);
-						pathTest =	OpenMPD_CWrapper_createPositionsDescriptor(pm,testPath_data, sizeTestPath);
-						delete testPath_data;
-						OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
+						accelerationChanged = true;
 					}				
-					break;
-				case '5':
-					printf("Reading and updating the set of possitions from file\n");
-					{
-						OpenMPD_CWrapper_RegisterPrintFuncs(NULL, NULL, NULL);
-						a0 = (a0 - 10 > 0 ? a0 - 10 : 10);
-						float* testPath_data;
-						size_t sizeTestPath = createLinearTest(A, B, 0, a0, (1.0f * curFPS_Divider) / 40000, &testPath_data);
-
-						OpenMPD_CWrapper_releasePositionsDescriptor(pm, pathTest);
-						pathTest = OpenMPD_CWrapper_createPositionsDescriptor(pm, testPath_data, sizeTestPath);
-						delete testPath_data;
-						OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
-					}
-					break;
+					break;				
 			}
 		//3. Update engine:
 		if (moved) 
