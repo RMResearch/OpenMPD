@@ -21,6 +21,11 @@ cl_uint bottomBoard = 41;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
+bool isTopBottom = false; //
+float matBoard1ToWorld[16] = { 1, 0, 0, 0,
+							   0, 1, 0, 0,
+							   0, 0, 1, 0,
+							   0, 0, 0, 1 };
 
 int main() {
 
@@ -29,8 +34,15 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print); 
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, topBoard, bottomBoard, foceSync);
-			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly); 
+			
+			OpenMPD_Context_Handler  pm;
+			// isTopBottom = false (single board mode), isTopBottom = true (double board mode)
+			if (isTopBottom)	// using top-bottom configuration			
+				pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
+			else            // using a single board configuration
+				pm = OpenMPD_CWrapper_StartEngineSingleBoard(curFPS_Divider, geometries, bottomBoard, matBoard1ToWorld, foceSync);
+			
+			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
 			client((void*)pm);
 			OpenMPD_CWrapper_StopEngine();

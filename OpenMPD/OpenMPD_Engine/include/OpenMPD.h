@@ -66,6 +66,8 @@ namespace OpenMPD {
 	If initialization fails, the method will return NULL.
 	*/
 	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync = true);
+	
+	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngineSingleBoard(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint boardID, float* matToWorld, bool forceSync = true);
 
 	_OPEN_MPD_ENGINE_Export void updateBoardSeparation(float distance);
 

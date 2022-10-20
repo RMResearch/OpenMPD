@@ -16,9 +16,9 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 	global float4* positions,
 	global float4* matrixG0,
 	global float4* matrixGN,
-	int pointsPerGeometry,
-	int numGeometries,
-	image2d_t directivity_cos_alpha,
+	read_only int pointsPerGeometry,
+	read_only int numGeometries,
+	read_only image2d_t directivity_cos_alpha,
 	global float2* pointHologram,
 	global float2* unitaryPointHologram
 ) {
@@ -69,8 +69,6 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 																	
 	//c. Sample 1D texture: 
 	float4 amplitude= read_imagef(directivity_cos_alpha, sampleDirTexture, (float2)(cos_alpha, 0.5f))/distance;
-	float cos_kd = native_cos(-K*distance);
-	float sin_kd = native_sin(-K*distance);
 	float Re = amplitude.x*native_cos(-K*distance);
 	float Im = amplitude.x*native_sin(-K*distance);
 	//STAGE 2: Building the holograms:
@@ -78,8 +76,7 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 	pointHologram[offset + t_offset] = (float2)(Re , Im );
 	//b. compute "normalised" point hologram (reconstruction amplitude exactly = one Pa)
 	__local float amplitude2[NUM_TRANSDUCERS];
-	amplitude2[t_x] = Re * Re + Im * Im;//Original version (normalized takes directivity into account)
-	//amplitude2[t_x] = amplitude.x;		  //New version: normalized, but phase-only	
+	amplitude2[t_x] = Re * Re + Im * Im;
 	barrier(CLK_LOCAL_MEM_FENCE);
 	//a. Reduce (add all elements in hologram)
 	for (int i = CUR_NUM_TRANSDUCERS/2; i > 0; i >>= 1) {
@@ -88,11 +85,9 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 		barrier(CLK_LOCAL_MEM_FENCE);
 	}
 	//c. Normalise (divide by sumation of contributions squared... see Long et al) 
-	//Original version (normalized takes directivity into account)
 	Re /= amplitude2[0]; Im /= amplitude2[0];
 	unitaryPointHologram[offset + t_offset] = (float2)(Re, Im);		//Re
-	//New version: normalized, but phase-only	
-	//unitaryPointHologram[offset + t_offset] = (float2)(cos_kd/amplitude2[0], sin_kd/amplitude2[0]);
+	
 	//DEBUG:
 	//pointHologram[offset + t_offset] = (float2)(t_offset , amplitude2[0]);
 	//unitaryPointHologram[offset + t_offset] = (float2)(Re, Im);	
@@ -148,7 +143,7 @@ __kernel void solvePhases_GS(global float2* points_Re_Im,
 		}
 		//Constraint amplitude
 		amplitude = native_sqrt(_localPoints1[j].x*_localPoints1[j].x + _localPoints1[j].y*_localPoints1[j].y);
-		//_localPoints1[j] *= (_targetAmplitudesPerPoint[j] / amplitude);
+		_localPoints1[j] *= (_targetAmplitudesPerPoint[j] / amplitude);
 		_stimatedAmplitudesPerPoint[j] = amplitude;
 		barrier(CLK_LOCAL_MEM_FENCE);
 	}
@@ -225,25 +220,27 @@ __kernel void discretise(int numDiscreteLevels,
 	global float* amplitudesDataBuffer,
 	float phaseOnly,
 	global float* phaseAdjustPerTransducerNumber,
-	global float* amplitudeAdjustPerTransducerNumber,
 	global unsigned char* transducerNumberToPIN_ID,
 	global unsigned char* messages) {
 	//1. Get transducer coordinates and geometry number
 	int x = get_global_id(0);	
 	int y = get_global_id(1);//useless
 	int g = get_global_id(2);
-	const int hologramSize = get_global_size(0);//Total number of transducers
-	const int numGeometries = get_global_size(2);//Num solutions being computed in parallel.
+	const int hologramSize = get_global_size(0);
 	//2. Map transducer to  message parameters (message number, PIN index, correction , etc):
+	int messageNumber= ( x>>8);
 	unsigned char PIN_index = transducerNumberToPIN_ID[x];//PIN index in its local board (256 elements)
+	int posInMessage = 512*messageNumber + PIN_index ;//Pos in the global message (for all boards)
 	unsigned char firstCharFlag = (unsigned char)(PIN_index == 0);
 	float phaseHardwareCorrection = phaseAdjustPerTransducerNumber[x];
-	float amplitudeHardwareCorrection = amplitudeAdjustPerTransducerNumber[x];
+	
 	//3. Read input data: 
-	float targetAmplitude = amplitudeHardwareCorrection*amplitudesDataBuffer[hologramSize * g + x];
+	float targetAmplitude = amplitudesDataBuffer[hologramSize * g + x];
 	float targetPhase =		phasesDataBuffer[hologramSize * g + x];
-	//3.A. Discretise Amplitude: 
-	float targetDutyCycle = 0.5f*phaseOnly*amplitudeHardwareCorrection + (1 - phaseOnly)*asinpi(targetAmplitude);		//Compute duty cycle, given transducer response.
+	//3.A. Discretise Amplitude: If phase only, set duty to 50% (unless targetAmplitude is zero (i.e. smaller than first discretized level))
+	//							Otherwise, compute duty cycle from arcsin(amplitude*PI) as from nature paper).	
+	float targetDutyCycle = 0.5f*phaseOnly*(float)(targetAmplitude) 
+		+ (1 - phaseOnly)*asinpi(targetAmplitude);		//Compute duty cycle, given transducer response.
 	unsigned char discretisedA = (unsigned char)(numDiscreteLevels * targetDutyCycle);
 	float phaseCorrection = (2 * PI*((numDiscreteLevels / 2 - discretisedA) / 2)) / numDiscreteLevels;
 	
@@ -253,10 +250,8 @@ __kernel void discretise(int numDiscreteLevels,
 	//correctedPhase += (float)(correctedPhase < 0) * 2 * PI;//Add 2PI if negative (without using branches...)--> NOT NEEDED ANY MORE (We add 2PI always)
 	unsigned char discretisedPhase = correctedPhase * numDiscreteLevels / (2 * PI);
 	//4. Store in the buffer (each message has 256 phases and 256 amplitudes ->512 elements)
-	int groupNumber = (x >> 8); //Alternative: do groupNumber = x/NUM_TRANSDUCERS_PER_GROUP 
-	int posInMessage = (2 * NUM_TRANSDUCERS_PER_GROUP)*(numGeometries*groupNumber + g) + PIN_index;
-	messages[posInMessage ] = discretisedPhase +firstCharFlag * numDiscreteLevels;
-	messages[posInMessage + NUM_TRANSDUCERS_PER_GROUP] =discretisedA;
+	messages[g * hologramSize * 2 + posInMessage ] = discretisedPhase +firstCharFlag * numDiscreteLevels;
+	messages[g * hologramSize * 2 + posInMessage +256] =discretisedA;
 
 	//DEBUG: Phase only 
 	/*unsigned char discretisedA = numDiscreteLevels / 2;
