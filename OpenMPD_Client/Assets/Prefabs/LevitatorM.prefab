@@ -405,10 +405,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521df506fd94de24d8c161e2fb9ca6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBoardID: 7
-  bottomBoardID: 8
-  boardType: 0
+  topBoardID: 12
+  bottomBoardID: 11
+  solver: 2
   GSPAT_Solver_Version: 2
+  boardType: 0
+  divider: 3
   GS_PAT_Divider: 4
   ResultingFPS: 10000
   numGeometriesInParallel: 32
@@ -417,6 +419,7 @@ MonoBehaviour:
   status: 0
   tickThisToCommit: 1
   phaseOnly: 1
+  isHardwareSync: 1
   forceSync: 0
   isCurrentIndexReadingActive: 0
 --- !u!114 &8554050574168873753

@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PrimitiveStateAsset : MonoBehaviour
 {
+    public class PSAComparer : IComparer<PrimitiveStateAsset>
+    {
+        public int Compare(PrimitiveStateAsset x, PrimitiveStateAsset y)
+        {
+            return x.orderNumber.CompareTo(y.orderNumber);
+        }
+    }
+    public uint orderNumber = 0;
     [Header("Primitive configuration")]
     public Primitive primitive;
     public PositionDescriptorAsset positionDescriptor;

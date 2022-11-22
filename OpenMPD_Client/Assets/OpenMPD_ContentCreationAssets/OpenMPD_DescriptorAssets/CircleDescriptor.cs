@@ -5,6 +5,9 @@ public class CircleDescriptor : PositionDescriptorAsset
 {
     [Header("Circle parameters:")]
     public float radius = 0.02f;
+    public Vector3 axis = Vector3.up;
+    public Vector3 centre = Vector3.zero;
+    public float percentOffset = 0.0f;
     public uint numSamples = 1024;
 
     [Header("Update Descriptor")]
@@ -12,7 +15,7 @@ public class CircleDescriptor : PositionDescriptorAsset
 
     [Header("ReadOnly")]
     [ShowOnly] public uint descriptorID = 0;
-    [ShowOnly] public Vector3 initialPos;
+    [ShowOnly] public Vector3 initialPosCM;
 
     [HideInInspector]
     public float[] positions;
@@ -40,14 +43,18 @@ public class CircleDescriptor : PositionDescriptorAsset
         //Fill circle: 
         for (int s = 0; s < numSamples; s++)
         {
-            float angle = 2 * (Mathf.PI * s) / numSamples;
-            positions[4 * s + 0] = radius * Mathf.Cos(angle);
-            positions[4 * s + 1] = 0;
-            positions[4 * s + 2] = radius * Mathf.Sin(angle);
+            float angle = 2 * (Mathf.PI * (((float)s / numSamples) + percentOffset));
+            Vector3 pos = radius * new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
+            Quaternion rotation = Quaternion.FromToRotation(new Vector3(0, 0, 1), axis.normalized);
+            pos = rotation * pos;
+            pos += centre;
+            positions[4 * s + 0] = pos.x;
+            positions[4 * s + 1] = pos.y;
+            positions[4 * s + 2] = pos.z;
             positions[4 * s + 3] = 1;
         }
-        // update the initialPos to be visible in hte UI
-        initialPos = new Vector3(positions[0], positions[1], positions[2]);        
+        // update the initialPos to be visible in the UI
+        initialPosCM = 100 * new Vector3(positions[0], positions[1], positions[2]);        
         //Create descriptor
         descriptor = new Positions_Descriptor(positions);
         // retreive desciptor id

@@ -16,8 +16,8 @@ public class OpenMPD_ContextManager
     private Dictionary<uint, Positions_Descriptor> positionDescriptors;
     private Dictionary<uint, Amplitudes_Descriptor> amplitudeDescriptors;
     private Dictionary<uint, Colours_Descriptor> colourDescriptors;
-    private Dictionary<uint, uint> StaringPosDescriptor;
-    private Dictionary<uint, uint> StaringColDescriptor;
+    private Dictionary<uint, uint> StartingPosDescriptor;
+    private Dictionary<uint, uint> StartingColDescriptor;
     OpenMPD_PresentationManager renderingManager=null;
     class DescriptorsUsedByPrimitive {
         public uint primitiveID;
@@ -38,8 +38,8 @@ public class OpenMPD_ContextManager
         colourDescriptors = new Dictionary<uint, Colours_Descriptor>();
 
         descriptorsByPrimitive = new Dictionary<uint, DescriptorsUsedByPrimitive>();
-        StaringPosDescriptor = new Dictionary<uint, uint>();
-        StaringColDescriptor = new Dictionary<uint, uint>();
+        StartingPosDescriptor = new Dictionary<uint, uint>();
+        StartingColDescriptor = new Dictionary<uint, uint>();
 
         renderingManager = OpenMPD_PresentationManager.Instance();
     }
@@ -118,10 +118,10 @@ public class OpenMPD_ContextManager
             GetPositionsDescriptor(primitiveID).AddReference();
             GetAmplitudesDescriptor(primitiveID).AddReference();
         }
-        if (!StaringPosDescriptor.ContainsKey(primitiveID))
-            StaringPosDescriptor.Add(primitiveID, firstPositionIndexToUse);
+        if (!StartingPosDescriptor.ContainsKey(primitiveID))
+            StartingPosDescriptor.Add(primitiveID, firstPositionIndexToUse);
         else
-            StaringPosDescriptor[primitiveID] = firstPositionIndexToUse;
+            StartingPosDescriptor[primitiveID] = firstPositionIndexToUse;
 
         //3. Once local definitions are updated, update the underlying C++ engine also:
         OpenMPD_Wrapper.OpenMPD_CWrapper_updatePrimitive_Amplitudes(renderingManager.getCurrentEngineHandler(), primitiveID, amplitudesDescriptorID, firstAmplitudeIndexToUse);
@@ -155,10 +155,10 @@ public class OpenMPD_ContextManager
         GetPositionsDescriptor(primitiveID).DecreaseReference();
         descriptorsByPrimitive[primitiveID].positionsDescriptorID= positionsDescriptorID;
         GetPositionsDescriptor(primitiveID).AddReference();
-        if (!StaringPosDescriptor.ContainsKey(primitiveID))
-            StaringPosDescriptor.Add(primitiveID, firstPositionIndexToUse);
+        if (!StartingPosDescriptor.ContainsKey(primitiveID))
+            StartingPosDescriptor.Add(primitiveID, firstPositionIndexToUse);
         else
-            StaringPosDescriptor[primitiveID] = firstPositionIndexToUse;
+            StartingPosDescriptor[primitiveID] = firstPositionIndexToUse;
 
         //3. Update underlying C++ engine:
         OpenMPD_Wrapper.OpenMPD_CWrapper_updatePrimitive_Positions(renderingManager.getCurrentEngineHandler(), primitiveID, positionsDescriptorID, firstPositionIndexToUse);
@@ -175,10 +175,10 @@ public class OpenMPD_ContextManager
             GetColoursDescriptor(primitiveID).DecreaseReference();
         descriptorsByPrimitive[primitiveID].coloursDescriptorID = coloursDescriptorID;
         GetColoursDescriptor(primitiveID).AddReference();
-        if (!StaringColDescriptor.ContainsKey(primitiveID))
-            StaringColDescriptor.Add(primitiveID, firstColourIndexToUse);
+        if (!StartingColDescriptor.ContainsKey(primitiveID))
+            StartingColDescriptor.Add(primitiveID, firstColourIndexToUse);
         else
-            StaringColDescriptor[primitiveID] = firstColourIndexToUse;
+            StartingColDescriptor[primitiveID] = firstColourIndexToUse;
 
         //3. Update underlying C++ engine:
         OpenMPD_Wrapper.OpenMPD_CWrapper_updatePrimitive_Colours(renderingManager.getCurrentEngineHandler(), primitiveID, coloursDescriptorID, firstColourIndexToUse);
@@ -278,7 +278,7 @@ public class OpenMPD_ContextManager
     public uint GetPBD_Position_Staring_Index(uint primitiveID)
     {
         uint index = 0;
-        if (!StaringPosDescriptor.TryGetValue(primitiveID, out index))
+        if (!StartingPosDescriptor.TryGetValue(primitiveID, out index))
             Debug.Log("The Dictionary does not contain the intended Key");
         return index;
         //return StaringPosDescriptor[primitiveID];

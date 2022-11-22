@@ -115,9 +115,9 @@ public class ReadWriteData
         data += endl;
     }
 
-    
-   
 
+
+#if UNITY_EDITOR
     public void WriteDataToFile(string title)
     {
         string fileName;
@@ -138,6 +138,7 @@ public class ReadWriteData
         data = System.IO.File.ReadAllText(fileName);
         return data;
     }
+#endif
     // x, y, z order
     public void readFromFileVec3(string name, ref List<Vector3> pos, bool addExtension)
     {
@@ -167,6 +168,8 @@ public class ReadWriteData
         //foreach (var element in pos)
         //Console.WriteLine(element.ToString());
     }
+
+#if UNITY_EDITOR
     public string ReadColorDataFromFile(string name)
     {
         string fileName;
@@ -180,6 +183,7 @@ public class ReadWriteData
         data = System.IO.File.ReadAllText(fileName);
         return data;
     }
+#endif 
 }
 
 #region Enum Variables

@@ -12,7 +12,7 @@ public enum SolverType
 
 public enum UpdateRateDivider
 {
-    by1, by2, by3, by4
+    by1, by2, by3, by4, by5, by6, by7, by8
 }
 
 public class OpenMPD_PresentationManager : MonoBehaviour
@@ -203,6 +203,18 @@ public class OpenMPD_PresentationManager : MonoBehaviour
                 break;
             case UpdateRateDivider.by4://10khz
                 GS_PAT_Divider = 4;
+                break;
+            case UpdateRateDivider.by5://8khz
+                GS_PAT_Divider = 5;
+                break;
+            case UpdateRateDivider.by6://6.66khz
+                GS_PAT_Divider = 6;
+                break;
+            case UpdateRateDivider.by7://5.71khz
+                GS_PAT_Divider = 7;
+                break;
+            case UpdateRateDivider.by8://5khz
+                GS_PAT_Divider = 8;
                 break;
             default:
                 break;

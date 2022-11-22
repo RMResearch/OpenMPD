@@ -42,7 +42,10 @@ public class FixedPositionDescriptor : PositionDescriptorAsset
     {
         //Create descriptor
         positions = new float[4] { position.x, position.y, position.z, 1 };
-        
+        if(descriptor != null)
+        {
+            OpenMPD_ContextManager.Instance().RemoveDescriptor(descriptor);
+        }
         descriptor = new Positions_Descriptor(positions);
         desciptorID = GetDescriptorID();
     }

@@ -390,9 +390,11 @@ namespace Assets.Utilities._0.Testing
 
         void ReadDataFromFile()
         {
+#if UNITY_EDITOR
             data = wr.ReadColorDataFromFile(fileName);
             GetPosColFromData(data, ref selectedPos, ref selectedCol);
             UpdatePosColData();
+#endif
         }
 
         void UpdatePositions_Visualization()
@@ -423,10 +425,12 @@ namespace Assets.Utilities._0.Testing
 
         void WriteConfurationData(string title, string header, List<Vector3> pos, string mPos, List<Color32> col,string mCol )
         {
+#if UNITY_EDITOR
             wr.AddStringToDataToPrint(header);
             wr.AddListVec3ToDataToPrint(pos, pos.Count, mPos);
             wr.AddListColorToDataToPrint(col, col.Count, mCol);
             wr.WriteDataToFile(title);
+#endif
         }
        
         void CheckMouseObjCollitions()

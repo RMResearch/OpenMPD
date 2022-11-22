@@ -19,7 +19,7 @@ public class Primitive : MonoBehaviour
 
     // this deals witht eh difference between coordinate systems
     
-    Matrix4x4 OriginWorldToLocal = new Matrix4x4();
+   // Matrix4x4 levitatorOrigin.worldToLocalMatrix = new Matrix4x4();
     public bool invertZ = false;
 
     public uint GetPrimitiveID() {
@@ -82,8 +82,8 @@ public class Primitive : MonoBehaviour
             ConfigureDescriptors();
             //Initialize:                        
             Matrix4x4 primLocalMat = transform.localToWorldMatrix;
-            OriginWorldToLocal = levitatorOrigin.worldToLocalMatrix;
-            curMatrix = OriginWorldToLocal * primLocalMat;
+           // OriginWorldToLocal = levitatorOrigin.worldToLocalMatrix;
+            curMatrix = levitatorOrigin.worldToLocalMatrix * primLocalMat;
 
             if (this.enabled)
                 OnEnable();
@@ -114,7 +114,7 @@ public class Primitive : MonoBehaviour
                                                                 // transform.localRotation = ExtractRotationFromMatrix(ref targetPos_parent);
 
         //2. Update interpolation matrices we use:
-        prevMatrix = curMatrix = OriginWorldToLocal * targetPos_world;
+        prevMatrix = curMatrix = levitatorOrigin.worldToLocalMatrix * targetPos_world;
     }
     /**
      * Update is called once per Unity frame. It updates the matrix (pos/orient) of contents, 
@@ -134,7 +134,7 @@ public class Primitive : MonoBehaviour
             Matrix4x4 primLocalMat = transform.localToWorldMatrix;
             //getAdjustedMatrix(ref primLocalMat);
             // get the transformation matrix to go from the primitive to the levitator origin M_from-prim_to-ori 
-            Matrix4x4 target_M_LocalToLevitator = OriginWorldToLocal * primLocalMat;
+            Matrix4x4 target_M_LocalToLevitator = levitatorOrigin.worldToLocalMatrix * primLocalMat;
 
 
             // get rotations
@@ -144,6 +144,9 @@ public class Primitive : MonoBehaviour
             // get positions
             Vector4 prevPos = GetPosition(prevMatrix);
             Vector4 targetPos = GetPosition(target_M_LocalToLevitator);
+            // get scales
+            Vector3 prevScale = GetScale(prevMatrix);
+            Vector3 targetScale = GetScale(target_M_LocalToLevitator);
 
             if (invertZ)
                 FromRightToLeftCoord(ref targetPos, ref targetRot);
@@ -151,6 +154,9 @@ public class Primitive : MonoBehaviour
 
             curMatrix = BuildMatrix(InterpolateOrientationCapped(prevRot, targetRot, this.maxRotInDegrees)
                       , InterpolatePositionCapped(prevPos, targetPos, this.maxStepInMeters));
+            curMatrix.SetColumn(0, curMatrix.GetColumn(0) * targetScale.x);
+            curMatrix.SetColumn(1, curMatrix.GetColumn(1) * targetScale.y);
+            curMatrix.SetColumn(2, curMatrix.GetColumn(2) * targetScale.z);
 
             //Rotation = this.transform.rotation;
             //Position = this.transform.position;
@@ -221,11 +227,16 @@ public class Primitive : MonoBehaviour
     //Helper methods for Matrix smoothing and management: 
     public static Quaternion GetRotation(Matrix4x4 matrix)
     {        
-        return Quaternion.LookRotation(matrix.GetColumn(2), matrix.GetColumn(1));//
+        return Quaternion.LookRotation(matrix.GetColumn(2).normalized, matrix.GetColumn(1).normalized);//
     }
     public static Vector4 GetPosition(Matrix4x4 matrix)
     {
         return matrix.GetColumn(3);
+    }
+
+    public static Vector3 GetScale(Matrix4x4 matrix)
+    {
+        return new Vector3(matrix.GetColumn(0).magnitude, matrix.GetColumn(1).magnitude, matrix.GetColumn(2).magnitude) ;
     }
     public static Vector4 InterpolatePositionCapped(Vector4 current, Vector4 target, float maxStepSize)
     {

@@ -196,7 +196,7 @@ public class WriteData
 
     public void readFromFileVec4(string name, ref List<Vector4> pos, bool invertXY = false)
     {
-        string address = Application.dataPath + "/../OprimizedPaths/" + name.ToString() + ".csv";
+        string address = Application.dataPath + "/../OptimizedPaths/" + name.ToString() + ".csv";
         using (var rd = new StreamReader(address))
         {
             int index = 0;

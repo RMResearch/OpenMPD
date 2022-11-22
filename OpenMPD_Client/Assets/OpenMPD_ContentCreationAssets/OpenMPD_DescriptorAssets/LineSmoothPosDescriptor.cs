@@ -23,13 +23,13 @@ public class LineSmoothPosDescriptor : PositionDescriptorAsset
     // Start is called before the first frame update
     void Start()
     {
-        GeneratePositions(iniPos, endPos);
+        updateDescriptor = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (updateDescriptor)
+        if (updateDescriptor && OpenMPD_PresentationManager.Instance())
         {
             GeneratePositions(iniPos, endPos);
             updateDescriptor = false;
@@ -52,7 +52,7 @@ public class LineSmoothPosDescriptor : PositionDescriptorAsset
         //float posInc = -(len / 2);
         int index = 0;
 
-        // Fordward: acceration part
+        // Forward: acceleration part
         while (v < vset)
         {
             posList.Add(ini);
@@ -62,7 +62,7 @@ public class LineSmoothPosDescriptor : PositionDescriptorAsset
         }
         v = vset;
 
-        // Fordward: deceration part
+        // Forward: deceleration part
         while (v > 0)
         {
             posList.Add(ini);
@@ -72,24 +72,24 @@ public class LineSmoothPosDescriptor : PositionDescriptorAsset
         }
         v = 0;
 
-        // Backward: acceration part
-        while (v < vset)
-        {
-            posList.Add(ini);
-            ini += dir * -updateSeconds * v;
-            v += amax;
-            index++;
-        }
-        v = vset;
+        //// Backward: acceration part
+        //while (v < vset)
+        //{
+        //    posList.Add(ini);
+        //    ini += dir * -updateSeconds * v;
+        //    v += amax;
+        //    index++;
+        //}
+        //v = vset;
 
-        // Backward: deceration part
-        while (v > 0)
-        {
-            posList.Add(ini);
-            ini += dir * -updateSeconds * v;
-            v -= amax;
-            index++;
-        }
+        //// Backward: deceration part
+        //while (v > 0)
+        //{
+        //    posList.Add(ini);
+        //    ini += dir * -updateSeconds * v;
+        //    v -= amax;
+        //    index++;
+        //}
 
         // updating size and positions buffer
         numSamples = posList.Count;
@@ -98,6 +98,7 @@ public class LineSmoothPosDescriptor : PositionDescriptorAsset
 
         for (int i = 0; i < numSamples; i++)
         {
+            //Debug.Log("Pos: (" + posList[i].x + ", " + posList[i].y + ", " + posList[i].z + ")");
             positions[4 * i + 0] = posList[i].x;
             positions[4 * i + 1] = posList[i].y;
             positions[4 * i + 2] = posList[i].z;

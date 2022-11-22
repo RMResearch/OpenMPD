@@ -10,7 +10,7 @@ public class DynamicPosDescriptor : PositionDescriptorAsset
     [Header("Main")]
     public int numSamples = 1024;
     
-    [ShowOnly] public int lenght = 0;
+    [ShowOnly] public int length = 0;
     [ShowOnly] public uint positionID = 0;
     public Vector3 iniPos = new Vector3(0, 0, 0);
 
@@ -39,7 +39,7 @@ public class DynamicPosDescriptor : PositionDescriptorAsset
 
             iniPos = new Vector3(positions[0], positions[1], positions[2]);
             positionID = descriptor.positionsDescriptorID;
-            lenght = positions.Length;
+            length = positions.Length;
             updateDescriptor = false;
         }
     }
@@ -61,7 +61,7 @@ public class DynamicPosDescriptor : PositionDescriptorAsset
             positions[4 * s + 3] = 1;
         }
         iniPos = new Vector3(positions[0], positions[1], positions[2]);
-        lenght = positions.Length;
+        length = positions.Length;
     }
 
     void defineDefaultContent2()
@@ -82,6 +82,6 @@ public class DynamicPosDescriptor : PositionDescriptorAsset
             positions[4 * s + 3] = 1;
         }
 
-        lenght = positions.Length;
+        length = positions.Length;
     }
 }

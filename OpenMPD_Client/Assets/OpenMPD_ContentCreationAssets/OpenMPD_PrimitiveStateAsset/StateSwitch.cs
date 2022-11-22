@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class StateSwitch : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class StateSwitch : MonoBehaviour
                 if (child != this.transform)
                 {
                     child.gameObject.SetActive(false);
-                    foreach (PrimitiveStateAsset pState in transform.parent.GetChild(c).GetComponents<PrimitiveStateAsset>())
+                    PrimitiveStateAsset[] oldStates = transform.parent.GetChild(c).GetComponents<PrimitiveStateAsset>();
+                    Array.Sort<PrimitiveStateAsset>(oldStates, new PrimitiveStateAsset.PSAComparer());
+                    foreach (PrimitiveStateAsset pState in oldStates)
                     {
                         pState.LeaveState();
                     }
@@ -35,8 +38,11 @@ public class StateSwitch : MonoBehaviour
             //2. Activate us:
             bool allSuccessful = true;
             transform.gameObject.SetActive(true);
-            foreach (PrimitiveStateAsset pState in transform.GetComponents<PrimitiveStateAsset>())
+            PrimitiveStateAsset[] newStates = transform.GetComponents<PrimitiveStateAsset>();
+            Array.Sort<PrimitiveStateAsset>(newStates, new PrimitiveStateAsset.PSAComparer());
+            foreach (PrimitiveStateAsset pState in newStates)
             {
+                Debug.Log("Queueing State " + pState.positionDescriptor.gameObject.name + " Order Num:"+ pState.orderNumber + "");
                 allSuccessful &= pState.EnterState();                
             }
 

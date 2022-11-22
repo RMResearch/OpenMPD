@@ -13,7 +13,7 @@ public class Positions_Descriptor
     protected uint DeclareDescriptor()
     {        
         referenceCounter = 0;
-        return OpenMPD_ContextManager .Instance().DeclareDescriptor(this);        
+        return OpenMPD_ContextManager.Instance().DeclareDescriptor(this);        
     }
     public Positions_Descriptor(float[] positionsInHomogCoords){
         //this.positions = positionsInHomogCoords;
