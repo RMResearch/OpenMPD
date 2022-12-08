@@ -15,7 +15,7 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider, 32, 35, 32, true);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, 32, 35, 32, true);
 			OpenMPD_CWrapper_SetupPhaseOnly(true);
 			client((void*)pm);
 			OpenMPD_CWrapper_StopEngine();

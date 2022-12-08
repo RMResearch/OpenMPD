@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(20000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , 32, 41, 40, false);// top, bottom
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , 32, 41, 40, false);// top, bottom
 			OpenMPD_CWrapper_SetupPhaseOnly(true);
 			OpenMPD_CWrapper_SetupHardwareSync(true);
 			client(pm, "OptiTrap_fish.csv");// OptiTrap_cardioid.csv  OptiTrap_fish.csv  OptiTrap_squircle.csv  OptiTrap_circle.csv

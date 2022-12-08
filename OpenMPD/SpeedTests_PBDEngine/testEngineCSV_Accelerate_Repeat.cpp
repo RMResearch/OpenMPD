@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000);
 			bool forceSync = true;
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , 32, topBoardID , botBoardID, forceSync);//boards: 8&7
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , 32, topBoardID , botBoardID, forceSync);//boards: 8&7
 			client(pm, (char*) argv[4],(char*) argv[5]);
 			OpenMPD_CWrapper_StopEngine();
 			printf("Press any key to Restart the engine.\nPress SPACE BAR to Release current engine.");

@@ -1,12 +1,26 @@
+<<<<<<< HEAD
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  testEngineInterface.cpp
-testEngineInterface.cpp(185): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
-testEngineInterface.cpp(185): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
-testEngineInterface.cpp(210): warning C4018: '<': signed/unsigned mismatch
-testEngineInterface.cpp(219): warning C4018: '<': signed/unsigned mismatch
-testEngineInterface.cpp(224): warning C4018: '<': signed/unsigned mismatch
+  exampleFixedAmplitudes.cpp
+exampleFixedAmplitudes.cpp(73): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\conio.h(452): note: see declaration of 'getch'
+exampleFixedAmplitudes.cpp(109): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
+exampleFixedAmplitudes.cpp(109): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
+exampleFixedAmplitudes.cpp(264): warning C4018: '<': signed/unsigned mismatch
   TimeFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
   Generating code
   Finished generating code
   6.simplePBDEngine.vcxproj -> C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\SimpleOpenMPD2.exe
   6.simplePBDEngine.vcxproj -> C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\SimpleOpenMPD2.pdb (Partial PDB)
+=======
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  TimeFunctions.cpp
+  testEngineInterface.cpp
+C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\6.simplePBDEngine\testEngineInterface.cpp(128,30): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
+C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\6.simplePBDEngine\testEngineInterface.cpp(128,30): warning C4477: 'sprintf_s' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
+C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\6.simplePBDEngine\testEngineInterface.cpp(283,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\6.simplePBDEngine\testEngineInterface.cpp(321,20): warning C4018: '<': signed/unsigned mismatch
+  TimeFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+  Generating code
+  Finished generating code
+  6.simplePBDEngine.vcxproj -> C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\SimpleOpenMPD2.exe
+>>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89

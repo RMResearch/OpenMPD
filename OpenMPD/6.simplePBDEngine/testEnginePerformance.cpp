@@ -69,7 +69,7 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print); 
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, 4, boardIDs, matBoardToWorld, foceSync);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , geometries, 4, boardIDs, matBoardToWorld, foceSync);
 			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly); 
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
 			client((void*)pm);
