@@ -20,6 +20,11 @@ cl_uint topBoard =  2, bottomBoard = 4 ;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
+bool isTopBottom = false; //
+float matBoard1ToWorld[16] = { 1, 0, 0, 0,
+							   0, 1, 0, 0,
+							   0, 0, 1, 0,
+							   0, 0, 0, 1 };
 
 void* client(void* arg);
 
@@ -41,6 +46,7 @@ int main() {
 			// isTopBottom = false (single board mode), isTopBottom = true (double board mode)
 			if (isTopBottom)	// using top-bottom configuration			
 				pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
+		
 			else            // using a single board configuration
 				pm = OpenMPD_CWrapper_StartEngineSingleBoard(curFPS_Divider, geometries, bottomBoard, matBoard1ToWorld, foceSync);
 			

@@ -48,7 +48,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1929EA4B-8984-4D1F-92B3-876191651F05}</ProjectGuid>
     <RootNamespace>OpenGLFrameworkWin32</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>OpenMPD</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -56,7 +56,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -66,7 +66,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)$(Platform)\</OutDir>
     <LinkIncremental>false</LinkIncremental>
     <TargetName>$(ProjectName)</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -94,12 +94,12 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>  XCOPY /F /Y  $(ProjectDir)PBDEngine.cl  $(LIBS_HOME)\bin\$(Platform)\
-  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).dll  $(LIBS_HOME)\bin\$(Platform)\
-  XCOPY /F /Y  $(SolutionDir)$(Platform)\$(ProjectName).lib  $(LIBS_HOME)\lib\$(ProjectName)\
-  XCOPY /F /Y  $(ProjectDir)include\OpenMPD.h  $(LIBS_HOME)\include\$(ProjectName)\
- XCOPY /F /Y  $(ProjectDir)include\OpenMPD_CWrapper.h  $(LIBS_HOME)\include\$(ProjectName)\
-  XCOPY /F /Y  $(ProjectDir)include\OpenMPD_Prerequisites.h  $(LIBS_HOME)\include\$(ProjectName)\</Command>
+      <Command>XCOPY /F /Y  "$(ProjectDir)PBDEngine.cl"  "$(LIBS_HOME)\bin\$(Platform)\"
+XCOPY /F /Y  "$(SolutionDir)$(Platform)\$(ProjectName).dll"  "$(LIBS_HOME)\bin\$(Platform)\"
+XCOPY /F /Y  "$(SolutionDir)$(Platform)\$(ProjectName).lib"  "$(LIBS_HOME)\lib\$(ProjectName)\"
+XCOPY /F /Y  "$(ProjectDir)include\OpenMPD.h"  "$(LIBS_HOME)\include\$(ProjectName)\"
+XCOPY /F /Y  "$(ProjectDir)include\OpenMPD_CWrapper.h"  "$(LIBS_HOME)\include\$(ProjectName)\"
+XCOPY /F /Y  "$(ProjectDir)include\OpenMPD_Prerequisites.h"  "$(LIBS_HOME)\include\$(ProjectName)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
