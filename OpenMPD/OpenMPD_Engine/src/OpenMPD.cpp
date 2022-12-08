@@ -161,8 +161,6 @@ _OPEN_MPD_ENGINE_Export OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uch
 	return &(OpenMPD::OpenMPD_Context::primitiveUpdaterInstance());
 }
 
-<<<<<<< HEAD
-=======
 OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngineSingleBoard(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint boardID, float* matToWorld, bool forceSync) {
 	if (threadEngine_SyncData == NULL) {
 		printError_OpenMPD("OpenMPD is being started without being initialized.\nPlease, call OpenMPD::SetupEngine(<Memory_Size>) before running the engine.");
@@ -248,7 +246,6 @@ OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngineSingleBoard(cl_uchar FPS_Divider
 	return &(OpenMPD::OpenMPD_Context::primitiveUpdaterInstance());
 }
 
->>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89
 
 _OPEN_MPD_ENGINE_Export void OpenMPD::updateBoardSeparation(float distance)
 {

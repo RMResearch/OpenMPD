@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-﻿  GL_VisualRenderer.cpp
-=======
-﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+﻿  GL_Renderer.cpp
+  Compiling...
   GL_VisualRenderer.cpp
->>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89
-  RenderAPI_OpenGLCoreES.cpp
-  RenderAPI.cpp
-  GL_Renderer.cpp
-  gl3w.c
   gl3w.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-<<<<<<< HEAD
      Creating library C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.lib and object C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.exp
   Generating code
   Finished generating code
@@ -28,23 +20,4 @@
   C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\GL_RenderingPlugin\source\Unity\IUnityGraphics.h -> C:\Users\Diego\Desktop\Integrating\0.libraries\include\GL_RenderingPlugin\Unity\IUnityGraphics.h
   1 File(s) copied
   C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\GL_RenderingPlugin\source\Unity\IUnityInterface.h -> C:\Users\Diego\Desktop\Integrating\0.libraries\include\GL_RenderingPlugin\Unity\IUnityInterface.h
-=======
-     Creating library C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.lib and object C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.exp
-  Generating code
-  Finished generating code
-  GL_RenderingPlugin.vcxproj -> C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.dll
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.dll -> C:\Roberto\Coding\UIST\libraries\bin\x64\GL_RenderingPlugin.dll
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.lib -> C:\Roberto\Coding\UIST\libraries\lib\GL_RenderingPlugin\GL_RenderingPlugin.lib
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\GL_RenderingPlugin\source\GL_VisualRenderer.h -> C:\Roberto\Coding\UIST\libraries\include\GL_RenderingPlugin\GL_VisualRenderer.h
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\GL_RenderingPlugin\source\RenderAPI\PlatformBase.h -> C:\Roberto\Coding\UIST\libraries\include\GL_RenderingPlugin\RenderAPI\PlatformBase.h
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\GL_RenderingPlugin\source\RenderAPI\RenderAPI.h -> C:\Roberto\Coding\UIST\libraries\include\GL_RenderingPlugin\RenderAPI\RenderAPI.h
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\GL_RenderingPlugin\source\Unity\IUnityGraphics.h -> C:\Roberto\Coding\UIST\libraries\include\GL_RenderingPlugin\Unity\IUnityGraphics.h
-  1 File(s) copied
-  C:\Roberto\Coding\UCL\OpenMPD\OpenMPD\GL_RenderingPlugin\source\Unity\IUnityInterface.h -> C:\Roberto\Coding\UIST\libraries\include\GL_RenderingPlugin\Unity\IUnityInterface.h
->>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89
   1 File(s) copied

@@ -15,102 +15,21 @@ void print(const char* msg) { printf("%s\n", msg);}
 unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
 cl_uint numPrimitives=2	; 
-cl_uint numBoards=16;
-cl_uint boardIDs[] = { 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8};
-float matBoardToWorld[256] = {/*bottom-left*/
-								1, 0, 0, -0.08f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-left*/
-								-1, 0, 0, -0.08f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-right*/
-								1, 0, 0, 0.08f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-right*/
-								-1, 0, 0, 0.08f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-left*/
-								1, 0, 0, -0.16f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-left*/
-								-1, 0, 0, -0.16f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-right*/
-								1, 0, 0, 0.16f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-right*/
-								-1, 0, 0, 0.16f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-left*/
-								1, 0, 0, -0.08f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-left*/
-								-1, 0, 0, -0.08f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-right*/
-								1, 0, 0, 0.08f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-right*/
-								-1, 0, 0, 0.08f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-left*/
-								1, 0, 0, -0.16f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-left*/
-								-1, 0, 0, -0.16f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-								/*bottom-right*/
-								1, 0, 0, 0.16f,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1,	
-								/*top-right*/
-								-1, 0, 0, 0.16f,
-								0, 1, 0, 0,
-								0, 0,-1, 0.2388f,
-								0, 0, 0, 1,	
-	};
+cl_uint numBoards=2;
+cl_uint topBoard =  2, bottomBoard = 4 ;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
-<<<<<<< HEAD
+
 void* client(void* arg);
-=======
+
 bool isTopBottom = false; //
 float matBoard1ToWorld[16] = { 1, 0, 0, 0,
 							   0, 1, 0, 0,
 							   0, 0, 1, 0,
 							   0, 0, 0, 1 };
 
->>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89
+
 int main() {
 
 	do {
@@ -118,20 +37,14 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print); 
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-<<<<<<< HEAD
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider , geometries, numBoards, boardIDs, matBoardToWorld, foceSync);
-			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly); 
-=======
-			
 			OpenMPD_Context_Handler  pm;
 			// isTopBottom = false (single board mode), isTopBottom = true (double board mode)
 			if (isTopBottom)	// using top-bottom configuration			
-				pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
+				pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
 			else            // using a single board configuration
 				pm = OpenMPD_CWrapper_StartEngineSingleBoard(curFPS_Divider, geometries, bottomBoard, matBoard1ToWorld, foceSync);
 			
 			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly);
->>>>>>> 86b6a178ad1200efbee71af63115e85ae3ee9c89
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
 			client((void*)pm);
 			OpenMPD_CWrapper_StopEngine();
