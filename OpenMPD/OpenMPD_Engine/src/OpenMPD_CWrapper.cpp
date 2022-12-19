@@ -30,11 +30,6 @@ OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngineSingleBoard(cl_uchar FPS_Di
 	return (OpenMPD_Context_Handler)result;
 };
 
-OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngineSingleBoard(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint boardID, float* matToWorld, bool forceSync) {
-	OpenMPD::IPrimitiveUpdater* result = OpenMPD::StartEngineSingleBoard(FPS_Divider, numParallelGeometries, boardID, matToWorld, forceSync);
-	return (OpenMPD_Context_Handler)result;
-};
-
  void OpenMPD_CWrapper_SetupFPS_Divider(unsigned char FPSDivider)
 {
 	return OpenMPD::setupFPS_Divider(FPSDivider);

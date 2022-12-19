@@ -28,12 +28,6 @@ float matBoard1ToWorld[16] = { 1, 0, 0, 0,
 
 void* client(void* arg);
 
-bool isTopBottom = false; //
-float matBoard1ToWorld[16] = { 1, 0, 0, 0,
-							   0, 1, 0, 0,
-							   0, 0, 1, 0,
-							   0, 0, 0, 1 };
-
 
 int main() {
 
