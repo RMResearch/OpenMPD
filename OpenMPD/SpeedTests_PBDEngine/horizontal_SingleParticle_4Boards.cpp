@@ -13,8 +13,29 @@ void print(const char* msg){ printf("%s\n", msg); }
 void* client(void* arg);
 
 unsigned char curFPS_Divider = 4;
-cl_uint top_board = 7, bottom_board = 18;
 cl_uint geometries = 32;
+int boardIDs[] = { 1, 2,3,4 };
+float matBoardToWorld[64] = {   /*bottom-left*/
+								1, 0, 0, -0.08f,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1,	
+								/*top-left*/
+								-1, 0, 0, -0.08f,
+								0, 1, 0, 0,
+								0, 0,-1, 0.2388f,
+								0, 0, 0, 1,	
+								/*bottom-right*/
+								1, 0, 0, 0.08f,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1,	
+								/*top-right*/
+								-1, 0, 0, 0.08f,
+								0, 1, 0, 0,
+								0, 0,-1, 0.2388f,
+								0, 0, 0, 1,	
+};
 bool foceSync = true;
 bool HW_Sync = true;
 
@@ -25,7 +46,8 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, geometries, top_board, bottom_board, foceSync);
+			//OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine(curFPS_Divider, geometries, 4, (cl_uint*)boardIDs, matBoardToWorld, foceSync);
 			OpenMPD_CWrapper_SetupPhaseOnly(true);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);
 			client((void*)pm);

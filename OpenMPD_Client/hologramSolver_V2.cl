@@ -13,12 +13,13 @@ __constant sampler_t sampleDirTexture = CLK_NORMALIZED_COORDS_TRUE |
 CLK_ADDRESS_NONE | CLK_FILTER_NEAREST; 
 
 __kernel void computeFandB(global float4* transducerPositionsWorld,
+	global float4* transducerNormals,
 	global float4* positions,
 	global float4* matrixG0,
 	global float4* matrixGN,
 	int pointsPerGeometry,
 	int numGeometries,
-	image2d_t directivity_cos_alpha,
+	read_only image2d_t directivity_cos_alpha,
 	global float2* pointHologram,
 	global float2* unitaryPointHologram
 ) {
@@ -57,9 +58,10 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 	float4 t_pos = transducerPositionsWorld[t_offset];
 	float4 transducerToPoint = p_pos - t_pos; 
 	float distance = native_sqrt(transducerToPoint.x*transducerToPoint.x + transducerToPoint.y*transducerToPoint.y + transducerToPoint.z*transducerToPoint.z);
-	//This computes cos_alpha ASSUMING transducer normal is (0,0,1); Divide by dist to make unitary vector (normalise). 
-	float cos_alpha = fabs((float)(transducerToPoint.z / distance));
-	
+	//This computes cos_alpha using the transducer normal 
+	float4 t_norm = transducerNormals[t_offset];
+	float cos_alpha = fabs((transducerToPoint.x * t_norm.x + transducerToPoint.y * t_norm.y + transducerToPoint.z * t_norm.z) / distance);
+
 	//DEBUG:
 	//float Re = cos(-K*distance);// distance; //cos(t_offset*PI/(1024));
 	//float Im = sin(-K*distance);// cos_alpha;
@@ -82,8 +84,8 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 	//amplitude2[t_x] = amplitude.x;		  //New version: normalized, but phase-only	
 	barrier(CLK_LOCAL_MEM_FENCE);
 	//a. Reduce (add all elements in hologram)
-	for (int i = CUR_NUM_TRANSDUCERS/2; i > 0; i >>= 1) {
-		if (t_x < i)
+	for (int i = NUM_TRANSDUCERS /2; i > 0; i >>= 1) {
+		if (t_x < i && t_x + i < CUR_NUM_TRANSDUCERS)
 			amplitude2[t_x] += amplitude2[t_x + i];
 		barrier(CLK_LOCAL_MEM_FENCE);
 	}
@@ -184,6 +186,7 @@ __kernel void computeActivation(int numPoints,
 
 	//get indexes:
 	int x = get_global_id(0);
+	int x_local = get_local_id(0);
 	//int y = get_global_id(1);
 	int g = get_global_id(2);
 	//const int hologramHeight = get_global_size(1);
@@ -191,8 +194,8 @@ __kernel void computeActivation(int numPoints,
 	const int hologramSize =get_global_size(0);
 	//Copy points to local array
 	__local float2 _localPoints[MAX_POINTS_PER_GEOMETRY];
-	if (x < numPoints )
-		_localPoints[x] = points_Re_Im[x + g * numPoints];
+	if (x_local < numPoints )
+		_localPoints[x_local] = points_Re_Im[x_local + g * numPoints];
 	barrier(CLK_LOCAL_MEM_FENCE);
 	//Sum all pixels (x,y), applying the phase of each point to each hologram
 	float2 sum_H_x_y = (float2)(0, 0);
@@ -215,7 +218,8 @@ __kernel void computeActivation(int numPoints,
 	//END DEBUG
 	
 	//Write final phases: (TODO: Lev. signature)
-	finalHologram_Phases[x  + g * hologramSize] = (atan2(sum_H_x_y.y, sum_H_x_y.x));
+	float signature = (float)(x < NUM_TRANSDUCERS_PER_GROUP) * PI;
+	finalHologram_Phases[x + g * hologramSize] = (atan2(sum_H_x_y.y, sum_H_x_y.x));// +signature;
 	finalHologram_Amplitudes[x  + g * hologramSize] = amplitudeCapped;
 	
 }
@@ -328,4 +332,90 @@ __kernel void discretiseTopBottom(int numDiscreteLevels,
 	//buffers[topArray][PIN_index + g * hologramSize * 2] = x_global;
 	//buffers[topArray][PIN_index + g*hologramSize * 2 +256] =indexInDataBuffers;
 
+}
+
+
+
+__kernel void computeFandB_Loop(global float4* transducerPositionsWorld,
+	global float4* transducerNormals,
+	global float4* positions,
+	global float4* matrixG0,
+	global float4* matrixGN,
+	int numLoops,
+	int pointsPerGeometry,
+	int numGeometries,
+	read_only image2d_t directivity_cos_alpha,
+	global float2* pointHologram,
+	global float2* unitaryPointHologram
+) {
+	//0. Get indexes:
+	int t_x = get_global_id(0);		//coord x of the transducer		
+	int point_ = get_global_id(2);				//point hologram to create
+	uint offset = numLoops * get_global_size(0) * point_;	//Offset where we write the hologram
+	uint CUR_NUM_TRANSDUCERS = get_global_size(0);
+	//uint matrix_offset = point_;
+
+	//1. Let's work out the matrix we need to apply:
+	int geometry = point_ / pointsPerGeometry;		//Work out cour geometry number
+	int pointNumber = point_ % pointsPerGeometry;
+	float interpolationRatio = (1.0f * geometry) / numGeometries; // (fmax(numGeometries - 1.0f, 1.0f));//Avoid division by zero if numGeometries=1;
+	__local float4 ourMatrix[4];					//Common buffer to store our local transformation matrix (interpolated from extremes)
+	if (t_x < 4) {
+		ourMatrix[t_x] = (1 - interpolationRatio) * matrixG0[pointNumber * 4 + t_x] + (interpolationRatio)*matrixGN[pointNumber * 4 + t_x];
+	}
+	barrier(CLK_LOCAL_MEM_FENCE);
+
+	//STAGE 1: Build point hologram 
+	//A. Get position of point in world coordinates (using the matrix we computed):
+	float4 local_p_pos = positions[point_];					//Local position in the geometry is read from the descriptor
+	float4 p_pos = (float4)(dot(ourMatrix[0], local_p_pos)	//Absolute position computed by multiplying with our matrix.
+		, dot(ourMatrix[1], local_p_pos)
+		, dot(ourMatrix[2], local_p_pos)
+		, dot(ourMatrix[3], local_p_pos));
+	//DEBUG: Debugging behaviour of matrices: It can stay, it does not break anything.
+	//positions[point_] = p_pos;
+	//END DEBUG
+
+	float amplitudeSum = 0;
+	for (int i = 0; i < numLoops; i++) {
+		int t_offset = t_x + i * CUR_NUM_TRANSDUCERS;
+		//B. Get the position of our transducer 
+		float4 t_pos = transducerPositionsWorld[t_offset];
+		float4 transducerToPoint = p_pos - t_pos;
+		float distance = native_sqrt(transducerToPoint.x * transducerToPoint.x + transducerToPoint.y * transducerToPoint.y + transducerToPoint.z * transducerToPoint.z);
+		//This computes cos_alpha ASSUMING transducer normal is (0,0,1); Divide by dist to make unitary vector (normalise). 
+		//float cos_alpha = fabs((float)(transducerToPoint.z / distance));
+		//This computes cos_alpha NOT ASSUMING transducer normal is (0,0,1)
+		float4 t_norm = transducerNormals[t_offset];
+		float cos_alpha = fabs((transducerToPoint.x * t_norm.x + transducerToPoint.y * t_norm.y + transducerToPoint.z * t_norm.z) / distance);
+		//c. Sample 1D texture: 
+		float4 amplitude = read_imagef(directivity_cos_alpha, sampleDirTexture, (float2)(cos_alpha, 0.5f)) / distance;
+		float cos_kd = native_cos(-K * distance);
+		float sin_kd = native_sin(-K * distance);
+		float Re = amplitude.x * native_cos(-K * distance);
+		float Im = amplitude.x * native_sin(-K * distance);
+		//STAGE 2: Building the holograms:
+		//a. compute normal propagator (point hologram):	
+		pointHologram[offset + t_offset] = (float2)(Re, Im);
+
+		//b. compute "normalised" point hologram (reconstruction amplitude exactly = one Pa)
+		amplitudeSum += Re * Re + Im * Im;//Original version (normalized takes directivity into account)
+	}
+
+	__local float amplitude2[NUM_TRANSDUCERS];
+	amplitude2[t_x] = amplitudeSum;
+	barrier(CLK_LOCAL_MEM_FENCE);
+	//a. Reduce (add all elements in hologram)
+	for (int i = NUM_TRANSDUCERS / 2; i > 0; i >>= 1) {
+		if (t_x < i && t_x + i < CUR_NUM_TRANSDUCERS)
+			amplitude2[t_x] += amplitude2[t_x + i];
+		barrier(CLK_LOCAL_MEM_FENCE);
+	}
+	//c. Normalise (divide by sumation of contributions squared... see Long et al) 
+	//Original version (normalized takes directivity into account)
+	for (int i = 0; i < numLoops; i++) {
+		int t_offset = t_x + i * CUR_NUM_TRANSDUCERS;
+		float2 pointHolo = pointHologram[offset + t_offset];
+		unitaryPointHologram[offset + t_offset] = pointHologram[offset + t_offset] / amplitude2[0];		//Re
+	}
 }

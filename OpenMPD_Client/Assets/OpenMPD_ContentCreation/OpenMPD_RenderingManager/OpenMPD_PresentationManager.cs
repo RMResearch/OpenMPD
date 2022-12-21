@@ -147,7 +147,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
             //OpenMPD_Wrapper.OpenMPD_CWrapper_RegisterPrintFuncs(null, null, null);
             OpenMPD_Wrapper.OpenMPD_CWrapper_Initialize();
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupEngine(memorySizeInBytes, GSPAT_Solver_Version, GL_RenderingPlugin.getOpenGLVisualRenderer());
-            primitiveManagerHandler = OpenMPD_Wrapper.OpenMPD_CWrapper_StartEngine(GS_PAT_Divider, numGeometriesInParallel, topBoardID, bottomBoardID, forceSync);
+            primitiveManagerHandler = OpenMPD_Wrapper.OpenMPD_CWrapper_StartEngine_TopBottom(GS_PAT_Divider, numGeometriesInParallel, topBoardID, bottomBoardID, forceSync);
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly);
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupHardwareSync(isHardwareSync);
 

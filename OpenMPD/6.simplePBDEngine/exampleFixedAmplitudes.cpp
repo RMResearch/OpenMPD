@@ -22,7 +22,7 @@ int main() {
 			OpenMPD_CWrapper_Initialize();
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
-			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , 32, 30, 32, true);
+			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , 32, 7, 18, true);
 			OpenMPD_CWrapper_SetupPhaseOnly(false);
 			client((void*)pm);
 			OpenMPD_CWrapper_StopEngine();
@@ -36,7 +36,7 @@ int main() {
 cl_uint pri1, pri2;
 cl_uint pos1, pos2, circle1, circle2;
 cl_uint amp1, amp2;
-cl_uint numSamplesCircle = 10000;// 5 revolutions per second, if we are running at 10KHz (divider 4).
+cl_uint numSamplesCircle = 2000;// 5 revolutions per second, if we are running at 10KHz (divider 4).
 
 void declareContent(OpenMPD_Context_Handler pm);
 void destroyContent(OpenMPD_Context_Handler pm);
@@ -109,17 +109,7 @@ void* client(void* arg) {
 			sprintf_s(logPerformance, "Frames counter (last %f seconds): Actual UPS: %f, Target UPS: %f\n", totalTime, framesCounter, 10000);
 			framesCounter = 0;
 			totalTime = 0;
-		}
-
-		/*DWORD curTime = MicroTimer::uGetTime();
-		static int count = 0;
-		count++;
-		static DWORD prevTime = curTime;
-		if (curTime - prevTime >= 1000000.f) {
-			printf("Count = %d\n", count);
-			prevTime = curTime;
-			count = 0;
-		}*/
+		}		
 		#pragma endregion
 
 		if(_kbhit())

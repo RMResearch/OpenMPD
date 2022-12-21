@@ -52,10 +52,12 @@ public class OpenMPD_Wrapper : MonoBehaviour
 	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]
 	public static extern void OpenMPD_CWrapper_SetupEngine(long memorySizeInBytes, int version, long gl_renderer=0);
 	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]
-	public static extern long OpenMPD_CWrapper_StartEngine(byte FPS_Divider, uint numParallelGeometries, uint topBoardID, uint bottomBoardID, bool forceSync);
+	public static extern long OpenMPD_CWrapper_StartEngine_TopBottom(byte FPS_Divider, uint numParallelGeometries, uint topBoardID, uint bottomBoardID, bool forceSync);
 	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]
-	public static extern long OpenMPD_CWrapper_StartEngineSingleBoard(byte FPS_Divider, uint numParallelGeometries, uint boardID, float[] matToWorld, bool forceSync);
-	
+	public static extern long OpenMPD_CWrapper_StartEngine_SingleBoard(byte FPS_Divider, uint numParallelGeometries, uint boardID, float[] boardLocation, bool forceSync);
+	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]
+	public static extern long OpenMPD_CWrapper_StartEngine(byte FPS_Divider, uint numParallelGeometries, uint numBoards, uint[] boardIDs, float[] boardLocations, bool forceSync);
+
 	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]
 	public static extern void OpenMPD_CWrapper_SetupFPS_Divider(byte FPS_Divider);
 	[DllImport(".\\Assets\\Plugins\\OpenMPD.dll")]

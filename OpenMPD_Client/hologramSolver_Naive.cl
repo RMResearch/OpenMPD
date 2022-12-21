@@ -13,12 +13,13 @@ __constant sampler_t sampleDirTexture = CLK_NORMALIZED_COORDS_TRUE |
 CLK_ADDRESS_NONE | CLK_FILTER_NEAREST; 
 
 __kernel void computeFandB(global float4* transducerPositionsWorld,
+	global float4* transducerNormals,
 	global float4* positions,
 	global float4* matrixG0,
 	global float4* matrixGN,
 	int pointsPerGeometry,
 	int numGeometries,
-	image2d_t directivity_cos_alpha,
+	read_only image2d_t directivity_cos_alpha,
 	global float2* pointHologram,
 	global float2* unitaryPointHologram
 ) {
@@ -57,9 +58,11 @@ __kernel void computeFandB(global float4* transducerPositionsWorld,
 	float4 t_pos = transducerPositionsWorld[t_offset];
 	float4 transducerToPoint = p_pos - t_pos; 
 	float distance = native_sqrt(transducerToPoint.x*transducerToPoint.x + transducerToPoint.y*transducerToPoint.y + transducerToPoint.z*transducerToPoint.z);
-	//This computes cos_alpha ASSUMING transducer normal is (0,0,1); Divide by dist to make unitary vector (normalise). 
-	float cos_alpha = fabs((float)(transducerToPoint.z / distance));
-	
+	////This computes cos_alpha ASSUMING transducer normal is (0,0,1); Divide by dist to make unitary vector (normalise). 
+	//float cos_alpha = fabs((float)(transducerToPoint.z / distance));
+	float4 t_norm = transducerNormals[t_offset];
+	float cos_alpha = fabs((transducerToPoint.x * t_norm.x + transducerToPoint.y * t_norm.y + transducerToPoint.z * t_norm.z) / distance);
+
 	//DEBUG:
 	//float Re = cos(-K*distance);// distance; //cos(t_offset*PI/(1024));
 	//float Im = sin(-K*distance);// cos_alpha;
@@ -127,7 +130,8 @@ __kernel void solvePhases_Naive(
 	float transducerAmplitude = native_sqrt(finalTransducerState.x*finalTransducerState.x + finalTransducerState.y*finalTransducerState.y);
 	finalTransducerState /= transducerAmplitude;
 	finalHologram_ReIm[geometry*NUM_TRANSDUCERS + transducer] = finalTransducerState;
-	finalHologram_Phases[geometry*NUM_TRANSDUCERS + transducer] = (atan2(finalTransducerState.y, finalTransducerState.x));
+	float signature = (float)(transducer < NUM_TRANSDUCERS_PER_GROUP) * PI;
+	finalHologram_Phases[geometry * NUM_TRANSDUCERS + transducer] = (atan2(finalTransducerState.y, finalTransducerState.x));// +signature;
 	finalHologram_Amplitudes[geometry*NUM_TRANSDUCERS + transducer] = 1;
 	
 	//DEBUG:

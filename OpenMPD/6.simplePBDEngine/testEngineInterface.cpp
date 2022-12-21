@@ -16,11 +16,11 @@ unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
 cl_uint numPrimitives=2	; 
 cl_uint numBoards=2;
-cl_uint topBoard =  2, bottomBoard = 4 ;
+cl_uint topBoard =  7, bottomBoard = 18 ;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
-bool isTopBottom = false; //
+bool isTopBottom = true; //
 float matBoard1ToWorld[16] = { 1, 0, 0, 0,
 							   0, 1, 0, 0,
 							   0, 0, 1, 0,
@@ -42,7 +42,7 @@ int main() {
 				pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider, geometries, topBoard, bottomBoard, foceSync);
 		
 			else            // using a single board configuration
-				pm = OpenMPD_CWrapper_StartEngineSingleBoard(curFPS_Divider, geometries, bottomBoard, matBoard1ToWorld, foceSync);
+				pm = OpenMPD_CWrapper_StartEngine_SingleBoard(curFPS_Divider, geometries, bottomBoard, matBoard1ToWorld, foceSync);
 			
 			OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);

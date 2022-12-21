@@ -94,7 +94,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY /F /Y  "$(ProjectDir)PBDEngine.cl"  "$(LIBS_HOME)\bin\$(Platform)\"
+      <Command>XCOPY /F /Y  "$(ProjectDir)OpenMPD.cl"  "$(LIBS_HOME)\bin\$(Platform)\"
 XCOPY /F /Y  "$(SolutionDir)$(Platform)\$(ProjectName).dll"  "$(LIBS_HOME)\bin\$(Platform)\"
 XCOPY /F /Y  "$(SolutionDir)$(Platform)\$(ProjectName).lib"  "$(LIBS_HOME)\lib\$(ProjectName)\"
 XCOPY /F /Y  "$(ProjectDir)include\OpenMPD.h"  "$(LIBS_HOME)\include\$(ProjectName)\"

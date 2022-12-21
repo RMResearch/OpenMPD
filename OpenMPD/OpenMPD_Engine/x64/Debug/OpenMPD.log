@@ -1,1 +1,24 @@
-﻿
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GSPAT_RenderingEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  OpenMPD.cpp
+src\OpenMPD.cpp(107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(112): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(118): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(212): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  OpenCLUtilityFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+     Creating library C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.lib and object C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.exp
+  Generating code
+  Finished generating code
+  OpenMPD.vcxproj -> C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.dll
+  OpenMPD.vcxproj -> C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.pdb (Partial PDB)
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\OpenMPD.cl -> C:\Users\Diego\Desktop\Integrating\0.libraries\bin\x64\OpenMPD.cl
+  1 File(s) copied
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.dll -> C:\Users\Diego\Desktop\Integrating\0.libraries\bin\x64\OpenMPD.dll
+  1 File(s) copied
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.lib -> C:\Users\Diego\Desktop\Integrating\0.libraries\lib\OpenMPD\OpenMPD.lib
+  1 File(s) copied
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> C:\Users\Diego\Desktop\Integrating\0.libraries\include\OpenMPD\OpenMPD.h
+  1 File(s) copied
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> C:\Users\Diego\Desktop\Integrating\0.libraries\include\OpenMPD\OpenMPD_CWrapper.h
+  1 File(s) copied
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> C:\Users\Diego\Desktop\Integrating\0.libraries\include\OpenMPD\OpenMPD_Prerequisites.h
+  1 File(s) copied

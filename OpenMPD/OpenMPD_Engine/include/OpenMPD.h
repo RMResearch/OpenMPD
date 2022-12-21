@@ -53,23 +53,59 @@ namespace OpenMPD {
 	to declare possition/amplitude buffers, primitives, etc.
 	*/
 	_OPEN_MPD_ENGINE_Export void SetupEngine(size_t memorySizeInBytes, GSPAT_SOLVER v, OpenMPD::IVisualRenderer* renderer= 0);
-	/**StartEngine: Configures the required internal structures (GSPAT) and creates the threads required for the engine to run.
+	/**StartEngine_TopBottom: Configures the engine for a top-bottom setup (2 boards, 24 cm appart). 
+	It configures the required internal structures (solvers, drivers) and creates the threads required for the engine to run.
 			- FPSDivider: Determines the rate at which updates are sent to the board (FPS = 40000/FPSDivider).
 			- numParallelGeometries: Number of solutions computed in parallel. Please note that, combined with the above, this determines the number of run cycle of the engine.
 			For instance, if computing 32 geometries in parallel, the engine will need to run at 320 cyples per second to meet 10240 UPS.
-			For a more responsive engine, you can use 16 geometries and the engine will ruan at 640 cycles per second (e.g. good for a fast tracking system).
+			For a more responsive engine, you can use 16 geometries and the engine will run at 640 cycles per second (e.g. good for a fast tracking system).
 			- topBoardID and bottomBoardID: determine the device IDs to be used.
-			- forceSync: Forces the updating thread (e.g. Unity, using the IPrimitiveUpdater) to remain in sync with the wirter thread.
+			- forceSync: Forces the updating thread (e.g. Unity, using the IPrimitiveUpdater) to remain in sync with the writer thread.
 			  Each 'update_HighLevel' called (e.g. Unity) will match a cycle in the writer thread (N geometries sent to GPU).
 	The method returns the IPrimitiveUpdater, which the client can use to control the MPD experience.
 	If the system is already setup and running, it still returns the current active Primitive Manager.
 	If initialization fails, the method will return NULL.
 	*/
 	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine_TopBottom(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync = true);
+	/**StartEngine_SingleBoard: Configures the engione for a single board use (e.g., haptics, levitation, if reflectors and BEM/TS solvers are used).
+	It configures internal structures (solvers, drivers) and creates the threads required for the engine to run.
+			- FPSDivider: Determines the rate at which updates are sent to the board (FPS = 40000/FPSDivider).
+			- numParallelGeometries: Number of solutions computed in parallel. Please note that, combined with the above, this determines the number of run cycle of the engine.
+			For instance, if computing 32 geometries in parallel, the engine will need to run at 320 cyples per second to meet 10240 UPS.
+			For a more responsive engine, you can use 16 geometries and the engine will ruan at 640 cycles per second (e.g. good for a fast tracking system).
+			- boardID: determine the device ID to be used.
+			- matToWorld: Defines the location of the board, relative to the levitator origin.
+			- forceSync: Forces the updating thread (e.g. Unity, using the IPrimitiveUpdater) to remain in sync with the writer thread.
+			  Each 'update_HighLevel' called (e.g. Unity) will match a cycle in the writer thread (N geometries sent to GPU).
+	The method returns the IPrimitiveUpdater, which the client can use to control the MPD experience.
+	If the system is already setup and running, it still returns the current active Primitive Manager.
+	If initialization fails, the method will return NULL.
+	*/
+	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine_SingleBoard(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint boardID, float* matToWorld, bool forceSync = true);
+
+	/**StartEngine: Configures an arbitrary setup, with any number of boards and locations.
+	It configures the required internal structures (solvers, driver) and creates the threads required for the engine to run.
+			- FPSDivider: Determines the rate at which updates are sent to the board (FPS = 40000/FPSDivider).
+			- numParallelGeometries: Number of solutions computed in parallel. Please note that, combined with the above, this determines the number of run cycle of the engine.
+			For instance, if computing 32 geometries in parallel, the engine will need to run at 320 cyples per second to meet 10240 UPS.
+			For a more responsive engine, you can use 16 geometries and the engine will ruan at 640 cycles per second (e.g. good for a fast tracking system).
+			- boardIDs: determine the device IDs to be used.
+			- boardLocationsM4x4: location of each board, relative to the levitator origin.
+			- forceSync: Forces the updating thread (e.g. Unity, using the IPrimitiveUpdater) to remain in sync with the wirter thread.
+			  Each 'update_HighLevel' called (e.g. Unity) will match a cycle in the writer thread (N geometries sent to GPU).
+	The method returns the IPrimitiveUpdater, which the client can use to control the MPD experience.
+	If the system is already setup and running, it still returns the current active Primitive Manager.
+	If initialization fails, the method will return NULL.
+	*/
 	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngine(cl_uchar FPSDivider, cl_uint numParallelGeometries, cl_uint numBoards, cl_uint* boardIDs, float* boardLocationsM4x4, bool forceSync = true);
-	_OPEN_MPD_ENGINE_Export IPrimitiveUpdater* StartEngineSingleBoard(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint boardID, float* matToWorld, bool forceSync = true);
+	
+	/** updateBoardSeparation: Modifies the separation between the 2 boards of a top-bottom setup. The method will fail unless a setup with 2 arrays is being used. 
+	*/	
 	_OPEN_MPD_ENGINE_Export void updateBoardSeparation(float distance);
 
+	/** updateBoardLocation: Modifies the location of each of the boards in the setup. The client must provide one matrix for each board (this is not checked and the method will fail). 
+	*/
+	_OPEN_MPD_ENGINE_Export void updateBoardLocations(float* boardsToLevitatorOrigi);
 	/**	setupFPS_Divider: Adjusts the global rendering speed of the engine, by setting a "divider".
 		Dividers are used to ensure hardware controlled framerates, using 40KHz as the base frequency:
 				- Divider 1--> Update boards at 40KHz

@@ -179,7 +179,7 @@ __kernel void fillDataFromPrimitives2(struct PrimitiveTargets targets,
 }
 
 __kernel void fillDataFromPrimitives3(struct PrimitiveTargets targets,
-									 struct Primitive primitives[32],
+									 __local struct Primitive primitives[32],
 									 global struct BufferDescriptor* buffers,
 									 global float* memory,
 									 global float4* positions,
