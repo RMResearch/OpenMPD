@@ -117,6 +117,17 @@ _OPEN_MPD_ENGINE_Export OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uch
 			threadEngine_SyncData->solver = GSPAT_IBP::createSolver(threadEngine_SyncData->driver->totalTransducers());
 			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 1 (IBP - GSPAT_SolverIBP.dll)");
 			break;
+		case GSPAT_SOLVER::BEM:
+			GSPAT_BEM::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);
+			threadEngine_SyncData->solver = GSPAT_BEM::createSolver(threadEngine_SyncData->driver->totalTransducers());
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 1 (IBP - GSPAT_SolverIBP.dll)");
+			break;
+		case GSPAT_SOLVER::TS:
+			GSPAT_TS::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);
+			threadEngine_SyncData->solver = GSPAT_TS::createSolver(threadEngine_SyncData->driver->totalTransducers());
+			OpenMPD::printMessage_OpenMPD("OpenMPD::StartEngine:: Engine setup with GSPAT Version 1 (IBP - GSPAT_SolverIBP.dll)");
+			break;
+
 		case GSPAT_SOLVER::NAIVE:
 		default:
 			GSPAT_Naive::RegisterPrintFuncs(printMessage_OpenMPD, printMessage_OpenMPD, printMessage_OpenMPD);

@@ -7,8 +7,10 @@
   OpenMPD.cpp
 src\OpenMPD.cpp(112): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 src\OpenMPD.cpp(117): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-src\OpenMPD.cpp(123): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-src\OpenMPD.cpp(218): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(127): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(134): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+src\OpenMPD.cpp(229): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   EngineWriterThread.cpp
 src\EngineWriterThread.cpp(99): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   EngineReaderThread.cpp

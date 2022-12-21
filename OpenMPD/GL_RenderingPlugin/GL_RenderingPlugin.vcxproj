@@ -77,7 +77,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(ProjectDir)/source/;$(CUDA_PATH)\include;$(SolutionDir)OpenMPD_Engine\include;$(SolutionDir);$(LIBS_HOME)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/source/;$(CUDA_PATH)\include;$(SolutionDir)OpenMPD_Engine\include;$(SolutionDir);$(LIBS_HOME)\include;$(LIBS_HOME)\include\GS_PAT</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointModel>Fast</FloatingPointModel>
       <CompileAs>CompileAsCpp</CompileAs>

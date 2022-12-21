@@ -38,13 +38,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="horizontal_SingleParticle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="vertical_2Particles.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="vertical_SingleParticle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(LIBS_HOME)\include;$(LIBS_HOME)\include\AsierInho;$(LIBS_HOME)\include\GSPAT_SolverV2;$(LIBS_HOME)\include\OpenMPD;$(CUDA_PATH)\include;$(LIBS_HOME)\include\fftw335_64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(LIBS_HOME)\include;$(LIBS_HOME)\include\AsierInho;$(LIBS_HOME)\include\GS_PAT;$(LIBS_HOME)\include\GSPAT_SolverBEM;$(LIBS_HOME)\include\OpenMPD;$(CUDA_PATH)\include;$(LIBS_HOME)\include\fftw335_64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_STRUCT_TIMESPEC;WIN32;_WINDOWS;_PLAY_WITH_OPENCV;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

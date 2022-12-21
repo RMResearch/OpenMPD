@@ -52,7 +52,7 @@ namespace OpenMPD {
 	This IPrimitiveUpdater will be common in all subsequent calls to RunEngine and can be used even while the engine is not running
 	to declare possition/amplitude buffers, primitives, etc.
 	*/
-	_OPEN_MPD_ENGINE_Export void SetupEngine(size_t memorySizeInBytes, GSPAT_SOLVER v ,OpenMPD::IVisualRenderer* renderer= 0, int numSolverConfigParam = 0, GSPAT::Solver::ConfigParameter configParameters[] = NULL);
+	_OPEN_MPD_ENGINE_Export void SetupEngine(size_t memorySizeInBytes, GSPAT_SOLVER v ,OpenMPD::IVisualRenderer* renderer= 0, int numSolverConfigParam = 0, GSPAT::Solver::ConfigParameter* configParameters = NULL);
 	/**StartEngine_TopBottom: Configures the engine for a top-bottom setup (2 boards, 24 cm appart). 
 	It configures the required internal structures (solvers, drivers) and creates the threads required for the engine to run.
 			- FPSDivider: Determines the rate at which updates are sent to the board (FPS = 40000/FPSDivider).

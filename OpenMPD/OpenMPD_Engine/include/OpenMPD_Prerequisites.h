@@ -33,7 +33,7 @@
 #define _OPEN_MPD_ENGINE_BASIC_TYPES
 
 namespace OpenMPD {
-	enum GSPAT_SOLVER {NAIVE, IBP, V2, V3, V4 };
+	enum GSPAT_SOLVER {NAIVE, IBP, V2, V3, V4, BEM, TS };
 	
 	/**Only up to MAX_PRIMITIVES can be defined in the system simultaneously*/
 	static const cl_uint MAX_PRIMITIVES = 32;
