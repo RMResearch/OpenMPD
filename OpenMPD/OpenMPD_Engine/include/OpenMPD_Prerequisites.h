@@ -7,7 +7,7 @@
 
 #define _OPEN_MPD_ENGINE_VERSION    ((_OPEN_MPD_ENGINE_VERSION_MAJOR << 16) | (_OPEN_MPD_ENGINE_VERSION_MINOR << 8) | _OPEN_MPD_ENGINE_VERSION_PATCH)
 #include <CL/opencl.h>
-
+#include <GSPAT_Solver.h>
 #if defined( PBD_ENGINE_NONCLIENT_BUILD )
 #    define _OPEN_MPD_ENGINE_Export __declspec( dllexport )
 #else
@@ -34,6 +34,7 @@
 
 namespace OpenMPD {
 	enum GSPAT_SOLVER {NAIVE, IBP, V2, V3, V4 };
+	
 	/**Only up to MAX_PRIMITIVES can be defined in the system simultaneously*/
 	static const cl_uint MAX_PRIMITIVES = 32;
 	/**Only up to MAX_BUFFERS can be defined in the system (Amplitude/Positions descriptors)*/

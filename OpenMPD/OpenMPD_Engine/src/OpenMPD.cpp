@@ -14,6 +14,8 @@ ForceUPS_Sync* syncWithExternalThread = NULL;
 //Parameters set during call to setup (not used until Start is called)
 OpenMPD::GSPAT_SOLVER version = OpenMPD::GSPAT_SOLVER::NAIVE ;
 size_t _memorySizeInBytes;
+int numSolverConfigParam = 0;
+GSPAT::Solver::ConfigParameter* configParameters;
 
 void OpenMPD::printMessage_OpenMPD(const char* str) {
 	void(*aux)(const char*) = _printMessage_OpenMPD;//Atomic read (avoid thread sync issues)
@@ -43,7 +45,7 @@ bool OpenMPD::Initialize() {
 	return true;
 }
 
-void OpenMPD::SetupEngine(size_t memorySizeInBytes, OpenMPD::GSPAT_SOLVER v, OpenMPD::IVisualRenderer* renderer){
+void OpenMPD::SetupEngine(size_t memorySizeInBytes, OpenMPD::GSPAT_SOLVER v,OpenMPD::IVisualRenderer* renderer, int numConfigParam , GSPAT::Solver::ConfigParameter* configParam ){
 	//0. Check if this step was already run:
 	if (threadEngine_SyncData != NULL) {
 		printWarning_OpenMPD("OpenMPD was already setup. Command ignored. \n If you want to redefine the memory size used, you need to completeley destroy (Stop, Release) the engine first.");	
@@ -58,7 +60,10 @@ void OpenMPD::SetupEngine(size_t memorySizeInBytes, OpenMPD::GSPAT_SOLVER v, Ope
 		threadEngine_SyncData->renderer = renderer;
 		version = v; 
 		_memorySizeInBytes = memorySizeInBytes;		
-	}	
+	}
+	//2. Save config parameters
+	numSolverConfigParam = numConfigParam;
+	configParameters = configParam;
 }
 
 OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine_TopBottom( cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
@@ -128,6 +133,7 @@ _OPEN_MPD_ENGINE_Export OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine( cl_uch
 		int* mappings= new int[threadEngine_SyncData->driver->totalTransducers()], *phaseDelays=new int[threadEngine_SyncData->driver->totalTransducers()], numDiscreteLevels;
 		threadEngine_SyncData->driver->readParameters(transducerPositions, transducerNormals, mappings, phaseDelays, amplitudeAdjust, &numDiscreteLevels);
 		threadEngine_SyncData->solver->setBoardConfig(transducerPositions, transducerNormals, mappings, phaseDelays, amplitudeAdjust, numDiscreteLevels);
+		threadEngine_SyncData->solver->setConfigParameters(numSolverConfigParam, configParameters);
 	}
 	//2. Setup and run working threads: 
 	{

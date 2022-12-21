@@ -12,7 +12,7 @@
 }
  
 void OpenMPD_CWrapper_SetupEngine(size_t memorySizeInBytes, int gspat_version, OpenMPD_Pointer_Handler visualRenderer) {
-	OpenMPD::SetupEngine(memorySizeInBytes, (OpenMPD::GSPAT_SOLVER)gspat_version, (OpenMPD::IVisualRenderer*)visualRenderer);
+	OpenMPD::SetupEngine(memorySizeInBytes, (OpenMPD::GSPAT_SOLVER)gspat_version,  (OpenMPD::IVisualRenderer*)visualRenderer,0, NULL);
 }
 
 OpenMPD_Context_Handler  OpenMPD_CWrapper_StartEngine_TopBottom(cl_uchar FPS_Divider, cl_uint numParallelGeometries, cl_uint topBoardID, cl_uint bottomBoardID, bool forceSync) {
