@@ -4,7 +4,7 @@
 #include <conio.h>
 #include <GenerateTestPaths.h>
 #include <Windows.h>
-#include <GSPAT_SolverBEM.h>
+//#include <GSPAT_SolverBEM.h>
 void print(const char* msg){ printf("%s\n", msg); }
 void* client(void* arg);
 
@@ -27,13 +27,14 @@ int main() {
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			//Configure your solver: 
 			GSPAT::Solver::ConfigParameter config[7];
-			config[0] = GSPAT::Solver::ConfigParameter{ GSPAT_BEM::NUM_POINTS_PER_TRAP, (void*)2};
+			/*config[0] = GSPAT::Solver::ConfigParameter{GSPAT_BEM::NUM_POINTS_PER_TRAP, (void*)2};
 			config[1] = GSPAT::Solver::ConfigParameter{ GSPAT_BEM::NUM_ITERATIONS, (void*)100};
 			if (setReflector) {
 				config[2] = GSPAT::Solver::ConfigParameter{ GSPAT_BEM::REFLECTOR_FILE, (void*)fileName};				
 			}
 			//Use it to setup OpenMPD:
-			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::TS, NULL, 2+ setReflector, config);
+			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::TS, NULL, 2+ setReflector, config);*/
+			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::NAIVE, NULL, 2 + setReflector, config); 
 			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , geometries, topBoard, bottomBoard, forceSync);
 			OpenMPD_CWrapper_SetupPhaseOnly(PhaseOnly);
 			OpenMPD_CWrapper_SetupHardwareSync(HW_Sync);

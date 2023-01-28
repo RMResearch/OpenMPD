@@ -3,8 +3,10 @@
 #include <GSPAT_SolverNaive.h>
 #include <GSPAT_SolverIBP.h>
 #include <GSPAT_SolverV2.h>
+#if _ADVANCED_SOLVERS
 #include <GSPAT_SolverBEM.h>
 #include <GSPAT_SolverTS.h>
+#endif 
 #include <AsierInho_V2.h>
 #include <OpenCLSolverImpl_Interoperability.h>
 #include <pthread.h>

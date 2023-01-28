@@ -48,7 +48,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1929EA4B-8984-4D1F-92B3-876191651F05}</ProjectGuid>
     <RootNamespace>OpenGLFrameworkWin32</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>OpenMPD</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -56,7 +56,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -89,7 +89,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(LIBS_HOME)\lib;$(CUDA_PATH)\lib\x64;$(LIBS_HOME)\lib\AsierInho_V2;$(LIBS_HOME)\lib\GSPAT_SolverNaive;$(LIBS_HOME)\lib\GSPAT_SolverIBP;$(LIBS_HOME)\lib\GSPAT_SolverV2;$(LIBS_HOME)\lib\GSPAT_SolverBEM;$(LIBS_HOME)\lib\GSPAT_SolverTS;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AsierInho_V2.lib;GSPAT_SolverNaive.lib;GSPAT_SolverIBP.lib;GSPAT_SolverV2.lib;GSPAT_SolverBEM.lib;GSPAT_SolverTS.lib;OpenCL.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>AsierInho_V2.lib;GSPAT_SolverNaive.lib;GSPAT_SolverIBP.lib;GSPAT_SolverV2.lib;OpenCL.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
       <SubSystem>Console</SubSystem>
     </Link>
