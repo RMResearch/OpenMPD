@@ -51,9 +51,9 @@ public class Positions_Descriptor
      This method returns a position from the position descriptor, to update the visual representation in Unity. 
     Please not this is just for reference and is not synchronised with the actual particl ein the device (the OpenGL Rendering Manager does that).
      */
-    public Vector3 getCurrentSimulatedPosition() {
+    public Vector3 getCurrentSimulatedPosition(int visualUpdateSpeed) {
         Vector3 result = new Vector3(positions[4 * curPosition + 0], positions[4 * curPosition + 1], positions[4 * curPosition + 2]);
-        curPosition = (curPosition + 1) % (positions.Length/4);
+        curPosition = (curPosition + visualUpdateSpeed) % (positions.Length/4);
         return result;
     }
     //These methods must only be invoked by PDB_Descriptors_Manager (but C sharp does not support "friend"). 

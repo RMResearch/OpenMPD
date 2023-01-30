@@ -9,18 +9,16 @@ public class Primitive : MonoBehaviour
     //Matrix update controls (currently specified by user, they could be obtained from OpenMPD_PresentationManager)
     public float maxStepInMeters = 0.00025f;
     public float maxRotInDegrees = 1.0f;
+    public int visualUpdateSpeed = 32;
 
     //Matrices are made relative to the location/alignment of the Levitator 
     Transform levitatorOrigin = null;
     protected Matrix4x4 prevMatrix, curMatrix;
     protected bool PBD_Status;
-    //[HideInInspector] public Quaternion Rotation;
-    //[HideInInspector] public Vector3 Position;
 
-    // this deals witht eh difference between coordinate systems
-    
-    Matrix4x4 OriginWorldToLocal = new Matrix4x4();
-    public bool invertZ = false;
+    // this deals with the difference between coordinate systems (Unity to Levitator)     
+    Matrix4x4 WorldToLevitator = new Matrix4x4();
+
 
     public uint GetPrimitiveID() {
         return primitiveID;
@@ -82,8 +80,8 @@ public class Primitive : MonoBehaviour
             ConfigureDescriptors();
             //Initialize:                        
             Matrix4x4 primLocalMat = transform.localToWorldMatrix;
-            OriginWorldToLocal = levitatorOrigin.worldToLocalMatrix;
-            curMatrix = OriginWorldToLocal * primLocalMat;
+            WorldToLevitator = levitatorOrigin.worldToLocalMatrix;
+            curMatrix = WorldToLevitator * primLocalMat;
 
             if (this.enabled)
                 OnEnable();
@@ -114,7 +112,7 @@ public class Primitive : MonoBehaviour
                                                                 // transform.localRotation = ExtractRotationFromMatrix(ref targetPos_parent);
 
         //2. Update interpolation matrices we use:
-        prevMatrix = curMatrix = OriginWorldToLocal * targetPos_world;
+        prevMatrix = curMatrix = WorldToLevitator * targetPos_world;
     }
     /**
      * Update is called once per Unity frame. It updates the matrix (pos/orient) of contents, 
@@ -130,12 +128,10 @@ public class Primitive : MonoBehaviour
             //1. Update the actual primitive (device)
             //Update matrices, keeping the (angle, distance) contraints specified. 
             prevMatrix = curMatrix;
-
             // get the particles position relative to the levitatorOrigin
             Matrix4x4 primLocalMat = transform.localToWorldMatrix;
-            //getAdjustedMatrix(ref primLocalMat);
             // get the transformation matrix to go from the primitive to the levitator origin M_from-prim_to-ori 
-            Matrix4x4 target_M_LocalToLevitator = OriginWorldToLocal * primLocalMat;
+            Matrix4x4 target_M_LocalToLevitator = WorldToLevitator * primLocalMat;
 
 
             // get rotations
@@ -145,46 +141,29 @@ public class Primitive : MonoBehaviour
             // get positions
             Vector4 prevPos = GetPosition(prevMatrix);
             Vector4 targetPos = GetPosition(target_M_LocalToLevitator);
-
-            if (invertZ)
-                FromRightToLeftCoord(ref targetPos, ref targetRot);
-
-
             curMatrix = BuildMatrix(InterpolateOrientationCapped(prevRot, targetRot, this.maxRotInDegrees)
                       , InterpolatePositionCapped(prevPos, targetPos, this.maxStepInMeters));
 
             //2. Update the bead we use to represent the primitive with its (simulated) current position:
-            this.gameObject.transform.GetChild(0).localPosition = OpenMPD_ContextManager.Instance().GetPositionsDescriptor(this.primitiveID).getCurrentSimulatedPosition();
-
+            Vector3 curPosition = OpenMPD_ContextManager.Instance().GetPositionsDescriptor(this.primitiveID).getCurrentSimulatedPosition(visualUpdateSpeed);
+            curPosition.y *= -1;//(See (1) below)
+            this.gameObject.transform.GetChild(0).localPosition = curPosition;
         }
+        /** (1) This Y inversion is nasty, but its a simple way of fixing a hard problem: 
+         *  -  The levitator operates on a right-hand system of reference, and Unity operates in a left-handed one. The node LevitatorOrigin applies that transfiormation. 
+         *  -  The physical bead position is computed by multiplying descriptors position by their matrices, making them relative to the levitator (origin, Right handed)
+         *  -  The "simulated" bead position is also computed by multiplying descriptors by their parents' matrices. However, they are made relative to the camera. 
+         *     Thus, the left to right hand transformation in LevitatorOrigin is never applied. 
+         *  With this, we define the descriptor in "left-handed" space. Once we multiply by the parents' matrices, it all stays nice and left-handy as Unity likes it. 
+         *  There would be other solutions, but they were disregarded.
+         *     - Force all primitives to be children of LevitatorOrigin (i.e., LevitatorOrigin becomes the "root"). This solves the probolem, but is restrictive. It might cause integration isues with other systems (VR, tracking, etc). 
+         *     - Make OpenMPD left handed. Nope. Over my dead body. Right handed is the way to go, I do not care what Unity says (OpenMPD's developer opinion here). 
+         *     - Juggle with two definitions. Once we create a descriptor, we could chaini all the transformations (descriptor -> world ->levitatorOrigin) and take it back to the primitive (having applied left-2-right transformation once). 
+         *       This is just silly and we end up with redundant definitions, just to rendeer a visual aid... Not worth it.          
+         */
     }
 
-    //Inverts z axis to transform from right hand to left hand coordinate system(position and rotation)
-    void FromRightToLeftCoord(ref Vector4 pos, ref Quaternion rot)
-    {
-        pos.y *= -1;
-        rot.Set(rot.x, -rot.y, rot.z, -rot.w);
-    }
-    //void FromRightToLeftCoord(ref Vector4 pos, ref Quaternion rot)
-    //{
-    //    pos = new Vector4(pos.x, pos.z, pos.y, pos.w);
-    //    //rot.Set(-rot.x, -rot.z, -rot.y, rot.w);
-    //    rot.Set(-rot.x, -rot.y, rot.z, rot.w);
-    //}
-    void FromRigthToLeftCoord(ref Matrix4x4 matrix)
-    {
-        /* invert z tranlation and rotation
-         [ M00,  M01, -M02,  M03]
-         [ M10,  M11, -M12,  M13]
-         [-M20, -M21,  M22, -M23]
-         [ M30,  M31,  M32,  M33]
-         */
-        matrix.m02 *= -1;
-        matrix.m12 *= -1;
-        matrix.m20 *= -1;
-        matrix.m21 *= -1;
-        matrix.m23 *= -1;
-    }
+ 
 
     /**
         Declares the Primitive as enabled, but changes will not take place until "Commit" is called.
