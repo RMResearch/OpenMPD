@@ -127,6 +127,7 @@ public class Primitive : MonoBehaviour
             Setup();
         else
         {
+            //1. Update the actual primitive (device)
             //Update matrices, keeping the (angle, distance) contraints specified. 
             prevMatrix = curMatrix;
 
@@ -152,8 +153,9 @@ public class Primitive : MonoBehaviour
             curMatrix = BuildMatrix(InterpolateOrientationCapped(prevRot, targetRot, this.maxRotInDegrees)
                       , InterpolatePositionCapped(prevPos, targetPos, this.maxStepInMeters));
 
-            //Rotation = this.transform.rotation;
-            //Position = this.transform.position;
+            //2. Update the bead we use to represent the primitive with its (simulated) current position:
+            this.gameObject.transform.GetChild(0).localPosition = OpenMPD_ContextManager.Instance().GetPositionsDescriptor(this.primitiveID).getCurrentSimulatedPosition();
+
         }
     }
 
@@ -198,7 +200,10 @@ public class Primitive : MonoBehaviour
 
         }
     }
-
+    /**
+        Declares the Primitive as disabled, but changes will not take place until "Commit" is called.
+        This allows clients to "group" a set of changes (e.g. for continuity of trap positions, etc).
+    */
     private void OnDisable()
     {
         if (AllSetup())

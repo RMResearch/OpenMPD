@@ -18,7 +18,7 @@ public enum UpdateRateDivider
 public class OpenMPD_PresentationManager : MonoBehaviour
 {
     [Separator("Board connection parameters (IDs):")]    
-    public uint topBoardID = 6;
+    public uint topBoardID = 6; //ID for top board. Set to 0, if only one board used.
     public uint bottomBoardID = 3;       
     public SolverType solver = SolverType.GSPAT;
     [ReadOnly] public int GSPAT_Solver_Version = 0;
@@ -135,6 +135,12 @@ public class OpenMPD_PresentationManager : MonoBehaviour
 
     void SetupEngine()
     {
+        if (topBoardID == 0 && bottomBoardID == 0)
+        {
+            Debug.LogError("Incorrect board IDs (zero). Provide valid IDs. If the device is not connected, simultation will still run. ");
+            return;
+        }
+
         if (!IsRunning())
         {
             //1. Check if there is a GL_Pluing enabled attache to the levitator and it is ready.
@@ -147,7 +153,13 @@ public class OpenMPD_PresentationManager : MonoBehaviour
             //OpenMPD_Wrapper.OpenMPD_CWrapper_RegisterPrintFuncs(null, null, null);
             OpenMPD_Wrapper.OpenMPD_CWrapper_Initialize();
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupEngine(memorySizeInBytes, GSPAT_Solver_Version, GL_RenderingPlugin.getOpenGLVisualRenderer());
-            primitiveManagerHandler = OpenMPD_Wrapper.OpenMPD_CWrapper_StartEngine_TopBottom(GS_PAT_Divider, numGeometriesInParallel, topBoardID, bottomBoardID, forceSync);
+            if (topBoardID == 0)
+            {
+                float[] boardLocation = new float[16] { 1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1 };                
+                primitiveManagerHandler = OpenMPD_Wrapper.OpenMPD_CWrapper_StartEngine_SingleBoard(GS_PAT_Divider, numGeometriesInParallel, bottomBoardID, boardLocation, forceSync);
+            }
+            else
+                primitiveManagerHandler = OpenMPD_Wrapper.OpenMPD_CWrapper_StartEngine_TopBottom(GS_PAT_Divider, numGeometriesInParallel, topBoardID, bottomBoardID, forceSync);
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupPhaseOnly(phaseOnly);
             OpenMPD_Wrapper.OpenMPD_CWrapper_SetupHardwareSync(isHardwareSync);
 
@@ -202,10 +214,10 @@ public class OpenMPD_PresentationManager : MonoBehaviour
                 GS_PAT_Divider = 3;
                 break;
             case UpdateRateDivider.by4://10khz
+            default:
                 GS_PAT_Divider = 4;
                 break;
-            default:
-                break;
+            
         }
     }
 

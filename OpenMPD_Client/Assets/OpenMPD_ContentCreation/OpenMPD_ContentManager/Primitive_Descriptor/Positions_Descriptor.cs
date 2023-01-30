@@ -9,6 +9,7 @@ public class Positions_Descriptor
     protected int referenceCounter;
     //Variables describing positions (contiguous positions, in homogeneous coordinates (x,y,z,1)). 
     public float[] positions;
+    private int curPosition;
        
     protected uint DeclareDescriptor()
     {        
@@ -16,9 +17,9 @@ public class Positions_Descriptor
         return OpenMPD_ContextManager .Instance().DeclareDescriptor(this);        
     }
     public Positions_Descriptor(float[] positionsInHomogCoords){
-        //this.positions = positionsInHomogCoords;
-        this.positions = (float[])positionsInHomogCoords.Clone();//Should I use a deep copy? 
+        this.positions = (float[])positionsInHomogCoords.Clone();
         positionsDescriptorID = DeclareDescriptor();
+        curPosition=0;
     }
     public Positions_Descriptor(Vector4[] positions) 
     {
@@ -43,7 +44,18 @@ public class Positions_Descriptor
         }
         positionsDescriptorID = DeclareDescriptor();
     }
-        
+
+    //Just to visualise the current position of the particle:
+    
+    /**
+     This method returns a position from the position descriptor, to update the visual representation in Unity. 
+    Please not this is just for reference and is not synchronised with the actual particl ein the device (the OpenGL Rendering Manager does that).
+     */
+    public Vector3 getCurrentSimulatedPosition() {
+        Vector3 result = new Vector3(positions[4 * curPosition + 0], positions[4 * curPosition + 1], positions[4 * curPosition + 2]);
+        curPosition = (curPosition + 1) % (positions.Length/4);
+        return result;
+    }
     //These methods must only be invoked by PDB_Descriptors_Manager (but C sharp does not support "friend"). 
     public void AddReference()
     {
