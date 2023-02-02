@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="clientPrograms\Applications\AsierInho_Examples\simpleTrap.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\ButterflyUIST.cpp" />
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\BeadDetector.cpp" />
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropDescriptor.cpp" />
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropRecognizerDynamic.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\AudioFile.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\AudioProcessing.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\DisplayContent.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\LeapAnimation.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\LeapWrapper_Wand.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MATD\MATDAnimation.cpp" />
+    <ClCompile Include="clientPrograms\Applications\MidAirScreen2.cpp" />
+    <ClCompile Include="clientPrograms\CalibrationMain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\0.testGorKov.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\1.mainEvaluateFixedA.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\2.mainEvaluateVariableA.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\3.mainStiffnessA2Correlation.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\4.processFilesRepeatedMeasuresANOVA.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure2a.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure2b.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure3c.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\GSPAT_Wrapper.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverAsier.cpp" />
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverBen255.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverNaive.cpp" />
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverOurs.cpp" />
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\IHologramSolver.cpp" />
+    <ClCompile Include="clientPrograms\LeviProp-MATDMain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainCalibration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainGetProjectionMatrix.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_AudioTestPiano.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_AudioTestPianoRotation.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Circle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Square.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Star.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Triangle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_LevitationExample.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_ButterflieChirp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Butterflies.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Circles.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Smiley.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_SmileyProjection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_SmileyProjection2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\MATDAnimationMain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\OptiTrack\OptiTrack.cpp" />
+    <ClCompile Include="clientPrograms\ProjectionMapping\ProjectionMapping.cpp" />
+    <ClCompile Include="clientPrograms\ProjectionMapping\WindowRenderer.cpp" />
+    <ClCompile Include="Helper\GorKovComputation.cpp" />
+    <ClCompile Include="Helper\TimeFunctions.cpp" />
+    <ClCompile Include="Helper\VisualizePlane.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\AnimationVisitor.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\Aux_Remove.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\InputOutputRangeMapper.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\Interpolation.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\FPS_Controller\FPS_Controller.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionVisitor.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\ClickSelect.cpp" />
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickVisitor.cpp" />
+    <ClCompile Include="OpenGLFramework\3DUI_Utils\3DUI_Utils.cpp" />
+    <ClCompile Include="OpenGLFramework\common\MtlFileParser.cpp" />
+    <ClCompile Include="OpenGLFramework\common\NatNetUtils\NATUtils.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\ObjFileParser.cpp" />
+    <ClCompile Include="OpenGLFramework\common\objloader.cpp" />
+    <ClCompile Include="OpenGLFramework\common\OculusDistortion.cpp" />
+    <ClCompile Include="OpenGLFramework\common\OculusPrerequisites.cpp" />
+    <ClCompile Include="OpenGLFramework\common\OculusUtils.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\quaternion_utils.cpp" />
+    <ClCompile Include="OpenGLFramework\common\ShaderManager.cpp" />
+    <ClCompile Include="OpenGLFramework\common\tangentspace.cpp" />
+    <ClCompile Include="OpenGLFramework\common\text2D.cpp" />
+    <ClCompile Include="OpenGLFramework\common\texture.cpp" />
+    <ClCompile Include="OpenGLFramework\common\vboindexer.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\IComponent.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\ISceneVisitor.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\DirectionalLightOBJMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\PerVertexColourMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\PhongShadingOBJMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\RenderableVisitor\RenderableVisitor.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\SingleColourMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\TexturedManualMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\TexturedOBJMesh_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\UnitPolygonTextured_Renderable.cpp" />
+    <ClCompile Include="OpenGLFramework\external\VrpnInput.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\FBO\DefaultRenderBufferObject.cpp" />
+    <ClCompile Include="OpenGLFramework\FBO\RenderBuffer.cpp" />
+    <ClCompile Include="OpenGLFramework\FBO\RTTRenderBufferObject.cpp" />
+    <ClCompile Include="OpenGLFramework\InputListeners\InputManager.cpp" />
+    <ClCompile Include="OpenGLFramework\OpenGLFramework.cpp" />
+    <ClCompile Include="OpenGLFramework\SceneNodes\Camera.cpp" />
+    <ClCompile Include="OpenGLFramework\SceneNodes\ISceneManager.cpp" />
+    <ClCompile Include="OpenGLFramework\SceneNodes\ISceneNode.cpp" />
+    <ClCompile Include="OpenGLFramework\SceneNodes\IVirtualObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="clientPrograms\Applications\ButterflyUIST.h" />
+    <ClInclude Include="clientPrograms\Applications\Calibration.h" />
+    <ClInclude Include="clientPrograms\Applications\ILevitationApplication.h" />
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\BeadDetector.h" />
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropDescriptor.h" />
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropRecognizerDynamic.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\Butterfly.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\SingingSmiley.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\TorusKnot.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\AudioFile.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\AudioProcessing.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\DisplayContent.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapAnimation.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapStateControl.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapWrapper_Wand.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\MATDAnimation.h" />
+    <ClInclude Include="clientPrograms\Applications\MATD\StateControl.h" />
+    <ClInclude Include="clientPrograms\Applications\MidAirScreen2.h" />
+    <ClInclude Include="clientPrograms\Applications\Rocket.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\GSPAT_Wrapper.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverAsier.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverBen255.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverNaive.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverOurs.h" />
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\IHologramSolver.h" />
+    <ClInclude Include="clientPrograms\Levitation\HologramPointDescriptor.h" />
+    <ClInclude Include="clientPrograms\Levitation\TotalHologram.h" />
+    <ClInclude Include="clientPrograms\OptiTrack\IPredictor.h" />
+    <ClInclude Include="clientPrograms\OptiTrack\OptiTrack.h" />
+    <ClInclude Include="clientPrograms\OptiTrack\TrackingTunningVariables.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\IProjectionApplication.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\SmileyFace.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\SmileyFace_backup.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Butterflies.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Calibration.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\CalibrationRenderBuffer.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\IProjectionApplication.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\Piano.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\ProjectionMapping.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\SmileyFace.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\SmileyFace2.h" />
+    <ClInclude Include="clientPrograms\ProjectionMapping\WindowRenderer.h" />
+    <ClInclude Include="clientPrograms\ToG_haptics\HapticShape.h" />
+    <ClInclude Include="Helper\GorKovComputation.h" />
+    <ClInclude Include="Helper\HelperMethods.h" />
+    <ClInclude Include="Helper\TimeFunctions.h" />
+    <ClInclude Include="Helper\VisualizePlane.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Animation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\AnimationListener.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\AnimationVisitor.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\EulerYZXRotation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\InputOutputRangeMapper.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Interpolation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Mat4Interpolation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\MoveAnimation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\QuaternionRotation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\RotationAnimation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\ScaleAnimation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Vec4Interpolation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\WrongMatrixAnimation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\WrongMatrixInterpolation.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\FPS_Controller\FPS_Controller.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\HUDButtons\HUD_ClickListener.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionComponent.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionVisitor.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\ClickSelect.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickComponent.h" />
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickVisitor.h" />
+    <ClInclude Include="OpenGLFramework\3DUI_Utils\3DUI_Utils.h" />
+    <ClInclude Include="OpenGLFramework\common\MtlFileParser.h" />
+    <ClInclude Include="OpenGLFramework\common\MtlMaterialRegister.h" />
+    <ClInclude Include="OpenGLFramework\common\NatNetUtils\NATUtils.h" />
+    <ClInclude Include="OpenGLFramework\common\ObjFileParser.h" />
+    <ClInclude Include="OpenGLFramework\common\objloader.hpp" />
+    <ClInclude Include="OpenGLFramework\common\objLoader_sintacticCategories.h" />
+    <ClInclude Include="OpenGLFramework\common\OculusDistortion.h" />
+    <ClInclude Include="OpenGLFramework\common\OculusPrerequisites.h" />
+    <ClInclude Include="OpenGLFramework\common\OculusUtils.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\quaternion_utils.hpp" />
+    <ClInclude Include="OpenGLFramework\common\ShaderManager.hpp" />
+    <ClInclude Include="OpenGLFramework\common\tangentspace.hpp" />
+    <ClInclude Include="OpenGLFramework\common\text2D.hpp" />
+    <ClInclude Include="OpenGLFramework\common\texture.hpp" />
+    <ClInclude Include="OpenGLFramework\common\vboindexer.hpp" />
+    <ClInclude Include="OpenGLFramework\Components\IComponent.h" />
+    <ClInclude Include="OpenGLFramework\Components\ISceneVisitor.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\DirectionalLightOBJMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\OpenGL_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\PerVertexColourMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\PhongShadingOBJMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\RenderableVisitor\RenderableVisitor.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\SingleColourMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\TexturedManualMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\TexturedOBJMesh_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\UnitPolygonTextured_Renderable.h" />
+    <ClInclude Include="OpenGLFramework\external\VrpnInput.hpp" />
+    <ClInclude Include="OpenGLFramework\FBO\DefaultRenderBufferObject.h" />
+    <ClInclude Include="OpenGLFramework\FBO\RenderBuffer.h" />
+    <ClInclude Include="OpenGLFramework\FBO\RTTRenderBufferObject.h" />
+    <ClInclude Include="OpenGLFramework\InputListeners\EventListeners.h" />
+    <ClInclude Include="OpenGLFramework\InputListeners\InputManager.h" />
+    <ClInclude Include="OpenGLFramework\OpenGLFramework.h" />
+    <ClInclude Include="OpenGLFramework\OpenGLFRameworkPrerequisites.h" />
+    <ClInclude Include="OpenGLFramework\SceneNodes\Camera.h" />
+    <ClInclude Include="OpenGLFramework\SceneNodes\ILight.h" />
+    <ClInclude Include="OpenGLFramework\SceneNodes\ISceneManager.h" />
+    <ClInclude Include="OpenGLFramework\SceneNodes\ISceneNode.h" />
+    <ClInclude Include="OpenGLFramework\SceneNodes\IVirtualObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Activity1.nvact" />
+    <None Include="x64\OpenGLFramework\shaders\AddFieldStage1.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\AddFieldStage1.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\ClipSpaceVertexShader.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\ClipSpace_PerVertexColor.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\ColorFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\CurvedSurfaceFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\CurvedSurfaceVertexShader.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\DirectionalLightShading.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\DirectionalLightShading.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\MorphPerVertexColor.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\MVPVertexShader.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\MVP_PerVertexColor.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\PerVertexColorFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\PointLightShading.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\PointLightShading.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\RobStandardShadingRTT.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\RobStandardShadingRTT.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\SingleColourFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\TextureFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\TransformVertexShader.vertexshader" />
+    <None Include="x64\OpenGLFramework\shaders\VolTextureFragmentShader.fragmentshader" />
+    <None Include="x64\OpenGLFramework\shaders\VolTextureVertexShader.vertexshader" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C88966D3-53BB-4255-9C3B-8D997CF9EF16}</ProjectGuid>
+    <RootNamespace>OpenGLFrameworkWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <ProjectName>InteractFramework</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)</OutDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)2</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir);$(SolutionDir)\OpenGLFramework\;$(LIBS_HOME)\include;$(LIBS_HOME)\include\AsierInho;$(LIBS_HOME)\include\GSPAT_Solver;$(LIBS_HOME)\include\GLFW;$(LIBS_HOME)\include\libpng\include;$(LIBS_HOME)\include\libjpeg\include;$(LIBS_HOME)\include\Kinect\v2.0_1409\inc;$(LIBS_HOME)\include\opencv340\build\include;$(LIBS_HOME)\include\NatNetSDK\include;$(CUDA_PATH)\include;$(LIBS_HOME)\include\Lapacke;$(LIBS_HOME)\include\clBlas\include;$(LIBS_HOME)\include\LeapSDK\include;$(LIBS_HOME)\include\fftw335_64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HAVE_STRUCT_TIMESPEC;WIN32;_WINDOWS;_PLAY_WITH_OPENCV;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ProgramDataBaseFileName>$(ProjectDir)OpenGLFramework\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(LIBS_HOME)\lib;$(LIBS_HOME)\lib\GSPAT_Solver;$(LIBS_HOME)\lib\AsierInho;$(LIBS_HOME)\include\Kinect\v2.0_1409\Lib\x64;$(LIBS_HOME)\include\libpng\lib\$(Configuration)\;$(LIBS_HOME)\include\libjpeg\lib\;$(LIBS_HOME)\include\opencv340\build\x64\vc15\lib;$(LIBS_HOME)\include\NatNetSDK\lib\x64;$(LIBS_HOME)\include\clBlas\lib64;$(LIBS_HOME)\include\Lapacke\lib\x64;$(LIBS_HOME)\include\LeapSDK\lib\x64;$(LIBS_HOME)\include\fftw335_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AsierInho.lib;GSPAT_Solver.lib;glu32.lib;opengl32.lib;glfw3.lib;pthreadVC2.lib;glew32s.lib;Kinect20.lib;libpng16.lib;jpeg.lib;NatNetLib.lib;clBLAS.lib;ftd2xx.lib;opencv_world340d.lib;leap.lib;libfftw3-3.lib;libfftw3f-3.lib;libfftw3l-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -56,7 +56,7 @@ public class CompoundedAnimationController : MonoBehaviour
         }
         else {
             startSequence = false;
-            Debug.Log("The presentation manager is not instanced yet");
+            //Debug.Log("The presentation manager is not instanced yet");
         }
     }
 

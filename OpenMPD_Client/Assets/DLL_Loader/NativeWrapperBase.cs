@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System;
 using System.Reflection;
+using System.IO;
 
 namespace NativeAccess
 {
@@ -218,14 +219,14 @@ namespace NativeAccess
                 {
                     prefix = defaultPrefix;
                     PrintDebug("LOAD");
-                    string directory = DirFN(DIRECTORY_PREFIX + GetPluginPath());
+                    
+                    string directory = Directory.GetCurrentDirectory() + DirFN(DIRECTORY_PREFIX + GetPluginPath());
                     string filename = directory + GetPluginName() + ".dll";
-                    //Directory.SetCurrentDirectory(directory);     //I might need this for GSPAT (external dependencies).
                     libPtr = Kernel.LoadLibrary(filename);
                     loadedPtr = libPtr.ToInt64();
                     if (libPtr==IntPtr.Zero)
                     {
-                        Debug.LogError("Could not load '"+ filename + "'");
+                        Debug.LogError("Could not load '"+ filename + "': ERROR "+Kernel.GetLastError());
                         active = false;
                         return false;
                     }

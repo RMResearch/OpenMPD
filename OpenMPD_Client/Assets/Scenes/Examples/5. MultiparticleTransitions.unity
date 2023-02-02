@@ -1601,17 +1601,22 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 41
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 40
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: GSPAT_Solver_Version
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
+        type: 3}
+      propertyPath: forceSync
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3676800747928412224, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -1692,7 +1697,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2062247031}
   - component: {fileID: 2062247032}
-  - component: {fileID: 2062247033}
   m_Layer: 0
   m_Name: CirclePosDescriptor
   m_TagString: Untagged
@@ -1723,7 +1727,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2062247030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a673f83d746c8c045b669939e1dfd711, type: 3}
+  m_Script: {fileID: 11500000, guid: 5056dd4dc97bda44e972d80a873245d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.02
@@ -1732,23 +1736,3 @@ MonoBehaviour:
   descriptorID: 0
   initialPos: {x: 0, y: 0, z: 0}
   positions: []
---- !u!114 &2062247033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062247030}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d63e7f5178cf354c8cda915482987f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius_m: 0.02
-  numSamples: 3000
-  renderingPlane: 2
-  center_m: {x: 0, y: 0, z: 0}
-  descriptorID: 0
-  initialPos: {x: 0, y: 0, z: 0}
-  index: 0
-  posFromIndex: {x: 0, y: 0, z: 0}

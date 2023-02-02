@@ -17,5 +17,9 @@ namespace NativeAccess
         [DllImport("kernel32.dll")]
         public static extern bool FreeLibrary(IntPtr hModule);
 
+        [DllImport("kernel32.dll")]
+        public static extern int GetLastError();
+
+
     }
 }

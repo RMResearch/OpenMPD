@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="OpenGLFramework">
+      <UniqueIdentifier>{de5f9f43-403c-4fda-9848-a6741defd1db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms">
+      <UniqueIdentifier>{6f2d59f9-1040-4ef8-9501-ade21f1d472a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\3DUI_Utils">
+      <UniqueIdentifier>{c81c909a-0767-4bb9-8d4e-ce53eb05652a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Levitation">
+      <UniqueIdentifier>{962f7949-ece2-4872-8d55-5fbd0d1d56fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\OptiTrack">
+      <UniqueIdentifier>{f69c0f37-3f1d-4c34-a5dc-c699870102b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\Components">
+      <UniqueIdentifier>{258b6fb5-96d8-483e-b693-c1b9d0386b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\Components\RenderComponents">
+      <UniqueIdentifier>{943b8003-eaf4-4272-82a4-0b78bb103678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\Components\RenderComponents\RenderableVisitor">
+      <UniqueIdentifier>{36ca6a7b-4e46-4a98-b7b7-bdb7133e40df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\external">
+      <UniqueIdentifier>{2615235c-e8df-4c83-b8a6-491d5034c33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\FBO">
+      <UniqueIdentifier>{9fec08cc-d39e-4555-a4e2-d56b26b3e2f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\external\objLoader">
+      <UniqueIdentifier>{aec8ac84-90fd-4768-8e2e-61b71bc25218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\external\NatNetUtils">
+      <UniqueIdentifier>{2301454b-d182-4bd7-bb0b-576c22eba12b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\InputListeners">
+      <UniqueIdentifier>{e9b37406-0ae8-4ec8-a087-8b6ae4cfd6d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFramework\SceneNodes">
+      <UniqueIdentifier>{fb9da9d9-493e-43c7-a99e-f32f3a2ecc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{dca3f15e-05f8-41fb-9844-a27db4e106b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications">
+      <UniqueIdentifier>{776fe326-61ff-4b80-97d2-cba1fc093b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\MATD">
+      <UniqueIdentifier>{9737ea2f-b216-4f1e-b4d5-844cc26cf63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\MATD\Animations">
+      <UniqueIdentifier>{925d9aab-783b-4996-b7d7-9c4c29302941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions">
+      <UniqueIdentifier>{d0ddade1-9664-4d58-881f-171dcbed8859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\Animation">
+      <UniqueIdentifier>{552963f5-a8a1-4c8f-9c10-598f7fc756e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\FPS_Controller">
+      <UniqueIdentifier>{e0fdfc4b-9582-4e7e-80e8-7d387856f9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\HUDButtons">
+      <UniqueIdentifier>{23501183-5b5f-48cb-9afb-3eff8c39a544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\Interaction">
+      <UniqueIdentifier>{03311280-1403-47da-9912-e5f63e5ec0d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent">
+      <UniqueIdentifier>{7c68502e-8d6b-4f1a-b8ae-ae93395eb77e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent">
+      <UniqueIdentifier>{a7e075de-4391-4e92-a4e4-bae3999df163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\MATD\Helper">
+      <UniqueIdentifier>{56d63dc2-4284-4df9-a4e9-31f35e102225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\LeviPropDemo">
+      <UniqueIdentifier>{f2f002e1-0676-4b09-a3a8-b737841b845f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer">
+      <UniqueIdentifier>{5f23af26-b30b-4605-b57f-16fe9498ef16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\LeviPropDemo\LeviApps">
+      <UniqueIdentifier>{95e7aefb-5f97-445b-a406-74d7f6755dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\ToG-Mains">
+      <UniqueIdentifier>{ba2d78ce-35c7-49c7-9c49-595ff50c708f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\ToG-Mains\unused%28main%29">
+      <UniqueIdentifier>{c1044588-108b-4bd9-8249-102e275c51ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\ToG-Mains\HapticShape">
+      <UniqueIdentifier>{e862be32-e033-4412-a672-0a3c9c03612d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\CPU_Simulations">
+      <UniqueIdentifier>{1e369e9a-eb86-48a1-9eec-9847afdacad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\CPU_Simulations\HologramSolver">
+      <UniqueIdentifier>{72f3d203-e1ae-42bf-a024-0942c110b9e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\ToG-Mains\ProjectionMapping">
+      <UniqueIdentifier>{94b8ac8e-d026-40b8-b4ea-3ab013702c69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\ToG-Mains\ProjectionMapping\Applications">
+      <UniqueIdentifier>{1341484c-bf16-4f60-9346-baabc9c61fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{37d54a49-760e-49c4-a719-f91de849b479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientPrograms\Applications\AsierInho_Examples">
+      <UniqueIdentifier>{ea14fd92-ecbe-4c91-a124-eef9637e02bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="clientPrograms\OptiTrack\OptiTrack.cpp">
+      <Filter>clientPrograms\OptiTrack</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\3DUI_Utils\3DUI_Utils.cpp">
+      <Filter>OpenGLFramework\3DUI_Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\IComponent.cpp">
+      <Filter>OpenGLFramework\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\ISceneVisitor.cpp">
+      <Filter>OpenGLFramework\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\DirectionalLightOBJMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\PerVertexColourMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\PhongShadingOBJMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\SingleColourMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\TexturedManualMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\TexturedOBJMesh_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\UnitPolygonTextured_Renderable.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\Components\RenderComponent\RenderableVisitor\RenderableVisitor.cpp">
+      <Filter>OpenGLFramework\Components\RenderComponents\RenderableVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\external\VrpnInput.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\objloader.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\quaternion_utils.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\ShaderManager.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\tangentspace.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\text2D.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\texture.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\vboindexer.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\MtlFileParser.cpp">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\ObjFileParser.cpp">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\FBO\DefaultRenderBufferObject.cpp">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\FBO\RenderBuffer.cpp">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\FBO\RTTRenderBufferObject.cpp">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\InputListeners\InputManager.cpp">
+      <Filter>OpenGLFramework\InputListeners</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\SceneNodes\Camera.cpp">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\SceneNodes\ISceneManager.cpp">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\SceneNodes\ISceneNode.cpp">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\SceneNodes\IVirtualObject.cpp">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\OpenGLFramework.cpp">
+      <Filter>OpenGLFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Circle.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\unused%28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Square.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\unused%28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Star.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\unused%28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics_Triangle.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\unused%28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\NatNetUtils\NATUtils.cpp">
+      <Filter>OpenGLFramework\external\NatNetUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\OculusDistortion.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\OculusPrerequisites.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFramework\common\OculusUtils.cpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainCalibration.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainGetProjectionMatrix.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_AudioTestPiano.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_AudioTestPianoRotation.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Haptics.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_ButterflieChirp.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Butterflies.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Circles.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_Smiley.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_SmileyProjection.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_Levitation_SmileyProjection2.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\mainTOG_LevitationExample.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\BeadDetector.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropDescriptor.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropRecognizerDynamic.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\LeapAnimation.cpp">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\AnimationVisitor.cpp">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\Aux_Remove.cpp">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\InputOutputRangeMapper.cpp">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Animation\Interpolation.cpp">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\FPS_Controller\FPS_Controller.cpp">
+      <Filter>OpenGLFrameworkExtensions\FPS_Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionVisitor.cpp">
+      <Filter>OpenGLFrameworkExtensions\Interaction\CollisionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\ClickSelect.cpp">
+      <Filter>OpenGLFrameworkExtensions\Interaction\RayPickComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickVisitor.cpp">
+      <Filter>OpenGLFrameworkExtensions\Interaction\RayPickComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\LeapWrapper_Wand.cpp">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\MATDAnimation.cpp">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\DisplayContent.cpp">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\AudioFile.cpp">
+      <Filter>clientPrograms\Applications\MATD\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MATD\AudioProcessing.cpp">
+      <Filter>clientPrograms\Applications\MATD\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\LeviProp-MATDMain.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\ButterflyUIST.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\MidAirScreen2.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\MATDAnimationMain.cpp">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CalibrationMain.cpp">
+      <Filter>clientPrograms\Applications\LeviPropDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\0.testGorKov.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\1.mainEvaluateFixedA.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\2.mainEvaluateVariableA.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\3.mainStiffnessA2Correlation.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\4.processFilesRepeatedMeasuresANOVA.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure2a.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure2b.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\Figure3c.cpp">
+      <Filter>clientPrograms\CPU_Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\GSPAT_Wrapper.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverAsier.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverBen255.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverNaive.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverOurs.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\CPU_Simulations\HologramSolver\IHologramSolver.cpp">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\ProjectionMapping\ProjectionMapping.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\ProjectionMapping\WindowRenderer.cpp">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper\GorKovComputation.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper\VisualizePlane.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="clientPrograms\Applications\AsierInho_Examples\simpleTrap.cpp">
+      <Filter>clientPrograms\Applications\AsierInho_Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper\TimeFunctions.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="clientPrograms\Levitation\HologramPointDescriptor.h">
+      <Filter>clientPrograms\Levitation</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Levitation\TotalHologram.h">
+      <Filter>clientPrograms\Levitation</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\OptiTrack\IPredictor.h">
+      <Filter>clientPrograms\OptiTrack</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\OptiTrack\OptiTrack.h">
+      <Filter>clientPrograms\OptiTrack</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\OptiTrack\TrackingTunningVariables.h">
+      <Filter>clientPrograms\OptiTrack</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\3DUI_Utils\3DUI_Utils.h">
+      <Filter>OpenGLFramework\3DUI_Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\IComponent.h">
+      <Filter>OpenGLFramework\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\ISceneVisitor.h">
+      <Filter>OpenGLFramework\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\DirectionalLightOBJMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\OpenGL_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\PerVertexColourMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\PhongShadingOBJMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\SingleColourMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\TexturedManualMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\TexturedOBJMesh_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\UnitPolygonTextured_Renderable.h">
+      <Filter>OpenGLFramework\Components\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\Components\RenderComponent\RenderableVisitor\RenderableVisitor.h">
+      <Filter>OpenGLFramework\Components\RenderComponents\RenderableVisitor</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\external\VrpnInput.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\objloader.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\quaternion_utils.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\ShaderManager.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\tangentspace.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\text2D.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\texture.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\vboindexer.hpp">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\MtlFileParser.h">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\MtlMaterialRegister.h">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\ObjFileParser.h">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\objLoader_sintacticCategories.h">
+      <Filter>OpenGLFramework\external\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\FBO\DefaultRenderBufferObject.h">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\FBO\RenderBuffer.h">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\FBO\RTTRenderBufferObject.h">
+      <Filter>OpenGLFramework\FBO</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\InputListeners\EventListeners.h">
+      <Filter>OpenGLFramework\InputListeners</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\InputListeners\InputManager.h">
+      <Filter>OpenGLFramework\InputListeners</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\SceneNodes\Camera.h">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\SceneNodes\ILight.h">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\SceneNodes\ISceneManager.h">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\SceneNodes\ISceneNode.h">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\SceneNodes\IVirtualObject.h">
+      <Filter>OpenGLFramework\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\OpenGLFramework.h">
+      <Filter>OpenGLFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\OpenGLFRameworkPrerequisites.h">
+      <Filter>OpenGLFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ToG_haptics\HapticShape.h">
+      <Filter>clientPrograms</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\NatNetUtils\NATUtils.h">
+      <Filter>OpenGLFramework\external\NatNetUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\OculusDistortion.h">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\OculusPrerequisites.h">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFramework\common\OculusUtils.h">
+      <Filter>OpenGLFramework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\BeadDetector.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropDescriptor.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\LeviPropRecognizer\LeviPropRecognizerDynamic.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviPropRecognizer</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapAnimation.h">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapStateControl.h">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\StateControl.h">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\Butterfly.h">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\SingingSmiley.h">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\Animations\TorusKnot.h">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Animation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\AnimationListener.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\AnimationVisitor.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\EulerYZXRotation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\InputOutputRangeMapper.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Interpolation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Mat4Interpolation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\MoveAnimation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\QuaternionRotation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\RotationAnimation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\ScaleAnimation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\Vec4Interpolation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\WrongMatrixAnimation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Animation\WrongMatrixInterpolation.h">
+      <Filter>OpenGLFrameworkExtensions\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\FPS_Controller\FPS_Controller.h">
+      <Filter>OpenGLFrameworkExtensions\FPS_Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\HUDButtons\HUD_ClickListener.h">
+      <Filter>OpenGLFrameworkExtensions\HUDButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionComponent.h">
+      <Filter>OpenGLFrameworkExtensions\Interaction\CollisionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\CollisionComponent\CollisionVisitor.h">
+      <Filter>OpenGLFrameworkExtensions\Interaction\CollisionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\ClickSelect.h">
+      <Filter>OpenGLFrameworkExtensions\Interaction\RayPickComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickComponent.h">
+      <Filter>OpenGLFrameworkExtensions\Interaction\RayPickComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameworkExtensions\Interaction\RayPickComponent\RayPickVisitor.h">
+      <Filter>OpenGLFrameworkExtensions\Interaction\RayPickComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\LeapWrapper_Wand.h">
+      <Filter>clientPrograms\Applications\MATD</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\MATDAnimation.h">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\DisplayContent.h">
+      <Filter>clientPrograms\Applications\MATD\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\AudioFile.h">
+      <Filter>clientPrograms\Applications\MATD\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MATD\AudioProcessing.h">
+      <Filter>clientPrograms\Applications\MATD\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\ButterflyUIST.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\ILevitationApplication.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\Calibration.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\MidAirScreen2.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\Applications\Rocket.h">
+      <Filter>clientPrograms\Applications\LeviPropDemo\LeviApps</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\GSPAT_Wrapper.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverAsier.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverBen255.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverNaive.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\HologramSolverOurs.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\CPU_Simulations\HologramSolver\IHologramSolver.h">
+      <Filter>clientPrograms\CPU_Simulations\HologramSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Butterflies.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Calibration.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\CalibrationRenderBuffer.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\IProjectionApplication.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Piano.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\ProjectionMapping.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\SmileyFace.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\SmileyFace2.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\WindowRenderer.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\IProjectionApplication.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping\Applications</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\SmileyFace.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping\Applications</Filter>
+    </ClInclude>
+    <ClInclude Include="clientPrograms\ProjectionMapping\Applications\SmileyFace_backup.h">
+      <Filter>clientPrograms\Applications\ToG-Mains\ProjectionMapping\Applications</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper\GorKovComputation.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper\HelperMethods.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper\TimeFunctions.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper\VisualizePlane.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="x64\OpenGLFramework\shaders\AddFieldStage1.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\AddFieldStage1.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\ClipSpace_PerVertexColor.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\ClipSpaceVertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\ColorFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\CurvedSurfaceFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\CurvedSurfaceVertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\DirectionalLightShading.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\DirectionalLightShading.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\MorphPerVertexColor.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\MVP_PerVertexColor.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\MVPVertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\PerVertexColorFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\PointLightShading.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\PointLightShading.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\RobStandardShadingRTT.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\RobStandardShadingRTT.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\SingleColourFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\TextureFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\TransformVertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\VolTextureFragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="x64\OpenGLFramework\shaders\VolTextureVertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="Activity1.nvact" />
+  </ItemGroup>
+</Project>

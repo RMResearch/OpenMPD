@@ -168,7 +168,7 @@ MonoBehaviour:
   primitive: {fileID: 692148935}
   positionDescriptor: {fileID: 803663180}
   startingPositionSample: 0
-  amplitudeDescriptor: {fileID: 1332314233}
+  amplitudeDescriptor: {fileID: 0}
   startingAmplitudeSample: 0
   colourDescriptor: {fileID: 0}
   startingColourSample: 0
@@ -761,8 +761,8 @@ Transform:
   m_LocalPosition: {x: 0.008502759, y: 0.10713754, z: -0.0070865154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 803663179}
   - {fileID: 1332314231}
+  - {fileID: 803663179}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -775,7 +775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1332314231}
-  - component: {fileID: 1332314233}
+  - component: {fileID: 1332314232}
   m_Layer: 0
   m_Name: ParametricAudio
   m_TagString: Untagged
@@ -795,9 +795,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1306042670}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1332314233
+--- !u!114 &1332314232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -806,14 +806,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1332314230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8235d3ffcb5d4a41aecbbee69bd7ef8, type: 3}
+  m_Script: {fileID: 11500000, guid: 30cc4d21faeed9e41ac634f29213dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numSamples: 0
   descriptorID: 0
-  FileName: Chirp100_5000
+  FileName: LetHerGo.csv
   isSizeLimitOn: 1
-  sizeLimit: 8000
+  sizeLimit: 10000
 --- !u!1001 &1519182992
 PrefabInstance:
   m_ObjectHideFlags: 0

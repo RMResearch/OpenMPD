@@ -91,7 +91,7 @@ public class MiniScreenDysplayPos : MonoBehaviour
         transform.position = pos;
         // Rotate the forward vector towards the target direction by one step
         Vector3 newDirection1 = Vector3.RotateTowards(transform.forward, norm, 1, 0.0f);
-        transform.localRotation = Quaternion.LookRotation(newDirection1);
+       //transform.localRotation = Quaternion.LookRotation(newDirection1);
     }
 
     private bool CheckPosChanges(List<Vector3> posList)

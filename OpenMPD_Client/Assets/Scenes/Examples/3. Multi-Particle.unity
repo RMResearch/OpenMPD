@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 405410632}
   m_Layer: 0
   m_Name: ParticlePrimitive2
-  m_TagString: Untagged
+  m_TagString: primitive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStepInMeters: 0.00025
   maxRotInDegrees: 1
-  invertZ: 0
+  visualUpdateSpeed: 32
 --- !u!1 &467272487
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 548444497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a673f83d746c8c045b669939e1dfd711, type: 3}
+  m_Script: {fileID: 11500000, guid: 5056dd4dc97bda44e972d80a873245d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.02
@@ -620,6 +620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: GS_PAT_Divider
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
+        type: 3}
+      propertyPath: solver
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3676800747928412224, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -1141,7 +1146,7 @@ GameObject:
   - component: {fileID: 2030649030}
   m_Layer: 0
   m_Name: ParticlePrimitive1
-  m_TagString: Untagged
+  m_TagString: primitive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,4 +1180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStepInMeters: 0.00025
   maxRotInDegrees: 1
-  invertZ: 0
+  visualUpdateSpeed: 32

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BeadDetector", "BeadDetector\BeadDetector.vcxproj", "{5A3F598B-B27F-49E2-8D70-89CD7911C07F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicLinkingTest", "DynamicLinkingTest\DynamicLinkingTest.vcxproj", "{0483B363-52E3-4B0F-92FA-25B0F83FF037}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F} = {5A3F598B-B27F-49E2-8D70-89CD7911C07F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Debug|x64.ActiveCfg = Debug|x64
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Debug|x64.Build.0 = Debug|x64
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Debug|x86.ActiveCfg = Debug|Win32
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Debug|x86.Build.0 = Debug|Win32
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Release|x64.ActiveCfg = Release|x64
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Release|x64.Build.0 = Release|x64
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Release|x86.ActiveCfg = Release|Win32
+		{5A3F598B-B27F-49E2-8D70-89CD7911C07F}.Release|x86.Build.0 = Release|Win32
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Debug|x64.ActiveCfg = Debug|x64
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Debug|x64.Build.0 = Debug|x64
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Debug|x86.ActiveCfg = Debug|Win32
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Debug|x86.Build.0 = Debug|Win32
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Release|x64.ActiveCfg = Release|x64
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Release|x64.Build.0 = Release|x64
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Release|x86.ActiveCfg = Release|Win32
+		{0483B363-52E3-4B0F-92FA-25B0F83FF037}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD58180A-6B4E-463B-B49A-B4E6748DDA0A}
+	EndGlobalSection
+EndGlobal
