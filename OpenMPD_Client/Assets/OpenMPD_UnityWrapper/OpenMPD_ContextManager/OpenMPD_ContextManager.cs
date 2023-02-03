@@ -344,7 +344,7 @@ public class OpenMPD_ContextManager
     }
     public uint GetDefaultAmplitudesDescriptor() {
         if (DefaultAmplitudesDescriptor == null)
-            DefaultAmplitudesDescriptor = new Amplitudes_Descriptor(new float[] { 10000.0f, 10000.0f, 10000.0f, 10000.0f });
+            DefaultAmplitudesDescriptor = new Amplitudes_Descriptor(new float[] { 15000.0f});//This will work reasonably well both for phase only and variable amplitudes.
         return DefaultAmplitudesDescriptor.amplitudesDescriptorID;
     }
 

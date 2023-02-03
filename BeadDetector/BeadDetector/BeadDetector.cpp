@@ -73,7 +73,7 @@ void Detector::calibrateDetector() {
 	printf("Please click on four corners of the stage, in the order indicated on the frame\n");
 	//1. Create a window showing our frame and 
 	// register a callback to detect user clicking on the four corners of the stage: 
-	cv::namedWindow("callibrateFrame", cv::WINDOW_FREERATIO);
+	cv::namedWindow("callibrateFrame", cv::WINDOW_AUTOSIZE);
 	cv::imshow("callibrateFrame", sourceImage);
 	cv::setMouseCallback("callibrateFrame", selectFrameCorners, (void*)&sourceImage);
 
@@ -147,12 +147,14 @@ cv::Mat Detector::capImage(bool corrected) {
 	cv::Mat sourceImage;
 	//0. Open the stream (if not done already)
 	if (!cap.isOpened()) {
-		cv::VideoCapture temp(webcamID);
+		cv::VideoCapture temp(webcamID);		
 		if (!temp.isOpened()) {
 			webcamID = 0;
 			temp = cv::VideoCapture(webcamID);
 		}
 		cap = temp;
+		cap.set(cv::CAP_PROP_FRAME_WIDTH, 1280); // valueX = your wanted width
+		cap.set(cv::CAP_PROP_FRAME_HEIGHT, 720); // valueY = your wanted heigth
 		char msg[512];
 		sprintf_s(msg,"[BeadDetector] Camera %d initialized\n", webcamID);
 		_printMessage(msg);
@@ -172,22 +174,9 @@ cv::Mat Detector::capImage(bool corrected) {
 }
 
 int Detector::detectBeads() {
-	//cv::namedWindow("CORRECTED", cv::WINDOW_FREERATIO);
-	
-	////1. Correct frame to our "measured" bed
-	//_printMessage("[BeadDetector] Capturing image\n");
-	//cv::Mat correctedImage = capImage(false);//Capture corrected image
-	//cv::imshow("CORRECTED", correctedImage);
-	//cv::waitKey(1000);
-	//_printMessage("[BeadDetector] Capturing image\n");
-	//return 0;
 	char msg[512];
 	std::vector<cv::Point3d> result;
-	_printMessage("[BeadDetector] Capturing image\n");
-	cv::imshow("input", capImage(false));
 	cv::Mat correctedImage = capImage(true);//Capture corrected image
-
-	cv::waitKey(1000);
 	cv::Mat correctedImageRGB; 
 	cvtColor(correctedImage, correctedImageRGB, CV_GRAY2RGB);
 	_printMessage("[BeadDetector] Converted to Grayscale\n");

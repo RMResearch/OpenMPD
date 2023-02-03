@@ -57,7 +57,8 @@ public class MultiBeadPositioning : MonoBehaviour
                     stabilizePrimitives();
                     break;
                 case LIFT_PRIMITIVES:
-                    liftPrimitives();
+                    clickToInitialize = false;
+                    //liftPrimitives();
                     break;
                 case MOVE_PRIMITIVES:
                     movePrimitives();
@@ -86,7 +87,10 @@ public class MultiBeadPositioning : MonoBehaviour
     {
         //0. Wait until we need to trap the particles
         if (Time.realtimeSinceStartup < trapPrimitivesTime)
+        {
+            detector.detectBeads();//Detect, but ignore. We keep refreshing the camera feed.
             return;
+        }
         //1. Check if we have enough particles in sight and move trap there
         int numBeads = detector.detectBeads();
         float[] beadPositions = detector.getCurrentBeadPositions();
@@ -158,7 +162,6 @@ public class MultiBeadPositioning : MonoBehaviour
         //0. Check if we are finished.
         if (curPrimitiveMoving == primitives.Length)
         {
-            //EnableAxesCorretion();
             clickToInitialize = false;
             return;
         }

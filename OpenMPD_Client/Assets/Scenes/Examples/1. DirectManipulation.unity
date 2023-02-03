@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: solver
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}

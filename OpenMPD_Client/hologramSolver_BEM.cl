@@ -100,7 +100,7 @@ __kernel void compute_t2pMatrix(
 	global float4* transducerPositionsWorld,
 	global float4* transducerNormals,
 	global float4* positions,
-	read_only image2d_t directivity_cos_alpha,
+	image2d_t directivity_cos_alpha,
 	global float2* t2pMatrix
 ) {
 	//0. Get indexes:
@@ -397,7 +397,7 @@ __kernel void computeVectorB(
 	global float4* transducerPositionsWorld,
 	global float4* transducerNormals,
 	global float4* meshPositions,
-	read_only image2d_t directivity_cos_alpha,
+	image2d_t directivity_cos_alpha,
 	global float2* vectorB
 ) {
 	//0. Get indexes:

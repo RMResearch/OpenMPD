@@ -1,21 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GSPAT_RenderingEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  OpenCLUtilityFunctions.cpp
-  TimeFunctions.cpp
-  Buffer.cpp
-  BufferManager.cpp
-  EngineReaderThread.cpp
-  EngineWriterThread.cpp
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\EngineWriterThread.cpp(99,23): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  OpenMPD.cpp
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(112,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(117,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(136,111): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(231,72): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  OpenMPD_CWrapper.cpp
-  OpenMPD_Debug.cpp
-  PrimitiveDescriptors.cpp
-  ForceUPS_Sync.cpp
-  RenderResources.cpp
   OpenCLUtilityFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
      Creating library C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.lib and object C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.exp
   Generating code

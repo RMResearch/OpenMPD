@@ -6,18 +6,13 @@ using MyBox;
 public class Primitive : MonoBehaviour
 {
     private uint primitiveID;
+    //Primitive's are relative to the location/alignment of the Levitator. We need to keep track of that node. 
+    Transform levitatorOrigin = null;
     //Matrix update controls (currently specified by user, they could be obtained from OpenMPD_PresentationManager)
     public float maxStepInMeters = 0.00025f;
     public float maxRotInDegrees = 1.0f;
     public int visualUpdateSpeed = 32;
-
-    //Matrices are made relative to the location/alignment of the Levitator 
-    Transform levitatorOrigin = null;
-    protected Matrix4x4 prevMatrix, curMatrix;
-    //protected bool PBD_Status;      // FLAG: Why this attribute? Should we not use .isEnabled ?
-
-    // this deals with the difference between coordinate systems (Unity to Levitator)     
-    Matrix4x4 WorldToLevitator = new Matrix4x4();
+    protected Matrix4x4 prevMatrix, curMatrix;   //Current location used for the matrix, according to the constraints above. Prev location retained for continuity.
 
     //Access methods to retrieve Primitive data (descriptors and location). 
     public uint GetPrimitiveID() {
@@ -99,9 +94,8 @@ public class Primitive : MonoBehaviour
             //Template method for subclasses to declare their content's geometry, sound.etc...
             ConfigureDescriptors();
             //Initialize:                        
-            Matrix4x4 primLocalMat = transform.localToWorldMatrix;
-            WorldToLevitator = levitatorOrigin.worldToLocalMatrix;
-            curMatrix = WorldToLevitator * primLocalMat;
+            Matrix4x4 primLocalMat = transform.localToWorldMatrix;            
+            curMatrix = levitatorOrigin.worldToLocalMatrix * primLocalMat;
 
             if (this.enabled)
                 OnEnable();
@@ -125,15 +119,15 @@ public class Primitive : MonoBehaviour
 
         //2.a. Modify node's position, scale and orientation 
         transform.localPosition = targetPos_parent.GetColumn(3);//Translation is stored in 4th column of the matrix
-                                                                // transform.localScale = new Vector3(
-                                                                //     targetPos_parent.GetColumn(0).magnitude,
-                                                                //     targetPos_parent.GetColumn(1).magnitude,
-                                                                //     targetPos_parent.GetColumn(2).magnitude
-                                                                //);//Scale is magnitude of direction vectors (3 first columns).
-                                                                // transform.localRotation = ExtractRotationFromMatrix(ref targetPos_parent);
+        // transform.localScale = new Vector3(
+        //     targetPos_parent.GetColumn(0).magnitude,
+        //     targetPos_parent.GetColumn(1).magnitude,
+        //     targetPos_parent.GetColumn(2).magnitude
+        //);//Scale is magnitude of direction vectors (3 first columns).
+        // transform.localRotation = ExtractRotationFromMatrix(ref targetPos_parent);
 
         //2. Update interpolation matrices we use:
-        prevMatrix = curMatrix = WorldToLevitator * targetPos_world;
+        prevMatrix = curMatrix = levitatorOrigin.worldToLocalMatrix * targetPos_world;
     }
     /**
      * Update is called once per Unity frame. It updates the matrix (pos/orient) of contents, 
@@ -147,13 +141,12 @@ public class Primitive : MonoBehaviour
         else
         {
             //1. Update the actual primitive. Compute location relative to device and send data to device
-            WorldToLevitator = levitatorOrigin.worldToLocalMatrix;
             //Update matrices, keeping the (angle, distance) contraints specified. 
             prevMatrix = curMatrix;
             // get the particles position relative to the levitatorOrigin
             Matrix4x4 primLocalMat = transform.localToWorldMatrix;
             // get the transformation matrix to go from the primitive to the levitator origin M_from-prim_to-ori 
-            Matrix4x4 target_M_LocalToLevitator = WorldToLevitator * primLocalMat;
+            Matrix4x4 target_M_LocalToLevitator = levitatorOrigin.worldToLocalMatrix * primLocalMat;
             // get rotations
             Quaternion prevRot = GetRotation(prevMatrix);
             Quaternion targetRot = GetRotation(target_M_LocalToLevitator);

@@ -42,7 +42,7 @@ public class StateSwitch : MonoBehaviour
 
             if (allSuccessful)
             {
-                OpenMPD_Wrapper.PrintMessage("STateSwitch -> requesting commit!");
+                OpenMPD_Wrapper.PrintMessage("StateSwitch [" + this.name +"]-> Primitive states set. Requesting commit!");
                 rm.RequestCommit();
             }
             doSwitch = !allSuccessful;

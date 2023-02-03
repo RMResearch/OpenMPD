@@ -311,12 +311,12 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: topBoardID
-      value: 23
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: bottomBoardID
-      value: 3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
@@ -336,6 +336,21 @@ PrefabInstance:
     - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
         type: 3}
       propertyPath: solver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
+        type: 3}
+      propertyPath: phaseOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
+        type: 3}
+      propertyPath: isHardwareSync
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297044407630925643, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
+        type: 3}
+      propertyPath: commit
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3676800747928412224, guid: 082924ee29d8ade4fb8f7a0813dfbcb0,
@@ -925,11 +940,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detector: {fileID: 2119846312}
   clickToInitialize: 0
-  transducersOFF_Time: 1
-  holdTime: 0.5
-  liftTime: 1
+  transducersOFF_Time: 3
+  holdTime: 2
+  liftTime: 2
   moveTimePerPrimitive: 2
-  postLiftWait: 0.2
+  postLiftWait: 1
   liftStepSize: 0.0001
   liftHeight: 0.01
 --- !u!114 &2119846312
@@ -944,16 +959,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d203796d5ae0743479c05d4370405eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeviceID: 1
-  topLeft: {x: 0.086, y: 0.033, z: -0.086}
-  botLeft: {x: -0.086, y: 0.033, z: -0.086}
-  botRight: {x: -0.086, y: 0.033, z: 0.086}
-  topRight: {x: 0.086, y: 0.033, z: 0.086}
+  DeviceID: 0
+  topLeft: {x: 0.086, y: 0.03, z: 0.086}
+  botLeft: {x: 0.086, y: 0.03, z: -0.086}
+  botRight: {x: -0.086, y: 0.03, z: -0.086}
+  topRight: {x: -0.086, y: 0.03, z: 0.086}
   pixelsPerMeter: 5000
   threshold: 100
   erodeDilate: 1
   sphericity: 0.4
-  minRadiusInMeters: 0.001
+  minRadiusInMeters: 0.0005
   maxRadiusInMeters: 0.005
   visualize: 1
   printResults: 1

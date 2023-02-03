@@ -13,12 +13,13 @@ __constant sampler_t sampleDirTexture = CLK_NORMALIZED_COORDS_TRUE |
 CLK_ADDRESS_NONE | CLK_FILTER_NEAREST; 
 
 __kernel void computeFandB(global float4* transducerPositionsWorld,
+	global float4* transducerNormals,
 	global float4* positions,
 	global float4* matrixG0,
 	global float4* matrixGN,
-	read_only int pointsPerGeometry,
-	read_only int numGeometries,
-	read_only image2d_t directivity_cos_alpha,
+	int pointsPerGeometry,
+	int numGeometries,
+	image2d_t directivity_cos_alpha,
 	global float2* pointHologram,
 	global float2* unitaryPointHologram
 ) {

@@ -13,7 +13,7 @@ void main(void) {
 		  p2[] = { 0.084f, -0.084f, 0.03f},
 		  p3[] = { 0.084f,  0.084f, 0.03f},
 		  p4[] = {-0.084f,  0.084f, 0.03f};
-	BeadDetector_Instance_Handler bd = BeadDetector_createInstance(1, p1, p2, p3, p4,5000,100,1,0.4f,0.001f, 0.005f, true);
+	BeadDetector_Instance_Handler bd = BeadDetector_createInstance(1, p1, p2, p3, p4,5000,100,1,0.4f,0.0005f, 0.005f, true);
 	BeadDetector_calibrateDetector(bd);
 	bool end = false;
 	while (!_kbhit()) {
