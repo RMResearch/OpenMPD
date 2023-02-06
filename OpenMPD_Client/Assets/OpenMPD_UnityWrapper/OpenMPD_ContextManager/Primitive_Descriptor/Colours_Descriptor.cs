@@ -57,4 +57,14 @@ public class Colours_Descriptor
     {
         return referenceCounter == 0;
     }
+
+    ~Colours_Descriptor()
+    {
+        if (!IsDisposable())
+            OpenMPD_Wrapper.PrintWarning("Dispossing of Colours descriptor still in use (" + this.coloursDescriptorID + ").\n Unity wrapper for descriptor will be dispossed, but OpenMPD resources will remain allocated and unreachable.");
+
+        OpenMPD_ContextManager _context = OpenMPD_ContextManager.Instance();
+        if (_context != null)
+            _context.RemoveDescriptor(this);
+    }
 }

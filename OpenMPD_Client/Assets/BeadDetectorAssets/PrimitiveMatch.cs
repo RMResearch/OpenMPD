@@ -19,8 +19,7 @@ namespace Assets.Helper
         public uint prev_positionDescriptor;    //Descriptors that it used.
         public uint prev_amplitudeDescriptor;
 
-        public static PrimitiveMatch[] generateMatch(Vector3[] particlePositions, Primitive[] primitivesToMatch/*, GameObject[] fixedPosDesc = null*/)
-        {
+        public static PrimitiveMatch[] saveState(Primitive[] primitivesToMatch) {
             //0. Create return array:
             PrimitiveMatch[] result = new PrimitiveMatch[primitivesToMatch.Length];
             //1. Save primitive states:
@@ -33,13 +32,19 @@ namespace Assets.Helper
                 result[p].prev_positionDescriptor = primitive.GetPositionsDescriptorID();
                 result[p].prev_amplitudeDescriptor = primitive.GetAmplitudesDescriptorID();
             }
+            return result;
+        }
+        public static bool matchState(Vector3[] particlePositions, PrimitiveMatch[] stateToMatch/*, GameObject[] fixedPosDesc = null*/)
+        {
+            if (particlePositions.Length < stateToMatch.Length)
+                return false;
             //2. MATCH: Currently SUPER STUPID-> First particle seen matched to first primitive in array
             // We need something more clever, but this is just to test. 
-            for (int p = 0; p < result.Length; p++)
+            for (int p = 0; p < stateToMatch.Length; p++)
             {
-                result[p].initialPosition = particlePositions[p];
+                stateToMatch[p].initialPosition = particlePositions[p];
             }
-            return result;
+            return true;
         }
     }
 #endif

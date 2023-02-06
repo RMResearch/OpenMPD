@@ -26,7 +26,7 @@ public class BeadDetector_Controller : MonoBehaviour
      public    bool visualize = false;
     [Header("Detection Status:")]
     public bool printResults = true;
-    public float[] detectedPositions;
+    [ReadOnly] public float[] detectedPositions;
     [SerializeField] private int numBeadsToDetect = 0;
     [SerializeField] private bool init = false;
     [SerializeField] private bool calibrated = false;
@@ -43,12 +43,6 @@ public class BeadDetector_Controller : MonoBehaviour
     {
         init = false;
         calibrated = false;
-        //detecting = false;
-
-        // get the particles on the base
-        numBeadsToDetect = getNumParticles();
-        // initialize the array to store the particles position
-        detectedPositions = new float[numBeadsToDetect*3];
     }
     public void Update()
     {
@@ -67,7 +61,7 @@ public class BeadDetector_Controller : MonoBehaviour
             {
                 float[] beadPositions = new float[3 * numBeads];
                 beadPositions = getCurrentBeadPositions();
-
+                detect = false;
             }
         }
     }
@@ -132,11 +126,6 @@ public class BeadDetector_Controller : MonoBehaviour
             }
         }
         return detectedPositions;
-    }
-
-    private int getNumParticles()
-    {
-        return GameObject.FindGameObjectsWithTag("primitive").Length;
     }
 
     public bool isInit()

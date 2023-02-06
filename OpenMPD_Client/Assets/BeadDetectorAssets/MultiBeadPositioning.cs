@@ -10,6 +10,8 @@ public class MultiBeadPositioning : MonoBehaviour
     //Configuration variables: Visible in the editor
     public BeadDetector_Controller detector;
     public bool clickToInitialize = false;
+    public bool finishedPlacingParticles = false;
+    public float trappingAmplitude = 10000;
     public float transducersOFF_Time = 1;
     public float holdTime = 0.5f;
     public float liftTime = 1.0f;
@@ -19,6 +21,7 @@ public class MultiBeadPositioning : MonoBehaviour
     public float liftHeight = 0.01f;
     //Internal variables:
     PrimitiveMatch[] ourMatch;
+    bool phaseOnlyStatus;                   //Detector needs phaseOnly = false to work best. We save the prev status and restore afterwards.
     int step = 0;
     const int DISABLE_PRIMITIVES=0;         //Primitives are turned off, so that beads don't wiggle
     const int TELEPORT_PRIMITIVES =1;       //Traps moved to where particles are (as seen by BeadDetector)
@@ -33,7 +36,29 @@ public class MultiBeadPositioning : MonoBehaviour
     float liftPrimitivesTime = 0;
     Primitive[] primitives;
     int curPrimitiveMoving;
+    Amplitudes_Descriptor zeroAmplitude = null, increasingAmplitude = null, trappedAmplitude = null;
+    bool descriptorsInitialized() {
+        return zeroAmplitude != null && increasingAmplitude != null && trappedAmplitude != null;
+    }
 
+    void initializeDescriptors() {
+        if (zeroAmplitude == null) {
+            float[] a = new float[1]; a[0] = 0;
+            zeroAmplitude = new Amplitudes_Descriptor(a);
+        }
+        if (increasingAmplitude == null) {
+            int numSamples = (int)(OpenMPD_PresentationManager.Instance().ResultingFPS * this.holdTime);
+            float[] amplitudes = new float[numSamples];
+            for (int s = 0; s < numSamples; s++)
+                amplitudes[s] = (s * this.trappingAmplitude) / numSamples;
+            increasingAmplitude = new Amplitudes_Descriptor(amplitudes);
+        }
+        if(trappedAmplitude == null)
+        {
+            float[] a = new float[1]; a[0] = trappingAmplitude;
+            trappedAmplitude = new Amplitudes_Descriptor(a);
+        }
+    }
     void Start()
     {
         clickToInitialize = false;       
@@ -57,8 +82,7 @@ public class MultiBeadPositioning : MonoBehaviour
                     stabilizePrimitives();
                     break;
                 case LIFT_PRIMITIVES:
-                    clickToInitialize = false;
-                    //liftPrimitives();
+                    liftPrimitives();
                     break;
                 case MOVE_PRIMITIVES:
                     movePrimitives();
@@ -72,14 +96,24 @@ public class MultiBeadPositioning : MonoBehaviour
     }
 
     private void disablePrimitive() {
-        //Check active Primitives in the scene
+        //0. Create amplitudes descriptors (to disable, capture and hold)
+        if (!descriptorsInitialized())
+            initializeDescriptors();
+        //1. Check active Primitives in the scene and save their state.
         primitives = FindObjectsOfType<Primitive>();//
+        ourMatch = PrimitiveMatch.saveState(primitives);
+        //2. Set the zeroAmplitude descriptor to them (board will turn transducers off, makikng them easier to detect and capture). 
         trapPrimitivesTime = Time.realtimeSinceStartup + transducersOFF_Time;  //Give some time to have transducers off and stop particles from dancing around...   
-        //Disable the primitives (board will turn transducers off)
         foreach (Primitive p in primitives)
-            p.gameObject.SetActive(false);       
-       
-        Debug.Log("POSITIONING: Primitives disabled in "+Time.realtimeSinceStartup);
+            //p.gameObject.SetActive(false);       
+            p.SetAmplitudesDescriptor(zeroAmplitude.amplitudesDescriptorID);
+        //2. Make sure variable amplitudes are being used (phaseOnly = false). Save previous state to restore it afterwards.
+        phaseOnlyStatus = OpenMPD_PresentationManager.Instance().phaseOnly;
+        OpenMPD_PresentationManager.Instance().phaseOnly = false;
+        OpenMPD_PresentationManager.Instance().RequestCommit();
+        //3. Indicate the user can place the particles. 
+        Debug.Log("POSITIONING: Primitives disabled in "+Time.realtimeSinceStartup + "Place particles in the platform.");
+        finishedPlacingParticles = false;
         step = TELEPORT_PRIMITIVES;       
     }
 
@@ -89,9 +123,14 @@ public class MultiBeadPositioning : MonoBehaviour
         if (Time.realtimeSinceStartup < trapPrimitivesTime)
         {
             detector.detectBeads();//Detect, but ignore. We keep refreshing the camera feed.
-            return;
+            foreach (Primitive p in primitives)
+                if (p.gameObject.active)
+                    p.gameObject.SetActive(false);
+                return;
         }
-        //1. Check if we have enough particles in sight and move trap there
+        if (!finishedPlacingParticles)
+            return;
+        //1. Check if we have enough particles in sight and move traps there
         int numBeads = detector.detectBeads();
         float[] beadPositions = detector.getCurrentBeadPositions();
         if (numBeads < primitives.Length)
@@ -101,7 +140,8 @@ public class MultiBeadPositioning : MonoBehaviour
         for (int p = 0; p < numBeads; p++)
             positions[p] = new Vector3(beadPositions[3*p+0], beadPositions[3 * p + 1], beadPositions[3 * p + 2]);
         //2. Decide how we are going to use them (which bead will match which primitive)
-        ourMatch = PrimitiveMatch.generateMatch(positions, primitives);
+        if(!PrimitiveMatch.matchState(positions, ourMatch))
+            return;
         //3. Reset timers for next stages (how long for lifting, etc)
         stabilizePrimitivesTime = Time.realtimeSinceStartup + holdTime;    //Give some time for particle to stabilize, once trapped
         liftPrimitivesTime = stabilizePrimitivesTime + liftTime;    //Give some time to lift the particle
@@ -118,12 +158,18 @@ public class MultiBeadPositioning : MonoBehaviour
 
     private void enablePrimitives()
     {
-        //Enable the primitive to enable its trap:
+        //1. Re-enable the primitives to trap the particles. 
         for (int p = 0; p < primitives.Length; p++)
         {
-            primitives[p].gameObject.SetActive(true);
+            //primitives[p].gameObject.SetActive(true);
             primitives[p].maxStepInMeters = liftStepSize;
+            // We enqueue 2 descriptors: First to trap the particle slowly and then to retain that high amplitude. 
+            primitives[p].SetAmplitudesDescriptor(this.increasingAmplitude.amplitudesDescriptorID);
+            primitives[p].SetAmplitudesDescriptor(this.trappedAmplitude.amplitudesDescriptorID);
+            primitives[p].gameObject.SetActive(true);
         }
+        //2. Once all descriptors have been set, we enable them all at once.
+        OpenMPD_PresentationManager.Instance().RequestCommit();
         Debug.Log("POSITIONING: Primitives re-enabled in "+Time.realtimeSinceStartup);
         step = STABILIZE_PRIMITIVES;
     }
@@ -141,7 +187,7 @@ public class MultiBeadPositioning : MonoBehaviour
     }
 
     private void liftPrimitives() {
-        //Wait until stabilize deadline time
+        //Wait until lift deadline time
         float curTime = Time.realtimeSinceStartup;
         if (curTime < liftPrimitivesTime)
             return;
@@ -162,6 +208,11 @@ public class MultiBeadPositioning : MonoBehaviour
         //0. Check if we are finished.
         if (curPrimitiveMoving == primitives.Length)
         {
+            //... finish restoring previous contextg and go!
+            for (int p = 0; p < primitives.Length; p++)
+                primitives[p].SetAmplitudesDescriptor(ourMatch[p].prev_amplitudeDescriptor);
+            OpenMPD_PresentationManager.Instance().phaseOnly = phaseOnlyStatus; //Prev state of phase only (before initialization).
+            OpenMPD_PresentationManager.Instance().RequestCommit();
             clickToInitialize = false;
             return;
         }

@@ -31,7 +31,7 @@ int main() {
 		//OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 		OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
 		float matToWorld[] = { 1,0,0,0,  0,1,0,0,   0,0,1,0,   0,0,0,1 };
-		OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_SingleBoard(curFPS_Divider, 32, 6, matToWorld, false);
+		OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_SingleBoard(curFPS_Divider, 32, 18, matToWorld, false);
 		OpenMPD_CWrapper_SetupPhaseOnly(true);
 		do {
 			

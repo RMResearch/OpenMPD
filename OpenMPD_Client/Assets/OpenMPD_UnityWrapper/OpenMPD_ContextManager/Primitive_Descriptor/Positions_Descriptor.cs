@@ -71,4 +71,14 @@ public class Positions_Descriptor
     {
         return referenceCounter == 0;
     }
+
+    ~Positions_Descriptor()
+    {
+        if (!IsDisposable())
+            OpenMPD_Wrapper.PrintWarning("Dispossing of Positions descriptor still in use (" + this.positionsDescriptorID+ ").\n Unity wrapper for descriptor will be dispossed, but OpenMPD resources will remain allocated and unreachable.");
+
+        OpenMPD_ContextManager _context = OpenMPD_ContextManager.Instance();
+        if (_context != null)
+            _context.RemoveDescriptor(this);
+    }
 }

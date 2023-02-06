@@ -23,7 +23,7 @@ int main() {
 			OpenMPD_CWrapper_RegisterPrintFuncs(print, print, print);
 			OpenMPD_CWrapper_SetupEngine(2000000, OpenMPD::GSPAT_SOLVER::V2);
 			OpenMPD_Context_Handler  pm = OpenMPD_CWrapper_StartEngine_TopBottom(curFPS_Divider , 32, 7, 18, true);
-			OpenMPD_CWrapper_SetupPhaseOnly(false);
+			OpenMPD_CWrapper_SetupPhaseOnly(true);
 			client((void*)pm);
 			OpenMPD_CWrapper_StopEngine();
 			printf("Press any key to Restart the engine.\nPress SPACE BAR to Release current engine.");

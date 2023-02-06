@@ -1,9 +1,7 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  GL_VisualRenderer.cpp
-  RenderAPI_OpenGLCoreES.cpp
-  RenderAPI.cpp
   GL_Renderer.cpp
-  gl3w.c
+  Compiling...
+  GL_VisualRenderer.cpp
   gl3w.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
      Creating library C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.lib and object C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\GL_RenderingPlugin.exp
   Generating code
