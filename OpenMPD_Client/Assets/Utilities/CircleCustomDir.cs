@@ -33,13 +33,13 @@ public class CircleCustomDir : PositionDescriptorAsset
     // Use this for initialization
     void Start()
     {
-        generatePositionsXZ(invertDir);
+        updateDescriptor = true;//We cannot create things yet. With this we delay creation until Update method is called (which also waits for OpenMPD to be fully ready).
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (updateDescriptor)
+        if (updateDescriptor && OpenMPD_PresentationManager.Instance())
         {
             UpdatePositionDescriptor(renderingPlane);
             updateDescriptor = false;
