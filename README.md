@@ -25,10 +25,10 @@ For instance, our multi-rate runtime cycle allows us to combine very high comput
 [Hardware](https://github.com/RMResearch/OpenMPD_Hardware)
 
 ## OpenMPD Driver
-https://github.com/RMResearch/OpenMPD_Driver
+[Driver](https://github.com/RMResearch/OpenMPD_Driver)
 
 ## OpenMPD Solvers
-https://github.com/RMResearch/OpenMPD_Solvers
+[Solvers](https://github.com/RMResearch/OpenMPD_Solvers)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
