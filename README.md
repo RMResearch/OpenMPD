@@ -21,5 +21,14 @@ For instance, our multi-rate runtime cycle allows us to combine very high comput
 ## OpenMPD Examples Guide
 [Examples](https://github.com/RobertoMontano/OpenMPD/blob/main/Docs/OpenMPD%20Tutorials_Examples.pdf)
 
+## OpenMPD Hardware
+[Hardware](https://github.com/RMResearch/OpenMPD_Hardware)
+
+## OpenMPD Driver
+https://github.com/RMResearch/OpenMPD_Driver
+
+## OpenMPD Solvers
+https://github.com/RMResearch/OpenMPD_Solvers
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
