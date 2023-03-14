@@ -79,7 +79,7 @@ OpenMPD::IPrimitiveUpdater* OpenMPD::StartEngine_TopBottom( cl_uchar FPS_Divider
 						0, 0,-1, 0.24f,
 						0, 0, 0, 1,	
 	};
-	return OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, 2, boardIDs, matrices, forceSync);
+	return OpenMPD::StartEngine(FPS_Divider, numParallelGeometries, topBoardID!=0? 2 : 1 , boardIDs, matrices, forceSync);
 }
 
 

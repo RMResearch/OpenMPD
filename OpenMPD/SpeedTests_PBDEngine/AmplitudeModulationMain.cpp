@@ -14,8 +14,8 @@ void writeArrayToCSV(std::string fileName, float* data, int dataSize);
 // variables
 unsigned char curFPS_Divider = 4;
 cl_uint geometries = 32;
-cl_uint topBoard = 40;
-cl_uint bottomBoard = 41;
+cl_uint topBoard = 0;
+cl_uint bottomBoard = 46;
 bool foceSync = true;
 bool phaseOnly = false;
 bool HW_Sync = true;
@@ -126,7 +126,7 @@ void* client(void* arg) {
 				OpenMPD_CWrapper_RegisterPrintFuncs(NULL, NULL, NULL);
 				for (int p = 0; p < numPrimitives; p++) {
 					OpenMPD_CWrapper_updatePrimitive_Amplitudes(pm, primitives[p], modulatedAmplitudes[0], 0);
-					OpenMPD_CWrapper_updatePrimitive_Amplitudes(pm, primitives[p], amplitudes[0], 0);
+					//OpenMPD_CWrapper_updatePrimitive_Amplitudes(pm, primitives[p], amplitudes[0], 0);
 				}
 
 				OpenMPD_CWrapper_commitUpdates(pm);
