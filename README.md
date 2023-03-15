@@ -9,6 +9,7 @@ You can get an in-depth description of its main capabilities and components in o
 
 ## OpenMPD Required Libraries
 [Libs](https://github.com/RobertoMontano/OpenMPD_Libs)
+
 **It is important to notice that we are using MyBox in our examples, so please install via UPM as an additional requirement**
 
 [MyBox](https://github.com/Deadcows/MyBox)
