@@ -5,7 +5,7 @@ OpenMPD is a low-level presentation engine allowing structured exploitation of a
 
 For instance, our multi-rate runtime cycle allows us to combine very high computation rates for the sound-field (i.e., 10K sound-fields per second, for optimum acoustic control), with lower rates for control and rendering processes (i.e., hundreds of Hz, as typically used by rendering engines or tracking devices supporting interaction). Our low-level synchronization allows us to retain accurate interoperation among these processes. All of these enable novel capabilities, such as enabling colour projection onto high-speed particles or swept displays, as well as dexterous manipulations, such as in PoV content changing shape or precise combinations with other PoV paths. 
 
-You can get an in-depth description of its main capabilities and components in our [paper](https://dl.acm.org/doi/10.1145/3572896). Check also the supplementary material, as it provides a lot of relevant information. 
+You can get an in-depth description of its main capabilities and components in our [paper](https://dl.acm.org/doi/10.1145/3572896). Check also the [supplementary material](https://github.com/RMResearch/OpenMPD/blob/7a42166176065f1fe179801313f4efb4f9efbe3d/SupplementaryFiles_.rar), as it provides a lot of relevant information. 
 
 ## OpenMPD Required Libraries
 [Libs](https://github.com/RobertoMontano/OpenMPD_Libs)
