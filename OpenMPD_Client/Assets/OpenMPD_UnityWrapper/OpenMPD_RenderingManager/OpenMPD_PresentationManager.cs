@@ -54,7 +54,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
     [HideInInspector] public bool isCurrentIndexReadingActive = false;
         
     //Variable to manage content:
-    List<PrimitiveGameObject> contents;
+    List<IPrimitive> contents;
     private long primitiveManagerHandler;//Handler to use the C++ wrapper.
 
     #region Native mothods
@@ -91,7 +91,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
         running = false;
         //1.Destroy all content-related stuff(primitives and descriptors)
         // 1.a Primitives
-        foreach (PrimitiveGameObject c in contents)
+        foreach (IPrimitive c in contents)
             //Remove from engine
             OpenMPD_Wrapper.OpenMPD_CWrapper_releasePrimitive(primitiveManagerHandler, c.GetPrimitiveID());
         contents.Clear();
@@ -113,7 +113,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
     protected OpenMPD_PresentationManager()
     {
         running = false;
-        contents = new List<PrimitiveGameObject>();
+        contents = new List<IPrimitive>();
         primitiveManagerHandler = 0;
     }
 
@@ -240,9 +240,9 @@ public class OpenMPD_PresentationManager : MonoBehaviour
     OpenMPD_RenderingUpdate BuildPBD_Update()
     {
         OpenMPD_RenderingUpdate update = new OpenMPD_RenderingUpdate();
-        PrimitiveGameObject[] _contents = contents.ToArray();
+        IPrimitive[] _contents = contents.ToArray();
         for (int i = 0; i < _contents.Length; i++)
-            if (_contents[i].enabled)
+            if (_contents[i].PrimitiveEnabled())
             {
                 _contents[i].FillCurrentPBDUpdate(update);
             }
@@ -282,7 +282,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
      * using them when needed by calling CreateContent on them (i.e., OpenMPD only allow 32 primitives at any point). 
      * This is an edge case, and we do not recommend this type of usage. 
      */
-    public uint CreateContent(PrimitiveGameObject p)
+    public uint CreateContent(IPrimitive p)
     {
         //Check that it was not created already
         if (contents.Contains(p))
@@ -296,7 +296,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
         return primitiveID;
     }
     /**Enables or disableds a primitive. */
-    public bool SetContentEnabled(PrimitiveGameObject p, bool enabled)
+    public bool SetContentEnabled(IPrimitive p, bool enabled)
     {
         if (contents.Contains(p))
         {
@@ -307,7 +307,7 @@ public class OpenMPD_PresentationManager : MonoBehaviour
     }
     /**Removes a primitive from the active scene and from OpenMPD. 
      * Please note the Primitive object still exists, and the client can use it in the future again, by calling CreateContent.  */
-    public void RemoveContent(PrimitiveGameObject p)
+    public void RemoveContent(IPrimitive p)
     {
         //Remove local
         if (contents.Contains(p))
