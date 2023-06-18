@@ -41,8 +41,8 @@ public class UpdateMiniScreenAnimation : MonoBehaviour
         parentName = miniScreen.transform.parent.name;
         miniScreen.transform.parent.GetComponent<UpdateParticleAnimation>().enabled = state;
         miniScreen.GetComponentInChildren<MiniScreenDysplayPos>().enabled = state;
-        Primitive[] list = miniScreen.GetComponentsInChildren<Primitive>();
-        foreach (Primitive prim in list)
+        PrimitiveGameObject[] list = miniScreen.GetComponentsInChildren<PrimitiveGameObject>();
+        foreach (PrimitiveGameObject prim in list)
             prim.transform.GetChild(0).GetComponent<PrimitiveAnimation>().enabled = state;
     }
 }

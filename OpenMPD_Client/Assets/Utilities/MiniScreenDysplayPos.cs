@@ -60,10 +60,10 @@ public class MiniScreenDysplayPos : MonoBehaviour
     private void GetPointsPos(ref List<Vector3> posList)
     {
         posList.Clear();
-        Primitive[] primitiveArray;
+        PrimitiveGameObject[] primitiveArray;
 
-        primitiveArray = gameObject.transform.parent.gameObject.GetComponentsInChildren<Primitive>();
-        foreach (Primitive prim in primitiveArray)
+        primitiveArray = gameObject.transform.parent.gameObject.GetComponentsInChildren<PrimitiveGameObject>();
+        foreach (PrimitiveGameObject prim in primitiveArray)
             posList.Add(prim.gameObject.transform.GetChild(0).gameObject.transform.position);
     }
 

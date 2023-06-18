@@ -34,7 +34,7 @@ public class MultiBeadPositioning : MonoBehaviour
     float trapPrimitivesTime = 0;
     float stabilizePrimitivesTime = 0;
     float liftPrimitivesTime = 0;
-    Primitive[] primitives;
+    PrimitiveGameObject[] primitives;
     int curPrimitiveMoving;
     Amplitudes_Descriptor zeroAmplitude = null, increasingAmplitude = null, trappedAmplitude = null;
     bool descriptorsInitialized() {
@@ -100,11 +100,11 @@ public class MultiBeadPositioning : MonoBehaviour
         if (!descriptorsInitialized())
             initializeDescriptors();
         //1. Check active Primitives in the scene and save their state.
-        primitives = FindObjectsOfType<Primitive>();//
+        primitives = FindObjectsOfType<PrimitiveGameObject>();//
         ourMatch = PrimitiveMatch.saveState(primitives);
         //2. Set the zeroAmplitude descriptor to them (board will turn transducers off, makikng them easier to detect and capture). 
         trapPrimitivesTime = Time.realtimeSinceStartup + transducersOFF_Time;  //Give some time to have transducers off and stop particles from dancing around...   
-        foreach (Primitive p in primitives)
+        foreach (PrimitiveGameObject p in primitives)
             //p.gameObject.SetActive(false);       
             p.SetAmplitudesDescriptor(zeroAmplitude.amplitudesDescriptorID);
         //2. Make sure variable amplitudes are being used (phaseOnly = false). Save previous state to restore it afterwards.
@@ -123,7 +123,7 @@ public class MultiBeadPositioning : MonoBehaviour
         if (Time.realtimeSinceStartup < trapPrimitivesTime)
         {
             detector.detectBeads();//Detect, but ignore. We keep refreshing the camera feed.
-            foreach (Primitive p in primitives)
+            foreach (PrimitiveGameObject p in primitives)
                 if (p.gameObject.active)
                     p.gameObject.SetActive(false);
                 return;
@@ -150,7 +150,7 @@ public class MultiBeadPositioning : MonoBehaviour
         {
             Matrix4x4 targetPos = primitives[p].transform.localToWorldMatrix;
             targetPos.SetColumn(3, new Vector4(ourMatch[p].initialPosition.x, ourMatch[p].initialPosition.y, ourMatch[p].initialPosition.z, 1));
-            primitives[p].GetComponent<Primitive>().TeleportPrimitive(targetPos);
+            primitives[p].GetComponent<PrimitiveGameObject>().TeleportPrimitive(targetPos);
         }
         Debug.Log("POSITIONING: Primitives teleported in "+Time.realtimeSinceStartup);
         step = ENABLE_PRIMITIVES;

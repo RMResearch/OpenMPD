@@ -129,7 +129,7 @@ public class PositioningScript : MonoBehaviour
         //Start trapping:
         Matrix4x4 targetPos = Matrix4x4.identity;
         targetPos.SetColumn(3, new Vector4(beadPositions[0], beadPositions[1], beadPositions[2]*-1, 1));
-        bead.GetComponent<Primitive>().TeleportPrimitive(targetPos);
+        bead.GetComponent<PrimitiveGameObject>().TeleportPrimitive(targetPos);
         //Initialize times for current and next steps (e.g. stabilize, lift, move)
         stabilizePrimitivesTime = Time.realtimeSinceStartup + holdTime;    //Give some time for particle to stabilize, once trapped
         liftPrimitivesTime = stabilizePrimitivesTime + liftTime;    //Give some time to lift the particle
@@ -156,8 +156,8 @@ public class PositioningScript : MonoBehaviour
         if (Time.realtimeSinceStartup < stabilizePrimitivesTime)
             return;
         //Transition to next state:
-        moveStepSize = bead.GetComponent<Primitive>().maxStepInMeters; //Save its step size (we'll restore it once lift is finished). 
-        bead.GetComponent<Primitive>().maxStepInMeters = liftStepSize;
+        moveStepSize = bead.GetComponent<PrimitiveGameObject>().maxStepInMeters; //Save its step size (we'll restore it once lift is finished). 
+        bead.GetComponent<PrimitiveGameObject>().maxStepInMeters = liftStepSize;
         bead.transform.position = bead.transform.position + new Vector3(0,liftHeight,0);
         Debug.Log("POSITIONING: Begin lifting Primitives in "+Time.realtimeSinceStartup);
         step = LIFT_PRIMITIVES;
@@ -170,7 +170,7 @@ public class PositioningScript : MonoBehaviour
         //Transition to next state:
         step = MOVE_PRIMITIVES;
         Debug.Log("POSITIONING: Primitives stabilizign after lifting in " + Time.realtimeSinceStartup);
-        bead.GetComponent<Primitive>().maxStepInMeters = moveStepSize;
+        bead.GetComponent<PrimitiveGameObject>().maxStepInMeters = moveStepSize;
     }
 
     private void movePrimitives() {
@@ -186,7 +186,7 @@ public class PositioningScript : MonoBehaviour
     {
         //Enable the primitive component
         //bead.GetComponent<Primitive>().enabled = true;
-        Primitive p = bead.GetComponent<Primitive>();
+        PrimitiveGameObject p = bead.GetComponent<PrimitiveGameObject>();
 
         switch (ampPickMode)
         {

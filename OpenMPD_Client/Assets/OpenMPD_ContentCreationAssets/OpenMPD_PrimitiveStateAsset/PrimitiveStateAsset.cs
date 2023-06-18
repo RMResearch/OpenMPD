@@ -4,7 +4,7 @@ using System.Collections;
 public class PrimitiveStateAsset : MonoBehaviour
 {
     [Header("Primitive configuration")]
-    public Primitive primitive;
+    public PrimitiveGameObject primitive;
     public PositionDescriptorAsset positionDescriptor;
     public uint startingPositionSample=0;
     public AmplitudeDescriptorAsset amplitudeDescriptor;

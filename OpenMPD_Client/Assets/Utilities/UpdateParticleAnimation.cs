@@ -35,7 +35,7 @@ public class UpdateParticleAnimation : MonoBehaviour
 
         for (int i = 0; i < particles.Count; i++)
         {
-            Primitive primID = particles[i].GetComponent<Primitive>();
+            PrimitiveGameObject primID = particles[i].GetComponent<PrimitiveGameObject>();
             if (primID.GetPrimitiveID() == 0)
                 return;
 
@@ -61,10 +61,10 @@ public class UpdateParticleAnimation : MonoBehaviour
     void InitializeParticles()
     {
         particles.Clear();
-        Primitive[] children = GetComponentsInChildren<Primitive>();
+        PrimitiveGameObject[] children = GetComponentsInChildren<PrimitiveGameObject>();
 
         // iterate over to enable the  "PrimitiveAnimation" script on it
-        foreach (Primitive child in children)
+        foreach (PrimitiveGameObject child in children)
         {
             // this script it's disabled by default, then we enable it to visualize the particle path
             child.gameObject.transform.GetChild(0).GetComponent<PrimitiveAnimation>().enabled = true;

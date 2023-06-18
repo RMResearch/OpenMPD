@@ -19,14 +19,14 @@ namespace Assets.Helper
         public uint prev_positionDescriptor;    //Descriptors that it used.
         public uint prev_amplitudeDescriptor;
 
-        public static PrimitiveMatch[] saveState(Primitive[] primitivesToMatch) {
+        public static PrimitiveMatch[] saveState(PrimitiveGameObject[] primitivesToMatch) {
             //0. Create return array:
             PrimitiveMatch[] result = new PrimitiveMatch[primitivesToMatch.Length];
             //1. Save primitive states:
             for (int p = 0; p < result.Length; p++)
             {
                 result[p] = new PrimitiveMatch();
-                Primitive primitive = primitivesToMatch[p];
+                PrimitiveGameObject primitive = primitivesToMatch[p];
                 result[p].prev_moveStepSize = primitive.maxStepInMeters;
                 result[p].prev_position = primitivesToMatch[p].transform.position;
                 result[p].prev_positionDescriptor = primitive.GetPositionsDescriptorID();
