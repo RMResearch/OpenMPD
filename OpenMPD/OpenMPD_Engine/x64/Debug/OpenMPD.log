@@ -1,25 +1,48 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GSPAT_RenderingEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GSPAT_RenderingEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  OpenCLUtilityFunctions.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  TimeFunctions.cpp
+  Buffer.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  BufferManager.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  EngineReaderThread.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  EngineWriterThread.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\EngineWriterThread.cpp(99,23): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   OpenMPD.cpp
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(112,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(117,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(124,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(129,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(136,111): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(231,72): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(112,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(117,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(124,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(129,108): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(136,111): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\src\OpenMPD.cpp(231,72): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  OpenMPD_CWrapper.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  OpenMPD_Debug.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  PrimitiveDescriptors.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  ForceUPS_Sync.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  RenderResources.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
   OpenCLUtilityFunctions.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-     Creating library C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.lib and object C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.exp
+     Creating library C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.lib and object C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.exp
   Generating code
   Finished generating code
-  OpenMPD.vcxproj -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.dll
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\OpenMPD.cl -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\bin\x64\OpenMPD.cl
+  OpenMPD.vcxproj -> C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.dll
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\OpenMPD.cl -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\bin\x64\OpenMPD.cl
   1 File(s) copied
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.dll -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\bin\x64\OpenMPD.dll
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.dll -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\bin\x64\OpenMPD.dll
   1 File(s) copied
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\x64\OpenMPD.lib -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\lib\OpenMPD\OpenMPD.lib
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\x64\OpenMPD.lib -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\lib\OpenMPD\OpenMPD.lib
   1 File(s) copied
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD.h
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD.h -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\include\OpenMPD\OpenMPD.h
   1 File(s) copied
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD_CWrapper.h
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_CWrapper.h -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\include\OpenMPD\OpenMPD_CWrapper.h
   1 File(s) copied
-  C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> C:\Users\Diego\Desktop\OpenMPD_Root\OpenMPD_Libs\libraries\include\OpenMPD\OpenMPD_Prerequisites.h
+  C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\OpenMPD_Engine\include\OpenMPD_Prerequisites.h -> C:\Users\Diego\Desktop\AcoustoFab_Git\AcoustoFab\libraries\include\OpenMPD\OpenMPD_Prerequisites.h
   1 File(s) copied

@@ -124,5 +124,6 @@
     <None Include="OpenMPD.cl">
       <Filter>src</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

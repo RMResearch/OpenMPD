@@ -43,6 +43,7 @@
     <ClCompile Include="src\VisualRender\RenderResources.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="OpenMPD.cl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

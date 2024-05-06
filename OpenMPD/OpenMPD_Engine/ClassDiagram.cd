@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OpenCLUtilityFunctions" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>C:\Users\Diego\Desktop\OpenMPD\OpenMPD\OpenMPD\Helper\OpenCLUtilityFunctions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForceUPS_Sync" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIAAAAAAIAADAQAADAAAAggAAAAAABAAQAAAAAIAA=</HashCode>
+      <FileName>src\Synchronize\ForceUPS_Sync.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineWriterListener" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\EngineThreads.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::Buffer" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIACACAAAEgACgAIAAAgAAABAAAAIgAAEgAAAQQAA=</HashCode>
+      <FileName>src\Buffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::BufferManager" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAWCCgAEAEAKADAEBECAEhAAIBiAABCAkABBAgQAAA=</HashCode>
+      <FileName>src\BufferManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::BufferUpdatesListener" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAABABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BufferUpdatesListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::PositionsDescriptor" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAACAAAAAAACCAAAgAAAAAAAAAACAAAABAAAAAAAA=</HashCode>
+      <FileName>src\PrimitiveDescriptors.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::AmplitudesDescriptor" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAACAAAAAgAACAAAgAAAAAAAAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>src\PrimitiveDescriptors.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::ColoursDescriptor" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJACACAAAAAAAACAAAgAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>src\PrimitiveDescriptors.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::IPrimitiveUpdater" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAACAAAAIAAgCAgAEAAACAIQAAAAhACAAAAAAAEAA=</HashCode>
+      <FileName>include\OpenMPD.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::IVisualRenderer" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIgAABAAEgAAABAEAAAAAAAAAAQAAA=</HashCode>
+      <FileName>include\OpenMPD.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::PrimitiveUpdatesListener" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAACAQAAAAAAAAAAAAAAABAAQAAAAAAAA=</HashCode>
+      <FileName>src\PrimitiveUpdatesListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenMPD::OpenMPD_Context" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgICgCAAUBIAMhCAoBUBIACAoYDQIQhYCpAEAAAAMAA=</HashCode>
+      <FileName>src\OpenMPD_Context.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ThreadEngine_SyncData" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAEIAAAEAQAAAAEAAAAACAAAgICAABAAAgAAIAgkA=</HashCode>
+      <FileName>src\ThreadEngine_SyncData.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MeshVertex" Collapsed="true">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIgAAAAAAACAAAAAAAAAAgA=</HashCode>
+      <FileName>src\Unity\RenderingPlugin.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="OpenMPD::PrimitiveTargets" Collapsed="true">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\OpenMPD_Prerequisites.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="OpenMPD::Primitive" Collapsed="true">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAAEAEARASAAgAEAAgAQAAAIAAAABAAAAIBAAAEACA=</HashCode>
+      <FileName>include\OpenMPD_Prerequisites.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="OpenMPD::_BufferDescriptor" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>include\OpenMPD_Prerequisites.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="PluginLoadFunc" Collapsed="true">
+    <Position X="7" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Unity\RenderingPlugin.cpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PluginUnloadFunc" Collapsed="true">
+    <Position X="8.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Unity\RenderingPlugin.cpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="OpenMPD::BufferDescriptor" Collapsed="true">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\OpenMPD_Prerequisites.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="OpenMPD::GSPAT_SOLVER" Collapsed="true">
+    <Position X="7" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAACAAAAAAAAABAAAAAAAAAAAAAAAQQAAAoA=</HashCode>
+      <FileName>include\OpenMPD_Prerequisites.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
