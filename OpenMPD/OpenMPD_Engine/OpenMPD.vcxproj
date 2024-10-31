@@ -77,7 +77,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\OpenMPD_Engine;$(SolutionDir)\OpenMPD_Engine\include;$(SolutionDir)\OpenMPD_Engine\src;$(LIBS_HOME)\include\AsierInho_V2;$(LIBS_HOME)\include\GS_PAT;$(LIBS_HOME)\include\GSPAT_Solver;$(LIBS_HOME)\include\GSPAT_SolverNaive;$(LIBS_HOME)\include\GSPAT_SolverIBP;$(LIBS_HOME)\include\GSPAT_SolverV2;$(LIBS_HOME)\include\GSPAT_SolverBEM;$(LIBS_HOME)\include\GSPAT_SolverTS;$(LIBS_HOME)\include\;$(CUDA_PATH)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_ADVANCED_SOLVERS;_CRT_SECURE_NO_WARNINGS;PBD_ENGINE_NONCLIENT_BUILD;HAVE_STRUCT_TIMESPEC;WIN32;_WINDOWS;_PLAY_WITH_OPENCV;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PBD_ENGINE_NONCLIENT_BUILD;HAVE_STRUCT_TIMESPEC;WIN32;_WINDOWS;_PLAY_WITH_OPENCV;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -90,7 +90,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(LIBS_HOME)\lib;$(CUDA_PATH)\lib\x64;$(LIBS_HOME)\lib\AsierInho_V2;$(LIBS_HOME)\lib\GSPAT_SolverNaive;$(LIBS_HOME)\lib\GSPAT_SolverIBP;$(LIBS_HOME)\lib\GSPAT_SolverV2;$(LIBS_HOME)\lib\GSPAT_SolverBEM;$(LIBS_HOME)\lib\GSPAT_SolverTS;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AsierInho_V2.lib;GSPAT_SolverNaive.lib;GSPAT_SolverIBP.lib;GSPAT_SolverV2.lib;GSPAT_SolverBEM.lib;GSPAT_SolverTS.lib;OpenCL.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>AsierInho_V2.lib;GSPAT_SolverNaive.lib;GSPAT_SolverIBP.lib;GSPAT_SolverV2.lib;OpenCL.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
       <SubSystem>Console</SubSystem>
     </Link>
